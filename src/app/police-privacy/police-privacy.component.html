@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="flex h-screen">
+    <aside class="bg-zinc-100 sidebar p-4 flex flex-col items-center">
+      <button type="submit" class="back-button mt-6" style="align-self: flex-start;">BACK</button>
+      <div class="p-4 text-center">
+        <img src="assets/general.png" alt="Profile Picture" class="rounded-full mb-4" style="width: 180px; height: 180px;">
+      </div>
+      <nav class="mt-7">
+        <ul class="list-none p-0">
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/proffaccount.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+              <span>PROFILE ACCOUNT</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/fadejurisdiction.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+              <span>JURISDICTION</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/fadeprivacy.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+              <span>PRIVACY</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/fademembers.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+              <span>MEMBERS</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button type="submit" class="logout-button mt-auto">LOG OUT</button>
+    </aside>
+    <div class="content flex justify-center items-start mt-4">
+      <div class="bg-white shadow-lg p-8 rounded-lg content-inner">
+        <h2 class="text-xl font-bold text-blue-700 mb-4">PRIVACY</h2>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-lg font-semibold">PCPT Jason P. Enriquez</span>
+         <!--<span class="text-sm text-zinc-500">Updated 24mins ago</span>--> 
+        </div>
+        <form>
+          <div class="form-group mb-4">
+            <label for="current-password" class="block text-zinc-700">Current Password</label>
+            <input type="password" id="current-password" class="w-full p-2 border border-zinc-300 rounded-lg" value="********">
+          </div>
+          <div class="form-group mb-4">
+            <label for="new-password" class="block text-zinc-700">Change Password</label>
+            <input type="password" id="new-password" class="w-full p-2 border border-zinc-300 rounded-lg">
+          </div>
+          <div class="form-group mb-4">
+            <label for="confirm-password" class="block text-zinc-700">Confirm New Password</label>
+            <input type="password" id="confirm-password" class="w-full p-2 border border-zinc-300 rounded-lg">
+          </div>
+          <button type="submit" class="save-button mt-6" style="align-self: flex-start;">SAVE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

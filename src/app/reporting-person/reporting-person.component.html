@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+      <select class="incident-type">
+        <option>Type of Incident</option>
+      </select>
+      <img src="assets/logo.svg" alt="Incident Report Logo" class="logo mx-auto mb-2">
+      <button class="anonymous-button">Anonymous Report</button>
+    </div>
+    <h1 class="form-title">INCIDENT REPORT FORM</h1>
+    <div class="form-navigation"> 
+      <button class="nav-button" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+    </div>
+    <form class="form-content">
+      <fieldset class="fieldset">
+        <legend class="legend">PERSONAL INFORMATION</legend>
+        <div class="grid">
+          <input type="text" placeholder="Family Name" class="input">
+          <input type="text" placeholder="First Name" class="input">
+          <input type="text" placeholder="Middle Name" class="input">
+          <input type="text" placeholder="Citizenship" class="input">
+          <input type="text" placeholder="Status" class="input">
+          <input type="text" placeholder="Gender" class="input">
+          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)" class="input">
+          <input type="text" placeholder="Place of Birth" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">CONTACT DETAILS</legend>
+        <div class="grid">
+          <input type="text" placeholder="Home Phone" class="input">
+          <input type="text" placeholder="Mobile Phone" class="input">
+          <input type="text" placeholder="Email Address" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">ADDRESS</legend>
+        <div class="checkbox-container">
+          <input type="checkbox" class="checkbox">
+          <label>Click here if current address is same with other address</label>
+        </div>
+        <div class="grid">
+          <input type="text" placeholder="Current Address (House Number / Street)" class="input">
+          <input type="text" placeholder="Village / Sitio" class="input">
+          <input type="text" placeholder="Barangay" class="input">
+          <input type="text" placeholder="Town / City" class="input">
+          <input type="text" placeholder="Province" class="input">
+          <input type="text" placeholder="Other Address (House Number / Street)" class="input">
+          <input type="text" placeholder="Village / Sitio" class="input">
+          <input type="text" placeholder="Barangay" class="input">
+          <input type="text" placeholder="Town / City" class="input">
+          <input type="text" placeholder="Province" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">WORK DETAILS</legend>
+        <div class="grid">
+          <input type="text" placeholder="Occupation" class="input">
+          <input type="text" placeholder="Work Address" class="input">
+          <input type="text" placeholder="Work Phone" class="input">
+          <input type="text" placeholder="ID Card Presented" class="input">
+          <input type="text" placeholder="Person of Reference" class="input">
+          <input type="text" placeholder="Occupation" class="input">
+        </div>
+      </fieldset>
+      <div class="form-footer">
+        <button type="submit" class="next-button" [routerLink]="['/suspect-data']">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

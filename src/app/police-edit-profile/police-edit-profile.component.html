@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="emergency-banner">
+      In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="flex h-screen">
+      <aside class="bg-zinc-100 sidebar p-4 flex flex-col items-center">
+        <button type="submit" class="back-button mt-6" style="align-self: flex-start;">BACK</button> <!-- Added inline style to move the button to the left -->
+        <div class="p-4 text-center">
+          <img src="assets/general.png" alt="Profile Picture" class="rounded-full mb-4" style="width: 180px; height: 180px;">
+        </div>
+        <nav class="mt-7">
+          <!-- Increased margin-top to create more space -->
+          <ul class="list-none p-0">
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/proffaccount.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+                <span>PROFILE ACCOUNT</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fadejurisdiction.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+                <span>JURISDICTION</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fadeprivacy.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+                <span>PRIVACY</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fademembers.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+                <span>MEMBERS</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button type="submit" class="logout-button mt-auto">LOG OUT</button>
+      </aside>
+      <div class="bg-zinc-50 flex-1 p-8">
+        <h2 class="text-blue-600 font-bold text-xl mb-4">PROFILE ACCOUNT</h2>
+        <div class="bg-white p-6 rounded shadow">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">PCPT Jason P. Enriquez</h3>
+            <span class="text-zinc-500 text-sm">Updated 24mins ago</span>
+          </div>
+          <form class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-zinc-700">Rank</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="Police Captain" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Badge Number</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="0-72134" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Last Name</label>
+                <input type="email" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="Enriquez" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">First Name</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="Jason" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Email</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="j_enriquez@gmail.com" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Contact Number</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="+639123456789" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Date Registered</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="Jul 15, 2002" readonly>
+              </div>
+            </div>
+            <h4 class="text-lg font-semibold mt-6">Station Details</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-zinc-700">Station</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="Police Station 2 Abellana Cebu City" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Group</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="1" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Chief Police</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded input-spacing" value="PCOL Ireneo Dalogdog" readonly>
+              </div>
+            </div>
+            <button type="submit" class="save-button">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

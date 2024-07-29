@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="emergency-banner">
+        In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="min-h-screen flex items-center justify-center bg-zinc-100 p-4">
+        <div class="bg-white shadow-lg rounded-lg w-full max-w-lg mt-16 relative"> <!-- Added margin-top to create space for the banner -->
+            <div class="absolute top-4 right-4">
+                <button type="submit" class="back-button">BACK</button>
+            </div>
+            <div class="text-center p-4">
+                <h2 class="text-xl font-semibold mb-4">Create Account</h2>
+                <div class="flex justify-center mb-4">
+                    <button class="bg-zinc-200 text-black px-4 py-2 rounded-l-lg" style="border: none; cursor: pointer;">NSU</button>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg" style="border: none; cursor: pointer;">Office Station</button>
+                </div>
+                <div class="bg-blue-100 p-4 rounded-lg">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <input type="text" placeholder="Rank" class="input-field">
+                        <select class="input-field">
+                            <option>PRO</option>
+                        </select>
+                        <input type="text" placeholder="First Name" class="input-field">
+                        <select class="input-field">
+                            <option>CCPO</option>
+                        </select>
+                        <input type="text" placeholder="Middle Name" class="input-field">
+                        <select class="input-field">
+                            <option>PCP</option>
+                        </select>
+                        <input type="text" placeholder="Last Name" class="input-field">
+                        <select class="input-field">
+                            <option>City/Municipality</option>
+                        </select>
+                        <input type="text" placeholder="Qualifier" class="input-field">
+                        <div class="flex items-center">
+                            <span class="mr-2">WCPC</span>
+                            <label class="mr-2"><input type="radio" name="wcpc" value="yes"> YES</label>
+                            <label><input type="radio" name="wcpc" value="no"> NO</label>
+                        </div>
+                        <input type="email" placeholder="Email" class="input-field">
+                        <div class="flex items-center">
+                            <span class="mr-2">Investigator</span>
+                            <label class="mr-2"><input type="radio" name="investigator" value="yes"> YES</label>
+                            <label><input type="radio" name="investigator" value="no"> NO</label>
+                        </div>
+                    </div>
+                    <p class="text-xs text-zinc-600 mb-4">By clicking register you agree to our Terms and that you have read our Policy</p>
+                    <button type="submit" class="register-button">REGISTER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
