@@ -12,31 +12,31 @@
     </div>
     <h1 class="form-title">INCIDENT REPORT FORM</h1>
     <div class="form-navigation"> 
-      <button class="nav-button" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
-      <button class="nav-button" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
-      <button class="nav-button" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
-      <button class="nav-button" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+      <button class="nav-button blue-button" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
     </div>
-    <form class="form-content">
+    <form class="form-content" [formGroup]="reportingForm" (ngSubmit)="onSubmit()">
       <fieldset class="fieldset">
         <legend class="legend">PERSONAL INFORMATION</legend>
         <div class="grid">
-          <input type="text" placeholder="Family Name" class="input">
-          <input type="text" placeholder="First Name" class="input">
-          <input type="text" placeholder="Middle Name" class="input">
-          <input type="text" placeholder="Citizenship" class="input">
-          <input type="text" placeholder="Status" class="input">
-          <input type="text" placeholder="Gender" class="input">
-          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)" class="input">
-          <input type="text" placeholder="Place of Birth" class="input">
+          <input type="text" placeholder="Family Name" formControlName="familyName" class="input">
+          <input type="text" placeholder="First Name" formControlName="firstName" class="input">
+          <input type="text" placeholder="Middle Name" formControlName="middleName" class="input">
+          <input type="text" placeholder="Citizenship" formControlName="citizenship" class="input">
+          <input type="text" placeholder="Status" formControlName="status" class="input">
+          <input type="text" placeholder="Gender" formControlName="gender" class="input">
+          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)" formControlName="dob" class="input">
+          <input type="text" placeholder="Place of Birth" formControlName="placeOfBirth" class="input">
         </div>
       </fieldset>
       <fieldset class="fieldset">
         <legend class="legend">CONTACT DETAILS</legend>
         <div class="grid">
-          <input type="text" placeholder="Home Phone" class="input">
-          <input type="text" placeholder="Mobile Phone" class="input">
-          <input type="text" placeholder="Email Address" class="input">
+          <input type="text" placeholder="Home Phone" formControlName="homePhone" class="input">
+          <input type="text" placeholder="Mobile Phone" formControlName="mobilePhone" class="input">
+          <input type="text" placeholder="Email Address" formControlName="email" class="input">
         </div>
       </fieldset>
       <fieldset class="fieldset">
@@ -46,12 +46,12 @@
           <label>Click here if current address is same with other address</label>
         </div>
         <div class="grid">
-          <input type="text" placeholder="Current Address (House Number / Street)" class="input">
-          <input type="text" placeholder="Village / Sitio" class="input">
-          <input type="text" placeholder="Barangay" class="input">
-          <input type="text" placeholder="Town / City" class="input">
-          <input type="text" placeholder="Province" class="input">
-          <input type="text" placeholder="Other Address (House Number / Street)" class="input">
+          <input type="text" placeholder="Current Address (House Number / Street)" formControlName="currentAddress" class="input">
+          <input type="text" placeholder="Village / Sitio" formControlName="village" class="input">
+          <input type="text" placeholder="Barangay" formControlName="barangay" class="input">
+          <input type="text" placeholder="Town / City" formControlName="townCity" class="input">
+          <input type="text" placeholder="Province" formControlName="province" class="input">
+          <input type="text" placeholder="Other Address (House Number / Street)" formControlName="otherAddress" class="input">
           <input type="text" placeholder="Village / Sitio" class="input">
           <input type="text" placeholder="Barangay" class="input">
           <input type="text" placeholder="Town / City" class="input">
@@ -61,16 +61,15 @@
       <fieldset class="fieldset">
         <legend class="legend">WORK DETAILS</legend>
         <div class="grid">
-          <input type="text" placeholder="Occupation" class="input">
-          <input type="text" placeholder="Work Address" class="input">
-          <input type="text" placeholder="Work Phone" class="input">
-          <input type="text" placeholder="ID Card Presented" class="input">
-          <input type="text" placeholder="Person of Reference" class="input">
-          <input type="text" placeholder="Occupation" class="input">
+          <input type="text" placeholder="Occupation" formControlName="occupation" class="input">
+          <input type="text" placeholder="Work Address" formControlName="workAddress" class="input">
+          <input type="text" placeholder="Work Phone" formControlName="workPhone" class="input">
+          <input type="text" placeholder="ID Card Presented" formControlName="idCard" class="input">
+          <input type="text" placeholder="Person of Reference" formControlName="referencePerson" class="input">
         </div>
       </fieldset>
       <div class="form-footer">
-        <button type="submit" class="next-button" [routerLink]="['/suspect-data']">Next</button>
+        <button type="submit" class="next-button">Next</button>
       </div>
     </form>
   </div>

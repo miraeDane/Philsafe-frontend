@@ -1,44 +1,44 @@
 <div class="container">
-    <div class="emergency-banner">
-      In case of emergencies, please dial your local emergency services number
-    </div>
-    <div class="min-h-screen bg-zinc-100 flex flex-col items-center py-10">
-        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-          <div class="flex justify-between items-center mb-4">
-            <a class="back-button" [routerLink]="['/login']">BACK</a>
-          </div>
-          <div class="text-center mb-6">
-            <img aria-hidden="true" alt="logo" src="assets/logo.svg" class="mx-auto mb-2" width="50" height="50" />
-            <h1 class="text-2xl font-semibold">Create Account</h1>
-          </div>
-          <div class="flex justify-center mb-6">
-            <a class="button-victim" [routerLink]="['/victim-register']">Victim</a>
-            <a class="button-witness" [routerLink]="['/witness-register']">Witness</a>
-          </div>
-          <div class="bg-blue-100 p-6 rounded-lg">
-            <form>
-              <div class="mb-4">
-                <input type="text" placeholder="First Name" class="input-field" />
-              </div>
-              <div class="mb-4">
-                <input type="text" placeholder="Middle Name" class="input-field" />
-              </div>
-              <div class="mb-4">
-                <input type="text" placeholder="Last Name" class="input-field" />
-              </div>
-              <div class="mb-4">
-                <input type="text" placeholder="Contact Number" class="input-field" />
-              </div>
-              <div class="mb-4">
-                <input type="text" placeholder="Enter verification Code" class="input-field" />
-              </div>
-              <div class="flex items-center mb-4">
-                <input type="checkbox" id="resend-code" class="mr-2" />
-                <label for="resend-code" class="text-zinc-700">Resend code (190s)</label>
-              </div>
-              <button type="submit" class="file-report-button">FILE REPORT</button>
-            </form>
-          </div>
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen bg-zinc-100 flex flex-col items-center py-10">
+      <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <div class="flex justify-center mb-4">
+          <a class="back-button" [routerLink]="['/login']">BACK</a>
+        </div>
+        <div class="text-center mb-6">
+          <img aria-hidden="true" alt="logo" src="assets/logo.svg" class="mx-auto mb-2" width="100" height="100" />
+          <h1 class="text-2xl font-semibold">Create Account</h1>
+        </div>
+        <div class="flex justify-center mb-6">
+          <a class="button-victim" [routerLink]="['/victim-register']">Victim</a>
+          <a class="button-witness" [routerLink]="['/witness-register']">Witness</a>
+        </div>
+        <div class="bg-blue-100 p-6 rounded-lg">
+          <form [formGroup]="witnessForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+              <input type="text" placeholder="First Name" class="input-field" formControlName="firstName" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Middle Name" class="input-field" formControlName="middleName" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Last Name" class="input-field" formControlName="lastName" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Contact Number" class="input-field" formControlName="contactNumber" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Enter verification Code" class="input-field" formControlName="verificationCode" />
+            </div>
+            <div class="flex items-center mb-4">
+              <input type="checkbox" id="resend-code" class="mr-2" />
+              <label for="resend-code" class="text-zinc-700">Resend code (190s)</label>
+            </div>
+            <button type="submit" class="file-report-button">FILE REPORT</button>
+          </form>
         </div>
       </div>
+    </div>
 </div>

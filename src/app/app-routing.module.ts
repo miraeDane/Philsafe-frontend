@@ -25,6 +25,7 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
 
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'victim-register', component: VictimRegisterComponent },

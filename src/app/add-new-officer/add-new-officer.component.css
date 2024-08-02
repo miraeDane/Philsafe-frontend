@@ -329,3 +329,19 @@ nav-item span {
 .logo {
   margin-top: 1rem;
 }
+
+.save-button {
+  margin-top: 1rem;
+  width: 13%;
+  background-color: #1e40af;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #b91c1c;
+}

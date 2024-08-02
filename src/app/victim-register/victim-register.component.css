@@ -224,3 +224,41 @@
   .back-button:hover {
     background-color: #b91c1c;
   }
+
+  .h-1 {
+    height: 4px; /* Adjust height as needed */
+    transition: width 0.3s ease; /* Smooth transition for the progress bar */
+}
+.bg-green-500 {
+    background-color: #38a169; /* Green color */
+}
+.bg-yellow-500 {
+    background-color: #ecc94b; /* Yellow color */
+}
+.bg-red-500 {
+    background-color: #e53e3e; /* Red color */
+}
+.text-green-500 {
+    color: #38a169; /* Green text */
+}
+.text-yellow-500 {
+    color: #ecc94b; /* Yellow text */
+}
+.text-red-500 {
+    color: #e53e3e; /* Red text */
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.absolute {
+  position: absolute;
+}
+.right-3 {
+  right: 0.75rem; /* Adjust as needed */
+}
+.top-3 {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+}
+

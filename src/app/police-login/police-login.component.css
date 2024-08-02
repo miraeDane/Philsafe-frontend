@@ -176,7 +176,7 @@ body {
   }
   
   .create-account-link {
-    color: #1e40af;
+    color: #b91c1c;
   }
   
   .small-text {
@@ -190,4 +190,30 @@ body {
       flex-direction: column;
       height: auto; /* Adjust height for smaller screens */
     }
+  }
+
+
+  .error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 104%; /* Make the error message take the full width of the form */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  .error-icon {
+    margin-right: 10px;
+  }
+  
+  .error-text {
+    font-weight: bold;
+    margin-right: 7px; /* Add some space after "Error:" */
+  }
+  
+  .form-input.ng-invalid.ng-touched {
+    border-color: #D8000C;
   }
