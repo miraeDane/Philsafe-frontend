@@ -1,65 +1,93 @@
 <div class="container">
-    <div class="emergency-banner">
-      In case of emergencies, please dial your local emergency services number
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="card">
+    <div class="card-section logo-section">
+      <img src="assets/logo.svg" class="logo">  
+      <h2 class="title">PHILSAFE</h2>
+      <p class="description small-text">
+        Welcome to the PHILSAFE Police Online Reporting System, designed to streamline and enhance the reporting process for both citizens and law enforcement. This system is built to address the growing need for efficient and secure reporting of non-emergency incidents, ensuring that valuable resources are allocated effectively and that the community feels more engaged with law enforcement.
+      </p>
     </div>
-    <div class="card">
-      <div class="card-section logo-section">
-        <img src="assets/logo.svg" class="logo">  
-        <h2 class="title">PHILSAFE</h2>
-        <p class="description small-text">
-          Welcome to the PHILSAFE Police Online Reporting System, designed to streamline and enhance the reporting process for both citizens and law enforcement. This system is built to address the growing need for efficient and secure reporting of non-emergency incidents, ensuring that valuable resources are allocated effectively and that the community feels more engaged with law enforcement.
-        </p>
-      </div>
-      <div class="card-section form-section">
-        <h2 class="form-title">PAYMENT METHOD</h2>
-        <p class="text-muted-foreground text-center">Please fill out the following:</p>
-        
-        <div class="mt-4">
-          <div class="flex space-x-4 mb-4 justify-center">
-            <img src="assets/visa.svg" alt="Visa" class="w-8 h-8" />
-            <img src="assets/gcash.svg" alt="MasterCard" class="w-8 h-8" /> 
-            <img src="assets/maya.svg" alt="GCash" class="w-8 h-8" />
-            <img src="assets/paypal.svg" alt="Maya" class="w-8 h-8" />
-          </div>
-          <form>
-            <div class="mb-4">
-              <label for="card-number" class="block text-sm font-medium">Card Number</label>
-              <input type="text" id="card-number" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter card number" />
-            </div>
-            <div class="mb-4">
-              <label for="name-on-card" class="block text-sm font-medium">Name on Card</label>
-              <input type="text" id="name-on-card" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter name" />
-            </div>
-            <div class="flex space-x-4 mb-4">
-              <div class="half-width">
-                <label for="expiry-date" class="block text-sm font-medium">Expiry date</label>
-                <input type="text" id="expiry-date" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="MM/YY" />
-              </div>
-              <div class="half-width">
-                <label for="cvv" class="block text-sm font-medium">CVV</label>
-                <input type="text" id="cvv" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="CVV" />
-              </div>
-            </div>
-            <div class="mb-4">
-              <label for="billing-address" class="block text-sm font-medium">Billing Address</label>
-              <input type="text" id="billing-address" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter billing address" />
-            </div>
-            <div class="mb-4">
-              <label for="postal-code" class="block text-sm font-medium">Postal Code</label>
-              <input type="text" id="postal-code" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter postal code" />
-            </div>
-            
-            <div class="text-center">
-              <p class="text-lg font-bold">Amount</p>
-              <p class="text-2xl text-blue-600 amount-bold">PHP 50.00</p>
-              <p class="text-sm text-muted-foreground">Blotter Fee</p>
-            </div>
-            <div class="flex justify-center mt-6 space-x-4">
-                <button type="submit" class="back-button mt-6" style="align-self: flex-start;">BACK</button>
-              <button type="submit" class="next-button mt-6" style="align-self: flex-start;">NEXT</button>
-            </div>
-          </form>
+    <div class="card-section form-section">
+      <h2 class="form-title">PAYMENT METHOD</h2>
+      <p class="text-muted-foreground text-center">Please fill out the following:</p>
+      
+      <div class="mt-4">
+        <div class="flex space-x-4 mb-4 justify-center">
+          <img src="assets/visa.svg" alt="Visa" class="w-8 h-8" />
+          <img src="assets/gcash.svg" alt="MasterCard" class="w-8 h-8" /> 
+          <img src="assets/maya.svg" alt="GCash" class="w-8 h-8" />
+          <img src="assets/paypal.svg" alt="Maya" class="w-8 h-8" />
         </div>
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+          <div class="mb-4">
+            <label for="card-number" class="block text-sm font-medium">Card Number</label>
+            <input type="text" id="card-number" formControlName="cardNumber" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter card number" />
+            <div *ngIf="isFieldInvalid('cardNumber')" class="text-red-500 text-xs mt-1">
+              <i class="fas fa-exclamation-circle"></i>
+              <span *ngIf="paymentForm.get('cardNumber')?.errors?.['required']">Card Number is required.</span>
+              <span *ngIf="paymentForm.get('cardNumber')?.errors?.['pattern']">Card Number must be numeric.</span>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="name-on-card" class="block text-sm font-medium">Name on Card</label>
+            <input type="text" id="name-on-card" formControlName="nameOnCard" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter name" />
+            <div *ngIf="isFieldInvalid('nameOnCard')" class="text-red-500 text-xs mt-1">
+              <i class="fas fa-exclamation-circle"></i>
+              <span *ngIf="paymentForm.get('nameOnCard')?.errors?.['required']">Name on Card is required.</span>
+            </div>
+          </div>
+          <div class="flex space-x-4 mb-4">
+            <div class="half-width">
+              <label for="expiry-date" class="block text-sm font-medium">Expiry date (MM/YY)</label>
+              <input type="text" id="expiry-date" formControlName="expiryDate" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="MM/YY" />
+              <div *ngIf="isFieldInvalid('expiryDate')" class="text-red-500 text-xs mt-1">
+                <i class="fas fa-exclamation-circle"></i>
+                <span *ngIf="paymentForm.get('expiryDate')?.errors?.['required']">Expiry date is required.</span>
+                <span *ngIf="paymentForm.get('expiryDate')?.errors?.['pattern']">Expiry date must be in MM/YY format.</span>
+              </div>
+            </div>
+            <div class="half-width">
+              <label for="cvv" class="block text-sm font-medium">CVV</label>
+              <input type="text" id="cvv" formControlName="cvv" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="CVV" />
+              <div *ngIf="isFieldInvalid('cvv')" class="text-red-500 text-xs mt-1">
+                <i class="fas fa-exclamation-circle"></i>
+                <span *ngIf="paymentForm.get('cvv')?.errors?.['required']">CVV is required.</span>
+                <span *ngIf="paymentForm.get('cvv')?.errors?.['pattern']">CVV must be 3 digits.</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="billing-address" class="block text-sm font-medium">Billing Address</label>
+            <input type="text" id="billing-address" formControlName="billingAddress" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter billing address" />
+            <div *ngIf="isFieldInvalid('billingAddress')" class="text-red-500 text-xs mt-1">
+              <i class="fas fa-exclamation-circle"></i>
+              <span *ngIf="paymentForm.get('billingAddress')?.errors?.['required']">Billing Address is required.</span>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="postal-code" class="block text-sm font-medium">Postal Code</label>
+            <input type="text" id="postal-code" formControlName="postalCode" class="mt-1 block w-full border border-border rounded-md p-2" placeholder="Enter postal code" />
+            <div *ngIf="isFieldInvalid('postalCode')" class="text-red-500 text-xs mt-1">
+              <i class="fas fa-exclamation-circle"></i>
+              <span *ngIf="paymentForm.get('postalCode')?.errors?.['required']">Postal Code is required.</span>
+              <span *ngIf="paymentForm.get('postalCode')?.errors?.['pattern']">Postal Code must be numeric.</span>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <p class="text-lg font-bold">Amount</p>
+            <p class="text-2xl text-blue-600 amount-bold">PHP 50.00</p>
+            <p class="text-sm text-muted-foreground">Blotter Fee</p>
+          </div>
+          <div class="flex justify-center mt-6 space-x-4">
+              <button type="button" class="back-button mt-6" style="align-self: flex-start;">BACK</button>
+              <button type="submit" class="next-button mt-6" style="align-self: flex-start;" [disabled]="paymentForm.invalid">NEXT</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>

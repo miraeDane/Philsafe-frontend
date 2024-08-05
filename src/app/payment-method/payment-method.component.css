@@ -256,3 +256,19 @@ body {
   .next-button:hover {
     background-color: #b91c1c;
   }
+
+  .text-red-500 {
+    color: #f56565; /* Adjust the red color as needed */
+  }
+  
+  input.ng-invalid.ng-touched {
+    border-color: #f56565; /* Change border color for invalid inputs */
+  }
+  
+  input.ng-valid.ng-touched {
+    border-color: #48bb78; /* Change border color for valid inputs */
+  }
+
+  .error-message {
+    font-size: 0.5rem; /* Adjust the size as needed */
+  }

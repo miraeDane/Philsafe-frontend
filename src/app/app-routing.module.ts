@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { CreateAccountComponent } from './create-account/create-account.component'; // Import your component
 import { VictimRegisterComponent } from './victim-register/victim-register.component';
 import { WitnessRegisterComponent } from './witness-register/witness-register.component';
 import { ReportingPersonComponent } from './reporting-person/reporting-person.component';
@@ -20,6 +21,7 @@ import { PoliceDashboardComponent } from './police-dashboard/police-dashboard.co
 import { CrimeMapComponent } from './crime-map/crime-map.component';
 import { PlotLongitudeAndLatitudeComponent } from './plot-longitude-and-latitude/plot-longitude-and-latitude.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -28,6 +30,7 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'create-account', component: CreateAccountComponent }, // Route for CreateAccountComponent
   { path: 'victim-register', component: VictimRegisterComponent },
   { path: 'witness-register', component: WitnessRegisterComponent },
   { path: 'reporting-person', component: ReportingPersonComponent },
@@ -47,6 +50,9 @@ const routes: Routes = [
   { path: 'crime-map', component: CrimeMapComponent },
   { path: 'plot-longitude-and-latitude', component: PlotLongitudeAndLatitudeComponent },
   { path: 'payment-method', component: PaymentMethodComponent },
+  { path: '', component: HomePageComponent },
+  { path: '', redirectTo: '/create-account', pathMatch: 'full' }, // Redirect to create-account by default
+  { path: '**', redirectTo: '/create-account' }, // Wildcard route for a 404 page
   { path: '', redirectTo: '/payment-method', pathMatch: 'full' },
   { path: '', redirectTo: '/plot-longitude-and-latitude', pathMatch: 'full' },
   { path: '**', redirectTo: '/plot-longitude-and-latitude' },

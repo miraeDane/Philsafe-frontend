@@ -1,62 +1,63 @@
 <div class="container">
-    <div class="emergency-banner">
-      In case of emergencies, please dial your local emergency services number
-    </div>
-    <div class="min-h-screen bg-zinc-100 flex">
-      <aside class="w-64 bg-white shadow-md">
-        <div class="p-4 text-center">
-          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> <!-- Added class 'logo' for specific styling -->
-          <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
-          <p class="text-sm text-zinc-600">Cebu City Police Office</p>
-        </div>
-        <nav class="mt-7"> <!-- Increased margin-top to create more space -->
-          <ul class="list-none p-0">
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/dashboard.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
-                <span>DASHBOARD</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/inbox.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
-                <span>INBOX</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/reports.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
-                <span>REPORTS</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
-                <span>CRIME MAP</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/station.svg" alt="Station Icon" class="w-6 h-6 mr-2">
-                <span>STATION</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">
-                <img src="assets/support.svg" alt="Contact Support Icon" class="w-6 h-6 mr-2">
-                <span>CONTACT SUPPORT</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-      <div class="flex-1 p-8">
-        <h1 class="text-2xl font-semibold mb-6">ADD NEW OFFICER</h1>
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen bg-zinc-100 flex">
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-4 text-center">
+        <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> <!-- Added class 'logo' for specific styling -->
+        <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
+        <p class="text-sm text-zinc-600">Cebu City Police Office</p>
+      </div>
+      <nav class="mt-7"> <!-- Increased margin-top to create more space -->
+        <ul class="list-none p-0">
+          <li>
+            <a [routerLink]="['/station-dashboard']" class="nav-link"> <!-- Updated to use routerLink -->
+              <img src="assets/dashboard.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+              <span>DASHBOARD</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/station-inbox']" href="#" class="nav-link">
+              <img src="assets/inbox.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+              <span>INBOX</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/station-report']" href="#" class="nav-link">
+              <img src="assets/reports.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+              <span>REPORTS</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/station-crime-map']" href="#" class="nav-link">
+              <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+              <span>CRIME MAP</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/add-new-officer']" href="#" class="nav-link">
+              <img src="assets/station.svg" alt="Station Icon" class="w-6 h-6 mr-2">
+              <span>STATION</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/support.svg" alt="Contact Support Icon" class="w-6 h-6 mr-2">
+              <span>CONTACT SUPPORT</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="flex-1 p-8">
+      <h1 class="text-2xl font-semibold mb-6">ADD NEW OFFICER</h1>
+      <form [formGroup]="officerForm" (ngSubmit)="saveOfficer()">
         <div class="bg-white p-8 shadow rounded-lg">
           <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
           <div class="grid grid-cols-3 gap-4 mb-6">
-            <select class="border rounded-lg p-2">
-              <option>Rank</option>
+            <select formControlName="rank" name="rank" class="border rounded-lg p-2">
+              <option value="">Rank</option>
               <option>PATROLMAN - PO1</option>
               <option>PATROLWOMAN - PO1</option>
               <option>POLICE CORPORAL - PO2</option>
@@ -69,30 +70,39 @@
               <option>POLICE CAPTAIN - SENIOR INSPECTOR</option>
               <option>POLICE MAJOR - CHIEF INSPECTOR</option>
               <option>POLICE LIEUTENANT COLONEL - SUPERINTENDENT</option>
-              <option>POLICE COLONEL - SENIOR SUPERINTENDENT/option>
+              <option>POLICE COLONEL - SENIOR SUPERINTENDENT</option>
               <option>POLICE BRIGADER GENERAL - CHIEF SUPERINTENDENT</option>
               <option>POLICE MAJOR GENERAL - DIRECTOR</option>
               <option>POLICE LIEUTENANT GENERAL - DEPUTY DIRECTOR GENERAL</option>
               <option>POLICE GENERAL - DIRECTOR GENERAL</option>
             </select>
-            <input type="text" placeholder="First Name" class="border rounded-lg p-2">
-            <input type="text" placeholder="Last Name" class="border rounded-lg p-2">
-            <input type="date" placeholder="Date of Birth" class="border rounded-lg p-2">
-            <input type="text" placeholder="Place of Birth" class="border rounded-lg p-2">
-            <input type="text" placeholder="Gender" class="border rounded-lg p-2">
-            <input type="text" placeholder="Civil Status" class="border rounded-lg p-2">
-            <input type="email" placeholder="Email" class="border rounded-lg p-2">
-            <input type="text" placeholder="Contact Number" class="border rounded-lg p-2">
+            <input formControlName="firstName" name="firstName" type="text" placeholder="First Name" class="border rounded-lg p-2">
+            <input formControlName="lastName" name="lastName" type="text" placeholder="Last Name" class="border rounded-lg p-2">
+            <input formControlName="dateOfBirth" name="dateOfBirth" type="date" class="border rounded-lg p-2">
+            <input formControlName="placeOfBirth" name="placeOfBirth" type="text" placeholder="Place of Birth" class="border rounded-lg p-2">
+            <select formControlName="gender" name="gender" class="border rounded-lg p-2">
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <select formControlName="civilStatus" name="civilStatus" class="border rounded-lg p-2">
+              <option value="">Select Civil Status</option>
+              <option>Married</option>
+              <option>Single</option>
+            </select>
+            <input formControlName="email" name="email" type="email" placeholder="Email" class="border rounded-lg p-2">
+            <input formControlName="contactNumber" name="contactNumber" type="text" placeholder="Contact Number" class="border rounded-lg p-2" pattern="[0-9]*" inputmode="numeric">
           </div>
           <h2 class="text-xl font-semibold mb-4">Station Details</h2>
           <div class="grid grid-cols-2 gap-4 mb-6">
-            <select class="border rounded-lg p-2">
-              <option>Team</option>
+            <select formControlName="team" name="team" class="border rounded-lg p-2">
+              <option value="">Team</option>
             </select>
-            <input type="text" placeholder="Police In-Charge" class="border rounded-lg p-2">
+            <input formControlName="policeInCharge" name="policeInCharge" type="text" placeholder="Police In-Charge" class="border rounded-lg p-2">
           </div>
-          <button type="submit" class="save-button">Save</button>
+          <button type="submit" class="save-button" [disabled]="officerForm.invalid">Save</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="emergency-banner">
+        In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <div class="image-section">
+                <img src="assets/officer2.png" alt="Illustration" class="illustration-image"> <!-- Replace with your desired image -->
+            </div>
+            <div class="form-section">
+                <div class="header">
+                    <h1>Create Account</h1>
+                    <img src="assets/logo.svg" alt="Logo" class="logo">
+                </div>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="text" formControlName="firstName" placeholder="First Name" required>
+                        <input type="text" formControlName="middleName" placeholder="Middle Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="lastName" placeholder="Last Name" required>
+                        <input type="email" formControlName="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-4 relative">
+                        <input type="password" placeholder="Password" class="password-input w-full p-3 rounded-lg border border-zinc-300 pr-10" formControlName="password" required (input)="onPasswordChange()" [type]="showPassword ? 'text' : 'password'" />
+                        <i (click)="togglePasswordVisibility()" class="absolute right-3 top-3 cursor-pointer" [ngClass]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                        <div class="mt-1">
+                            <div class="h-1" 
+                                 [ngClass]="{'bg-green-500': passwordValid, 'bg-yellow-500': passwordStrength === 'Medium password', 'bg-red-500': !passwordValid && passwordStrength === 'Weak password'}" 
+                                 [style.width]="progressBarWidth">
+                            </div>
+                            <div class="text-center mt-1" 
+                                 [ngClass]="{'text-green-500': passwordValid, 'text-yellow-500': passwordStrength === 'Medium password', 'text-red-500': !passwordValid}" 
+                                 style="font-size: 0.875rem; font-weight: bold;">
+                              {{ passwordStrength }}
+                            </div>
+                        </div>
+                        <div class="text-red-500 mt-2" style="font-size: 0.75rem;">
+                            <ul>
+                                <li *ngFor="let requirement of passwordRequirements">{{ requirement }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb-4 relative">
+                        <input type="password" placeholder="Confirm Password" class="confirm-password-input w-full p-3 rounded-lg border border-zinc-300 pr-10" formControlName="confirmPassword" required [type]="showConfirmPassword ? 'text' : 'password'" />
+                        <i (click)="toggleConfirmPasswordVisibility()" class="absolute right-3 top-3 cursor-pointer" [ngClass]="showConfirmPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                        <div *ngIf="registrationForm.get('confirmPassword')?.touched && registrationForm.get('confirmPassword')?.value !== registrationForm.get('password')?.value" class="text-red-500 mt-1" style="font-size: 0.75rem;">
+                            Passwords do not match.
+                        </div>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" formControlName="certification" required>
+                        <label for="certification" class="certification-label">
+                            <span class="certification-text">I hereby certify to the correctness of the foregoing to the best of my knowledge and belief.</span>
+                        </label>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="back-button">BACK</button> <!-- Back button -->
+                        <button type="submit" class="register-btn">REGISTER</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

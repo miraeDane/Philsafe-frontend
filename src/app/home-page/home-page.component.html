@@ -1,0 +1,147 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/1.png" alt="PhilSafe Logo">
+            <span class="phil">Phil</span><span class="safe">Safe</span>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a routerLink="/" class="active">Home</a></li>
+                <li><a routerLink="/reports">My Reports</a></li>
+            </ul>   
+            <div class="user-profile">
+                <img src="assets/pau.png" alt="User Avatar">
+                <div class="dropdown">
+                    <a routerLink="/profile">Profile</a>
+                    <a routerLink="/settings">Settings</a>
+                    <a routerLink="/logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="welcome-section welcome-background">
+    <div class="welcome-content">
+        <h1>Welcome to PhilSafe</h1>
+        <p>Ensuring the Safety and Security of Every Citizen</p>
+        <div class="cta-buttons">
+            <a routerLink="/crime-map" class="btn btn-primary">Crime Map</a>
+            <a routerLink="/reporting-person" class="btn btn-primary">Create a Report</a>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-overview">
+    <div class="container">
+        <h2>Dashboard Overview</h2>
+        <div class="overview-cards">
+            <div class="card">
+                <h3>Total Reports</h3>
+                <p class="card-number">1,234</p>
+            </div>
+            <div class="card">
+                <h3>Active Incidents</h3>
+                <p class="card-number">567</p>
+            </div>
+            <div class="card">
+                <h3>Resolved Cases</h3>
+                <p class="card-number">890</p>
+            </div>
+            <div class="card">
+                <h3>Community Alerts</h3>
+                <p class="card-number">123</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="latest-reports">
+    <div class="container">
+        <h2>Latest Reports</h2>
+        <div class="report-list">
+            <div class="report-item" *ngFor="let report of reports">
+                <h3>{{ report.title }}</h3>
+                <p><strong>Date:</strong> {{ report.date }}</p>
+                <p><strong>Description:</strong> {{ report.description }}</p>
+                <a routerLink="/report-details/{{ report.id }}" class="view-details">View Details</a>
+            </div>
+        </div>
+        <a routerLink="/reports" class="view-all-reports">View All Reports</a>
+    </div>
+</section>
+
+<section class="community-highlights">
+    <div class="container">
+        <h2>Community Highlights</h2>
+        <div class="highlight-items">
+            <div class="highlight-item" *ngFor="let highlight of highlights">
+                <img [src]="highlight.image" [alt]="highlight.title">
+                <div class="highlight-info">
+                    <h3>{{ highlight.title }}</h3>
+                    <p>{{ highlight.description }}</p>
+                    <a [routerLink]="highlight.link" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="map-content">
+        <h2>Explore the Crime Map</h2>
+        <p>Get an overview of crime incidents in your area with our interactive map. Use the filters to tailor the map to your needs.</p>
+        <div class="map-preview">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125585.22491447908!2d123.76372141839802!3d10.378753905956964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sLungsod%20ng%20Cebu%2C%206000%20Lalawigan%20ng%20Cebu!5e0!3m2!1sfil!2sph!4v1722696484144!5m2!1sfil!2sph" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <a routerLink="/full-map" class="btn btn-primary">Explore Full Crime Map</a>
+    </div>
+</section>
+
+<section class="safety-tips">
+    <div class="container">
+        <h2>Safety Tips</h2>
+        <p>Stay informed and safe with our practical safety tips for everyday life.</p>
+        <div class="tips-grid">
+            <div class="tip-card" *ngFor="let tip of tips">
+                <img [src]="tip.image" [alt]="tip.title">
+                <h3>{{ tip.title }}</h3>
+                <p>{{ tip.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="assets/1.png" alt="PhilSafe Logo">
+                <span>PhilSafe</span>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/crime-map">Crime Map</a></li>
+                    <li><a routerLink="/create-report">Create a Report</a></li>
+                    <li><a routerLink="/reports">My Reports</a></li>
+                    <li><a routerLink="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Address: 123 Safety St, Cebu City, Philippines</p>
+                <p>Phone: +63 912 345 6789</p>
+                <p>Email: support&#64;philsafe.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon"><img src="linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <p>&copy; 2024 PhilSafe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

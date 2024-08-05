@@ -25,6 +25,9 @@ import { CrimeMapComponent } from './crime-map/crime-map.component';
 import { MapboxService } from './mapbox.service';
 import { PlotLongitudeAndLatitudeComponent } from './plot-longitude-and-latitude/plot-longitude-and-latitude.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { MyReportsWitnessComponent } from './my-reports-witness/my-reports-witness.component';
 
 
 
@@ -51,6 +54,9 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
     CrimeMapComponent,
     PlotLongitudeAndLatitudeComponent,
     PaymentMethodComponent,
+    CreateAccountComponent,
+    HomePageComponent,
+    MyReportsWitnessComponent,
     
   ],
   imports: [
