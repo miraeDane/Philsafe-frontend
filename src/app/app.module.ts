@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { VictimRegisterComponent } from './victim-register/victim-register.component';
@@ -28,6 +29,8 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MyReportsWitnessComponent } from './my-reports-witness/my-reports-witness.component';
+import { DataSuspectService } from './data-suspect.service'; // Updated import
+
 
 
 
@@ -57,15 +60,20 @@ import { MyReportsWitnessComponent } from './my-reports-witness/my-reports-witne
     CreateAccountComponent,
     HomePageComponent,
     MyReportsWitnessComponent,
+    SuspectDataComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, // Add this line
-    HttpClientModule,// Add this line if you are making HTTP requests
+    HttpClientModule,
+    FormsModule,// Add this line if you are making HTTP requests
   ],
-  providers: [MapboxService],
+  providers: [
+    MapboxService,
+    DataSuspectService
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
