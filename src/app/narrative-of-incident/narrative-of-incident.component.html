@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="emergency-banner">
       In case of emergencies, please dial your local emergency services number
@@ -18,44 +19,49 @@
       </div>
       <div class="p-6 max-w-3xl mx-auto bg-card text-card-foreground">
         <h2 class="text-lg font-bold mb-4">INCIDENT DETAILS</h2>
-        <div class="grid grid-cols-2-1 gap-4 mb-4">
-            <input type="text" placeholder="Date" class="border border-border rounded p-2">
-            <input type="text" placeholder="Time" class="border border-border rounded p-2">
-            <input type="text" placeholder="Place of incident" class="border border-border rounded p-2">
-        </div>
-        <div class="mb-4">
-            <select class="border border-border rounded p-2 w-full">
-                <option value="" disabled selected>Select Province</option>
-                <option value="province1">Province 1</option>
-                <option value="province2">Province 2</option>
-                <option value="province3">Province 3</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-        <div class="mb-4">
-            <textarea placeholder="Enter in detail the narrative of the incident or event, answering the WHO, WHAT, WHEN, WHERE, WHY and HOW." class="border border-border rounded p-2 w-full h-32"></textarea>
-        </div>
-        <h2 class="text-lg font-bold mb-4">EVIDENCE</h2>
-        <div class="evidence-container">
-            <div class="evidence-item">
-                <img aria-hidden="true" alt="upload-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📤" class="inline-block mb-2">
-                <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded">Upload file/s</button>
-                <p class="text-muted-foreground text-sm mt-2">Maximum size up to 2GB</p>
-            </div>
-            <div class="evidence-item">
-                <img aria-hidden="true" alt="signature-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🖊️" class="inline-block mb-2">
-                <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded">Affix your signature here</button>
-            </div>
-        </div>
-        <div class="mb-4">
-            <label class="flex items-center">
-                <input type="checkbox" class="mr-2">
-                <span>I hereby certify to the correctness of the foregoing to the best of my knowledge and belief</span>
-            </label>
-        </div>
-        <div class="text-center">
-            <button class="payment-button">Proceed to payment</button>
-        </div>
+        <form [formGroup]="incidentForm" (ngSubmit)="submitForm()">
+          <div class="grid grid-cols-2-1 gap-4 mb-4">
+              <input type="text" placeholder="Date" formControlName="date" class="border border-border rounded p-2">
+              <input type="text" placeholder="Time" formControlName="time" class="border border-border rounded p-2">
+              <input type="text" placeholder="Place of incident" formControlName="place" class="border border-border rounded p-2">
+          </div>
+          <div class="mb-4">
+              <select formControlName="province" class="border border-border rounded p-2 w-full">
+                  <option value="" disabled selected>Select Province</option>
+                  <option value="province1">Province 1</option>
+                  <option value="province2">Province 2</option>
+                  <option value="province3">Province 3</option>
+              </select>
+          </div>
+          <div class="mb-4">
+              <textarea formControlName="narrative" placeholder="Enter in detail the narrative of the incident or event, answering the WHO, WHAT, WHEN, WHERE, WHY and HOW." class="border border-border rounded p-2 w-full h-32"></textarea>
+          </div>
+          <h2 class="text-lg font-bold mb-4">EVIDENCE</h2>
+          <div class="evidence-container">
+              <div class="evidence-item">
+                  <img aria-hidden="true" alt="upload-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📤" class="inline-block mb-2">
+                  <input type="file" (change)="onFileChange($event)" multiple #fileInput class="hidden">
+                  <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="fileInput.click()">Upload file/s</button>
+                  <p class="text-muted-foreground text-sm mt-2">Maximum size up to 2GB</p>
+              </div>
+              <div class="evidence-item">
+                  <img aria-hidden="true" alt="signature-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🖊️" class="inline-block mb-2">
+                  <input type="file" (change)="onSignatureChange($event)" #signatureInput class="hidden">
+                  <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="signatureInput.click()">Affix your signature here</button>
+              </div>
+          </div>
+          <div class="mb-4">
+              <label class="flex items-center">
+                  <input type="checkbox" formControlName="checkbox" class="mr-2">
+                  <span>I hereby certify to the correctness of the foregoing to the best of my knowledge and belief</span>
+              </label>
+          </div>
+          <div class="text-center">
+              <button type="submit" class="payment-button">Proceed to payment</button>
+          </div>
+          <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">{{ errorMessage }}</div>
+        </form>
       </div>
     </div>
 </div>
+```
