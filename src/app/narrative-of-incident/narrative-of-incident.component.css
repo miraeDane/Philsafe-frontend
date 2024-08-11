@@ -11,7 +11,12 @@
     padding: 1rem;
     margin-top: -1.5rem;
 }
-
+input[type="file"] {
+    display: none; /* Hides the file input */
+}
+.hidden {
+    display: none; /* Hides the file input */
+}
 .form-container {
     padding: 1rem;
 }

@@ -1,67 +1,65 @@
-
 <div class="container">
-    <div class="emergency-banner">
-      In case of emergencies, please dial your local emergency services number
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+      <select class="incident-type">
+        <option>Type of Incident</option>
+      </select>
+      <img src="assets/logo.svg" alt="Incident Report Logo" class="logo mx-auto mb-2">
     </div>
-    <div class="form-container">
-      <div class="form-header">
-        <select class="incident-type">
-          <option>Type of Incident</option>
-        </select>
-        <img src="assets/logo.svg" alt="Incident Report Logo" class="logo mx-auto mb-2">
-      </div>
-      <h1 class="form-title">INCIDENT REPORT FORM</h1>
-      <div class="form-navigation"> 
-        <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
-        <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
-        <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
-        <button class="nav-button blue-button" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
-      </div>
-      <div class="p-6 max-w-3xl mx-auto bg-card text-card-foreground">
-        <h2 class="text-lg font-bold mb-4">INCIDENT DETAILS</h2>
-        <form [formGroup]="incidentForm" (ngSubmit)="submitForm()">
-          <div class="grid grid-cols-2-1 gap-4 mb-4">
-              <input type="text" placeholder="Date" formControlName="date" class="border border-border rounded p-2">
-              <input type="text" placeholder="Time" formControlName="time" class="border border-border rounded p-2">
-              <input type="text" placeholder="Place of incident" formControlName="place" class="border border-border rounded p-2">
-          </div>
-          <div class="mb-4">
-              <select formControlName="province" class="border border-border rounded p-2 w-full">
-                  <option value="" disabled selected>Select Province</option>
-                  <option value="province1">Province 1</option>
-                  <option value="province2">Province 2</option>
-                  <option value="province3">Province 3</option>
-              </select>
-          </div>
-          <div class="mb-4">
-              <textarea formControlName="narrative" placeholder="Enter in detail the narrative of the incident or event, answering the WHO, WHAT, WHEN, WHERE, WHY and HOW." class="border border-border rounded p-2 w-full h-32"></textarea>
-          </div>
-          <h2 class="text-lg font-bold mb-4">EVIDENCE</h2>
-          <div class="evidence-container">
-              <div class="evidence-item">
-                  <img aria-hidden="true" alt="upload-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📤" class="inline-block mb-2">
-                  <input type="file" (change)="onFileChange($event)" multiple #fileInput class="hidden">
-                  <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="fileInput.click()">Upload file/s</button>
-                  <p class="text-muted-foreground text-sm mt-2">Maximum size up to 2GB</p>
-              </div>
-              <div class="evidence-item">
-                  <img aria-hidden="true" alt="signature-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🖊️" class="inline-block mb-2">
-                  <input type="file" (change)="onSignatureChange($event)" #signatureInput class="hidden">
-                  <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="signatureInput.click()">Affix your signature here</button>
-              </div>
-          </div>
-          <div class="mb-4">
-              <label class="flex items-center">
-                  <input type="checkbox" formControlName="checkbox" class="mr-2">
-                  <span>I hereby certify to the correctness of the foregoing to the best of my knowledge and belief</span>
-              </label>
-          </div>
-          <div class="text-center">
-              <button type="submit" class="payment-button">Proceed to payment</button>
-          </div>
-          <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">{{ errorMessage }}</div>
-        </form>
-      </div>
+    <h1 class="form-title">INCIDENT REPORT FORM</h1>
+    <div class="form-navigation"> 
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button blue-button" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
     </div>
+    <div class="p-6 max-w-3xl mx-auto bg-card text-card-foreground">
+      <h2 class="text-lg font-bold mb-4">INCIDENT DETAILS</h2>
+      <form [formGroup]="incidentForm" (ngSubmit)="submitForm()">
+        <div class="grid grid-cols-2-1 gap-4 mb-4">
+            <input type="text" placeholder="Date" formControlName="date" class="border border-border rounded p-2">
+            <input type="text" placeholder="Time" formControlName="time" class="border border-border rounded p-2">
+            <input type="text" placeholder="Place of incident" formControlName="place" class="border border-border rounded p-2">
+        </div>
+        <div class="mb-4">
+            <select formControlName="province" class="border border-border rounded p-2 w-full">
+                <option value="" disabled selected>Select Province</option>
+                <option value="province1">Province 1</option>
+                <option value="province2">Province 2</option>
+                <option value="province3">Province 3</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <textarea formControlName="narrative" placeholder="Enter in detail the narrative of the incident or event, answering the WHO, WHAT, WHEN, WHERE, WHY and HOW." class="border border-border rounded p-2 w-full h-32"></textarea>
+        </div>
+        <h2 class="text-lg font-bold mb-4">EVIDENCE</h2>
+        <div class="evidence-container">
+            <div class="evidence-item">
+                <img aria-hidden="true" alt="upload-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📤" class="inline-block mb-2">
+                <input type="file" (change)="onFileChange($event)" multiple #fileInput class="hidden">
+                <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="fileInput.click()">Upload file/s</button>
+                <p class="text-muted-foreground text-sm mt-2">Maximum size up to 2GB</p>
+            </div>
+            <div class="evidence-item">
+                <img aria-hidden="true" alt="signature-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🖊️" class="inline-block mb-2">
+                <input type="file" (change)="onSignatureChange($event)" #signatureInput class="hidden">
+                <button type="button" class="bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded" (click)="signatureInput.click()">Affix your signature here</button>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="flex items-center">
+                <input type="checkbox" formControlName="checkbox" class="mr-2">
+                <span>I hereby certify to the correctness of the foregoing to the best of my knowledge and belief</span>
+            </label>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="payment-button">Proceed to payment</button>
+        </div>
+        <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">{{ errorMessage }}</div>
+      </form>
+    </div>
+  </div>
 </div>
-```

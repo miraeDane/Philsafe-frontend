@@ -38,6 +38,18 @@
                         <option value="" disabled selected>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="civilStatus">Civil Status</label>
+                    <select formControlName="civilStatus" id="civilStatus" required>
+                        <option value="" disabled selected>Select Civil Status</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="separated">Separated</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
                     </select>
                 </div>
 
@@ -80,11 +92,63 @@
                     <input type="text" formControlName="zipCode" id="zipCode" placeholder="Enter Zip Code" required>
                 </div>
 
+                <!-- Work Address Section -->
+                <div class="section-header">Work Address</div>
+                <div class="form-group">
+                    <label for="workRegion">Region</label>
+                    <select formControlName="workRegion" id="workRegion" required>
+                        <option value="" disabled selected>Select Region</option>
+                        <option>Select Region</option>
+                        <option>Region VII</option>
+                    </select>
+                    <label for="workProvince">Province</label>
+                    <select formControlName="workProvince" id="workProvince" required>
+                        <option value="" disabled selected>Select Province</option>
+                        <option>Select Province</option>
+                        <option>Cebu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="workMunicipality">Municipality</label>
+                    <select formControlName="workMunicipality" id="workMunicipality" required>
+                        <option value="" disabled selected>Select Municipality</option>
+                        <option>Select Municipality</option>
+                        <option>Minglanilla</option>
+                    </select>
+                    <label for="workBarangay">Barangay</label>
+                    <select formControlName="workBarangay" id="workBarangay" required>
+                        <option value="" disabled selected>Select Barangay</option>
+                        <option>Select Barangay</option>
+                        <option>Pakigne</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="workStreet">Street</label>
+                    <input type="text" formControlName="workStreet" id="workStreet" placeholder="Enter Street" required>
+                    <label for="workBlockLotUnit">Block/Lot/Unit Number</label>
+                    <input type="text" formControlName="workBlockLotUnit" id="workBlockLotUnit" placeholder="Enter Block/Lot/Unit Number" required>
+                    <label for="workZipCode">Zip Code</label>
+                    <input type="text" formControlName="workZipCode" id="workZipCode" placeholder="Enter Zip Code" required>
+                </div>
+
                 <!-- Account Information Section -->
                 <div class="section-header">Account Information</div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" formControlName="email" id="email" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select formControlName="role" id="role" required>
+                        <option value="User">User</option>
+                        <option value="Police">Police</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Chief">Chief</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactNum">Contact Number</label>
+                    <input type="text" formControlName="contactNum" id="contactNum" placeholder="Enter Contact Number" required>
                 </div>
                 <div class="mb-4 relative">
                     <label for="password" class="font-bold">Password</label>

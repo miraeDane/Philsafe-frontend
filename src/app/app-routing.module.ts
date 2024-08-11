@@ -50,7 +50,8 @@ const routes: Routes = [
   { path: 'crime-map', component: CrimeMapComponent },
   { path: 'plot-longitude-and-latitude', component: PlotLongitudeAndLatitudeComponent },
   { path: 'payment-method', component: PaymentMethodComponent },
-  { path: '', component: HomePageComponent },
+  { path: 'home-page', component: HomePageComponent },
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: '', redirectTo: '/create-account', pathMatch: 'full' }, // Redirect to create-account by default
   { path: '**', redirectTo: '/create-account' }, // Wildcard route for a 404 page
   { path: '', redirectTo: '/payment-method', pathMatch: 'full' },
