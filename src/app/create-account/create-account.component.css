@@ -284,3 +284,19 @@ label {
     margin-bottom: 0.5rem; /* Space between label and input */
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center; /* Aligns checkbox and label vertically */
+    margin-bottom: 0.5rem;
+    justify-content: flex-start; /* Aligns items to the start */
+}
+
+.checkbox {
+    margin-right: 0.5rem; /* Space between checkbox and label */
+}
+
+/* New styles for label alignment */
+.checkbox-label {
+    flex: 1; /* Allow label to take remaining space */
+    text-align: left; /* Align text to the left */
+}

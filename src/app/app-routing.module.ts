@@ -22,7 +22,8 @@ import { CrimeMapComponent } from './crime-map/crime-map.component';
 import { PlotLongitudeAndLatitudeComponent } from './plot-longitude-and-latitude/plot-longitude-and-latitude.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { roleGuard } from './auth.guard';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
 
 
 
@@ -31,15 +32,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'create-account', component: CreateAccountComponent }, // Route for CreateAccountComponent
-  { path: 'victim-register', component: VictimRegisterComponent },
-  { path: 'witness-register', component: WitnessRegisterComponent },
-  { path: 'reporting-person', component: ReportingPersonComponent },
+  // { path: 'victim-register', component: VictimRegisterComponent },
+  // { path: 'witness-register', component: WitnessRegisterComponent },
+  { path: 'reporting-person', component: ReportingPersonComponent, canActivate: [roleGuard], data: { roles: ['user'] } },
   { path: 'suspect-data', component: SuspectDataComponent },
   { path: 'victim-data', component: VictimDataComponent },
   { path: 'narrative-of-incident', component: NarrativeOfIncidentComponent },
-  { path: 'station-edit-officers', component: StationEditOfficersComponent },
+  { path: 'station-edit-officers', component: StationEditOfficersComponent, canActivate: [roleGuard], data: { roles: ['chief'] } },
   { path: 'add-new-officer', component: AddNewOfficerComponent },
-  { path: 'station-crime-map', component: StationCrimeMapComponent },
+  { path: 'station-crime-map', component: StationCrimeMapComponent, canActivate: [roleGuard], data: { roles: ['police'] } },
   { path: 'station-dashboard', component: StationDashboardComponent },
   { path: 'police-login', component: PoliceLoginComponent },
   { path: 'police-register', component: PoliceRegisterComponent },
@@ -51,30 +52,31 @@ const routes: Routes = [
   { path: 'plot-longitude-and-latitude', component: PlotLongitudeAndLatitudeComponent },
   { path: 'payment-method', component: PaymentMethodComponent },
   { path: 'home-page', component: HomePageComponent },
-  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
+  { path: 'access-denied', component: AccessDeniedComponent },
+  // { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: '', redirectTo: '/create-account', pathMatch: 'full' }, // Redirect to create-account by default
   { path: '**', redirectTo: '/create-account' }, // Wildcard route for a 404 page
-  { path: '', redirectTo: '/payment-method', pathMatch: 'full' },
-  { path: '', redirectTo: '/plot-longitude-and-latitude', pathMatch: 'full' },
-  { path: '**', redirectTo: '/plot-longitude-and-latitude' },
-  { path: '', redirectTo: '/crime-map', pathMatch: 'full' },
-  { path: '**', redirectTo: '/crime-map' },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '', redirectTo: '/police-privacy', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/police-privacy' }, // Wildcard route for a 404 page
-  { path: '', redirectTo: '/police-jurisdiction', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/police-jurisdiction' }, // Wildcard route for a 404 page
-  { path: '', redirectTo: '/police-register', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/police-register' }, // Wildcard route for a 404 page
-  { path: '', redirectTo: '/station-inbox', pathMatch: 'full' }, // Default route
-  { path: '', redirectTo: '/station-crime-map', pathMatch: 'full' }, 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' },// Wildcard route for handling 404
-  { path: '', redirectTo: '/victim-data', pathMatch: 'full' },
-  { path: '', redirectTo: '/narrative-of-incident', pathMatch: 'full' },
-  { path: '', redirectTo: '/station-dashboard', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/station-dashboard' }// Wildcard route for a 404 page
-  
+  // { path: '', redirectTo: '/payment-method', pathMatch: 'full' },
+  // { path: '', redirectTo: '/plot-longitude-and-latitude', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/plot-longitude-and-latitude' },
+  // { path: '', redirectTo: '/crime-map', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/crime-map' },
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // { path: '', redirectTo: '/police-privacy', pathMatch: 'full' }, // Default route
+  // { path: '**', redirectTo: '/police-privacy' }, // Wildcard route for a 404 page
+  // { path: '', redirectTo: '/police-jurisdiction', pathMatch: 'full' }, // Default route
+  // { path: '**', redirectTo: '/police-jurisdiction' }, // Wildcard route for a 404 page
+  // { path: '', redirectTo: '/police-register', pathMatch: 'full' }, // Default route
+  // { path: '**', redirectTo: '/police-register' }, // Wildcard route for a 404 page
+  // { path: '', redirectTo: '/station-inbox', pathMatch: 'full' }, // Default route
+  // { path: '', redirectTo: '/station-crime-map', pathMatch: 'full' }, 
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/login' },// Wildcard route for handling 404
+  // { path: '', redirectTo: '/victim-data', pathMatch: 'full' },
+  // { path: '', redirectTo: '/narrative-of-incident', pathMatch: 'full' },
+  // { path: '', redirectTo: '/station-dashboard', pathMatch: 'full' }, // Default route
+  // { path: '**', redirectTo: '/station-dashboard' }// Wildcard route for a 404 page
+
 ];
 
 @NgModule({

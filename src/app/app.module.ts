@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http'; // Updated import
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -29,9 +29,8 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MyReportsWitnessComponent } from './my-reports-witness/my-reports-witness.component';
-import { DataSuspectService } from './data-suspect.service'; // Updated import
-
-
+import { DataSuspectService } from './data-suspect.service';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
 
 
 @NgModule({
@@ -61,18 +60,19 @@ import { DataSuspectService } from './data-suspect.service'; // Updated import
     HomePageComponent,
     MyReportsWitnessComponent,
     SuspectDataComponent,
-    
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, // Add this line
     HttpClientModule,
-    FormsModule,// Add this line if you are making HTTP requests
+    FormsModule, // Add this line if you are making HTTP requests
   ],
   providers: [
     MapboxService,
-    DataSuspectService
+    DataSuspectService,
+    provideHttpClient(withFetch()) // Enable fetch API
   ], 
   bootstrap: [AppComponent]
 })

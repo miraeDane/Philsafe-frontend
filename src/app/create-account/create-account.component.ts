@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AccountService } from '../account.service'; // Import the service
+import { AccountService, IAccount, IPerson, ILocation } from '../account.service'; // Import the service
 import { Router } from '@angular/router'; // Import Router for navigation
+import moment from "moment";
+import { resolve } from 'node:path';
 
 @Component({
     selector: 'app-create-account',
@@ -31,6 +33,7 @@ export class CreateAccountComponent implements OnInit {
     constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) {
         // Initialize the registration form with validation
         this.registrationForm = this.fb.group({
+
             firstName: ['', Validators.required],
             middleName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -48,15 +51,15 @@ export class CreateAccountComponent implements OnInit {
             street: ['', Validators.required], // New field
             blockLotUnit: ['', Validators.required], // New field
             zipCode: ['', Validators.required], // New field
-            workRegion: ['', Validators.required], // New field
-            workProvince: ['', Validators.required], // New field
-            workMunicipality: ['', Validators.required], // New field
-            workBarangay: ['', Validators.required], // New field
-            workStreet: ['', Validators.required], // New field
-            workBlockLotUnit: ['', Validators.required], // New field
-            workZipCode: ['', Validators.required], // New field
-            role: ['', Validators.required], // Role selection
-            contactNum: ['', Validators.required] // New field
+            workRegion: [''], // New field
+            workProvince: [''], // New field
+            workMunicipality: [''], // New field
+            workBarangay: [''], // New field
+            workStreet: [''], // New field
+            workBlockLotUnit: [''], // New field
+            workZipCode: [''], // New field
+            contactNum: ['', Validators.required], // New field
+            isSameAddress: [false],
         });
     }
 
@@ -97,13 +100,37 @@ export class CreateAccountComponent implements OnInit {
         }
     }
 
-    // Method to handle form submission
-    onSubmit() {
-        this.errorMessage = ''; // Clear previous error message
-        console.log('Form Value:', this.registrationForm.value); // Log form value
-        console.log('Form Errors:', this.registrationForm.errors); // Log form errors
+    submitLocation(locationData: ILocation) {
+        const { zipCode } = locationData
+        return new Promise((resolve, reject) => {
+            this.accountService.postLocation(zipCode, locationData).subscribe(data => {
+                console.log(data)
+                resolve(data)
+            });
+        })
+    }
 
-        // Log the validity of each form control
+    submitPerson(personData: IPerson) {
+        return new Promise((resolve, reject) => {
+            this.accountService.postPerson(personData).subscribe(data => {
+                console.log(data)
+                resolve(data)
+            });
+        })
+    }
+
+    submitAccount(accountData: IAccount) {
+        return new Promise((resolve, reject) => {
+            this.accountService.postAccount(accountData).subscribe(data => {
+                console.log(data)
+                resolve(data)
+            });
+        })
+    }
+    // Method to handle form submission
+    async onSubmit() {
+        this.errorMessage = ''; // Clear previous error message
+        // // Log the validity of each form control
         Object.keys(this.registrationForm.controls).forEach(key => {
             const controlErrors = this.registrationForm.get(key)?.errors;
             if (controlErrors != null) {
@@ -113,74 +140,71 @@ export class CreateAccountComponent implements OnInit {
 
         if (this.registrationForm.valid && this.passwordValid) {
             const accountData = this.registrationForm.value; // Get account data from the form
-
-            // Adjust role based on the selected role
-            if (accountData.role === 'User') {
-                accountData.role = accountData.certification ? 'User (Certified)' : 'User (Uncertified)';
+            // Ensure role is always set to "User (Uncertified)"
+            accountData.role = 'User (Uncertified)';
+            const ids = {
+                homeAddressId: 0,
+                workAddressId: 0,
+                personId: 0
             }
 
-            this.accountService.postAccount(accountData).subscribe(
-                (response: any) => {
-                    alert('Registration successful'); // Alert on successful registration
-                    console.log('Account Data:', accountData); // Log account data
-                    this.router.navigate(['/home-page']); // Navigate to home page
+            const homeLocationData: ILocation = {
+                zipCode: accountData.zipCode,
+                region: accountData.region,
+                province: accountData.province,
+                municipality: accountData.municipality,
+                barangay: accountData.barangay,
+                street: accountData.street,
+                blockLotUnit: accountData.blockLotUnit,
+            };
+            // Submit home address 
+            const homeLocationRequest: any = await this.submitLocation(homeLocationData)
+            // assigning homeaddress ID
+            ids.homeAddressId = homeLocationRequest.id
+            ids.workAddressId = homeLocationRequest.id;
 
-                    // Post person and location data
-                    const personData = { 
-                        firstName: accountData.firstName,
-                        middleName: accountData.middleName,
-                        lastName: accountData.lastName,
-                        gender: accountData.gender,
-                        dateOfBirth: accountData.dateOfBirth,
-                        civilStatus: accountData.civilStatus, // New field
-                        role: accountData.role // Ensure role is included
-                    };
-                    const personRequest = this.accountService.postPerson(personData);
+            if (!accountData.isSameAddress) {
+                const { workRegion, workProvince, workMunicipality, workBarangay, workStreet, workBlockLotUnit, workZipCode } = accountData
 
-                    const homeLocationData = {
-                        zipCode: accountData.zipCode,
-                        region: accountData.region,
-                        province: accountData.province,
-                        municipality: accountData.municipality,
-                        barangay: accountData.barangay,
-                        street: accountData.street,
-                        blockLotUnit: accountData.blockLotUnit,
-                    };
-                    const homeLocationRequest = this.accountService.postLocation(accountData.zipCode, homeLocationData);
+                // submit work address if not the same address with home address
+                const workLocationRequest: any = await this.submitLocation({
+                    zipCode: workZipCode,
+                    region: workRegion,
+                    province: workProvince,
+                    municipality: workMunicipality,
+                    barangay: workBarangay,
+                    street: workStreet,
+                    blockLotUnit: workBlockLotUnit,
+                })
+                ids.workAddressId = workLocationRequest.id
+            }
 
-                    let workLocationRequest;
-                    if (!this.isSameAddress) {
-                        workLocationRequest = this.accountService.postLocation(this.userWorkAddress.zipCode, {
-                            region: this.userWorkAddress.region,
-                            province: this.userWorkAddress.province,
-                            municipality: this.userWorkAddress.municipality,
-                            barangay: this.userWorkAddress.barangay,
-                            street: this.userWorkAddress.street,
-                            blockLotUnit: this.userWorkAddress.blockLotUnit,
-                        });
-                    }
+            const personData: IPerson = {
+                firstname: accountData.firstName,
+                middlename: accountData.middleName,
+                lastname: accountData.lastName,
+                sex: accountData.gender,
+                birthdate: accountData.dateOfBirth,
+                bioStatus: true,
+                civilStatus: accountData.civilStatus,
+            }
+            //   submit person data request
+            const personRequest: any = await this.submitPerson(personData);
+            ids.personId = personRequest.id
 
-                    // Handle multiple requests
-                    const requests = [personRequest, homeLocationRequest];
-                    if (workLocationRequest) {
-                        requests.push(workLocationRequest);
-                    }
-
-                    // Execute all requests
-                    Promise.all(requests).then(() => {
-                        console.log('All requests completed successfully');
-                    }).catch((error) => {
-                        console.error('Error in one of the requests', error);
-                    });
-                },
-                (error: any) => {
-                    console.error('Failed to register account', error); // Log error if registration fails
-                    console.log('Account Data:', accountData); // Log account data
-                    if (error.error && error.error.errors) {
-                        console.log('Validation Errors:', error.error.errors); // Log validation errors
-                    }
-                }
-            );
+            const accountReqData: IAccount = {
+                ...personData,
+                email: accountData.email,
+                password: accountData.password,
+                contactNum: accountData.contactNum,
+                ...ids,
+                role: 'user',
+            }
+            // submit to account
+            const accountRequest: any = await this.submitAccount(accountReqData);
+            if (accountRequest.code === 200) {
+                this.router.navigate(['/login'])
+            }
         } else {
             this.errorMessage = 'Please fill in all required fields correctly.'; // Set error message
             console.log('Form is invalid', this.registrationForm.errors); // Log form errors
@@ -231,7 +255,7 @@ export class CreateAccountComponent implements OnInit {
         this.showPassword = !this.showPassword;
     }
 
-    // Method to toggle confirm password visibility
+    // Method to toggle confirm password visibilitys
     toggleConfirmPasswordVisibility() {
         this.showConfirmPassword = !this.showConfirmPassword;
     }

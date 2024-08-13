@@ -1,0 +1,24 @@
+{
+    "index_crimes": [
+        {
+            "id": 1,
+            "type": "Crimes Against Persons",
+            "offenses": [
+                "Murder",
+                "Homicide",
+                "Physical Injury",
+                "Rape"
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Crimes Against Property",
+            "offenses": [
+                "Robbery",
+                "Theft",
+                "Carnapping",
+                "Cattle Rustling"
+            ]
+        }
+    ]
+}
