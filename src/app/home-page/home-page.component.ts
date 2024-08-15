@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  userAvatar: string = 'assets/default-avatar.png'; // Default avatar
+
+  constructor(private authService: AuthService) {
+      this.loadUserProfile();
+  }
+
+  loadUserProfile() {
+      const user = this.authService.getUserRoles(); // Assuming you have a method to get the logged-in user
+      if (user && user.avatarUrl) {
+          this.userAvatar = user.avatarUrl; // Set the avatar URL from the user data
+      }
+  }
   reports = [
     { id: 1, title: 'Burglary in Downtown', date: 'August 1, 2024', description: 'A burglary occurred at the downtown retail store. No injuries reported.' },
     { id: 2, title: 'Robbery Attempt', date: 'July 30, 2024', description: 'An attempted robbery at the local convenience store. Suspects were apprehended.' },
