@@ -171,13 +171,13 @@
         <div *ngIf="!registrationForm.get('isSameAddress')?.value">
           <div class="form-group">
             <label for="workRegion">Region</label>
-            <select formControlName="workRegion" id="workRegion" required>
+            <select formControlName="workRegion" id="workRegion">
               <option value="" disabled selected>Select Region</option>
               <option>Select Region</option>
               <option>Region VII</option>
             </select>
             <label for="workProvince">Province</label>
-            <select formControlName="workProvince" id="workProvince" required>
+            <select formControlName="workProvince" id="workProvince">
               <option value="" disabled selected>Select Province</option>
               <option>Select Province</option>
               <option>Cebu</option>
@@ -188,14 +188,13 @@
             <select
               formControlName="workMunicipality"
               id="workMunicipality"
-              required
             >
               <option value="" disabled selected>Select Municipality</option>
               <option>Select Municipality</option>
               <option>Minglanilla</option>
             </select>
             <label for="workBarangay">Barangay</label>
-            <select formControlName="workBarangay" id="workBarangay" required>
+            <select formControlName="workBarangay" id="workBarangay">
               <option value="" disabled selected>Select Barangay</option>
               <option>Select Barangay</option>
               <option>Pakigne</option>
@@ -208,7 +207,6 @@
               formControlName="workStreet"
               id="workStreet"
               placeholder="Enter Street"
-              required
             />
             <label for="workBlockLotUnit">Block/Lot/Unit Number</label>
             <input
@@ -216,7 +214,6 @@
               formControlName="workBlockLotUnit"
               id="workBlockLotUnit"
               placeholder="Enter Block/Lot/Unit Number"
-              required
             />
             <label for="workZipCode">Zip Code</label>
             <input
@@ -224,7 +221,6 @@
               formControlName="workZipCode"
               id="workZipCode"
               placeholder="Enter Zip Code"
-              required
             />
           </div>
         </div>

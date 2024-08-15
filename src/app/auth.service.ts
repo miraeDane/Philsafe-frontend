@@ -21,11 +21,10 @@ export class AuthService {
   private options = { headers: new HttpHeaders({ responseType: "json" }) };
 
   constructor(private http: HttpClient) { }
-  login(data: ILogin): any {
-    return { message: 'success' }
-    // return this.http.post(this.loginURL, data, this.options).pipe(
-    // catchError(this.handleError)
-    // );
+  login(data: ILogin): Observable<any> {
+    return this.http.post(this.loginURL, data, this.options).pipe(
+    catchError(this.handleError)
+    );
   }
 
   setAuthentication(auth: { token: string, role: string }) {
@@ -51,7 +50,7 @@ export class AuthService {
     return throwError(errorMessage);
   }
   getUserRoles(): Observable<string[]> {
-    const roles = localStorage.getItem('roles') || null;
+    const roles = localStorage.getItem('access-roles') || null;
     return of(roles ? window.atob(roles).split(',') : [])
   }
 

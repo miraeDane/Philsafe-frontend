@@ -26,8 +26,11 @@ import { roleGuard } from './auth.guard';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 
 
+// station-edit-officers
+// , canActivate: [roleGuard], data: { roles: ['chief'] } 
 
-
+// station-crime-map
+// , canActivate: [roleGuard], data: { roles: ['police'] } 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -38,9 +41,9 @@ const routes: Routes = [
   { path: 'suspect-data', component: SuspectDataComponent },
   { path: 'victim-data', component: VictimDataComponent },
   { path: 'narrative-of-incident', component: NarrativeOfIncidentComponent },
-  { path: 'station-edit-officers', component: StationEditOfficersComponent, canActivate: [roleGuard], data: { roles: ['chief'] } },
+  { path: 'station-edit-officers', component: StationEditOfficersComponent},
   { path: 'add-new-officer', component: AddNewOfficerComponent },
-  { path: 'station-crime-map', component: StationCrimeMapComponent, canActivate: [roleGuard], data: { roles: ['police'] } },
+  { path: 'station-crime-map', component: StationCrimeMapComponent},
   { path: 'station-dashboard', component: StationDashboardComponent },
   { path: 'police-login', component: PoliceLoginComponent },
   { path: 'police-register', component: PoliceRegisterComponent },

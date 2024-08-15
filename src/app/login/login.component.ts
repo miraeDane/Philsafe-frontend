@@ -28,35 +28,46 @@ export class LoginComponent {
 
   submitLogin(loginData: {email: string, password: string}) {
     return new Promise((resolve, reject) => {
-        // this.authService.login(loginData).subscribe(data => {
-        //     console.log(data)
-        //     resolve(data)
-        // });
-        resolve({message:'okay'})
+        this.authService.login(loginData).subscribe(data => {
+            console.log(data)
+            resolve(data)
+        });
     })
 }
 
-  async onSubmit() {
-    if (this.loginForm.valid) {
-      const{username,password}=this.loginForm.value
-      const loginReq = await this.submitLogin({email:username, password})
-      console.log(loginReq)
-      this.authService.setAuthentication({token:'zdfdfzfdf', role:'admin'})
-      // this.http.post('http://localhost:5100/api/account/login', this.loginForm.value)
-      //   .subscribe({
-      //     next: (response: any) => {
-      //       // Handle successful login, e.g., store token and navigate
-      //       localStorage.setItem('token', response.token);
-      //       this.router.navigate(['/homepage']);
-      //     },
-      //     error: (error) => {
-      //       // Handle error
-      //       this.errorMessage = 'Incorrect username or password.';
-      //       this.loginForm.controls['password'].reset();
-      //       this.loginForm.controls['password'].setErrors({ 'incorrect': true });
-      //       this.loginForm.controls['password'].markAsTouched();
-      //     }
-      //   });
-    }
+//adding this new function for reggex part of logging in
+identifySignInType(input: string): string {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const contactNumberRegex = /^(09|\+639|639)\d{9}$/;
+
+  if (emailRegex.test(input)) {
+    return 'Email';
+  } else if (contactNumberRegex.test(input)) {
+    return 'Contact_Number';
+  } else {
+    return 'Invalid';
   }
+}
+
+// original code for async onSubmit
+//   async onSubmit() {
+//     if (this.loginForm.valid) {
+//       const{username,password}=this.loginForm.value
+//       const loginReq = await this.submitLogin({email:username, password})
+//       console.log(loginReq)
+//       this.authService.setAuthentication({token:'zdfdfzfdf', role:'admin'})
+//     }
+//   }
+// }
+
+// new code for async onSubmit
+async onSubmit() {
+  if (this.loginForm.valid) {
+    const { username, password } = this.loginForm.value;
+    const signInType = this.identifySignInType(username); // Identify sign-in type
+    const loginReq = await this.submitLogin({ email: username, password });
+    console.log(loginReq);
+    this.authService.setAuthentication({ token: 'zdfdfzfdf', role: 'admin' });
+  }
+}
 }
