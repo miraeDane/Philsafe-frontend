@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="emergency-banner">
+      In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="flex h-screen">
+      <aside class="bg-zinc-100 sidebar p-4 flex flex-col items-center">
+        <button type="submit" class="back-button" style="align-self: flex-start;">BACK</button> <!-- Removed mt-6 class -->
+        <div class="p-4 text-center">
+          <img src="assets/general.png" alt="Profile Picture" class="rounded-full mb-4" style="width: 180px; height: 180px;">
+        </div>
+        <nav class="mt-7">
+          <!-- Increased margin-top to create more space -->
+          <ul class="list-none p-0">
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fadeprofile.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+                <span>PROFILE ACCOUNT</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/jurisdiction.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+                <span>JURISDICTION</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fadeprivacy.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+                <span>PRIVACY</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <img src="assets/fademembers.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+                <span>MEMBERS</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button type="submit" class="logout-button mt-auto">LOG OUT</button>
+      </aside>
+      <div class="flex-1 p-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h2 class="text-blue-500 font-bold text-lg mb-4">JURISDICTION</h2>
+          <h3 class="text-xl font-semibold">PCPT Jason P. Enriquez</h3>
+          <span class="text-zinc-500">Updated 24mins ago</span>
+          <div class="mt-6">
+            <h4 class="font-semibold mb-2">Regional Details</h4>
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label class="block text-zinc-700">Region Office</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded" value="Police Regional Office 7 (PRO7)" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Provincial/City/District</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded" value="Cebu City Police Office" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Regional Director</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded" value="PCOL Ireneo Dalogdog" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4 class="font-semibold mb-2">Station Details</h4>
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label class="block text-zinc-700">Station</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded" value="Police Station 2 Abellana Cebu City" readonly>
+              </div>
+              <div>
+                <label class="block text-zinc-700">Officer In-Charge</label>
+                <input type="text" class="w-full border border-zinc-300 p-2 rounded" value="PCPT Mark Eric Papong" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

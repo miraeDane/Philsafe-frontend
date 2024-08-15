@@ -1,0 +1,364 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-section">
+      <div class="header">
+        <h1>Create Account</h1>
+        <img src="assets/logo.svg" alt="Logo" class="logo" />
+      </div>
+      <form
+        [formGroup]="registrationForm"
+        (ngSubmit)="onSubmit()"
+        enctype="multipart/form-data"
+      >
+        <!-- Profile Picture Section -->
+        <div class="profile-pic-container">
+          <input
+            type="file"
+            id="profile-pic-input"
+            (change)="onPhotoSelected($event)"
+            accept="image/*"
+            hidden
+          />
+          <label for="profile-pic-input" class="profile-pic-label">
+            <img
+              *ngIf="profilePic"
+              [src]="profilePic"
+              alt="Profile Picture"
+              class="profile-pic"
+            />
+            <i
+              *ngIf="!profilePic"
+              class="fa fa-user-circle profile-pic-icon"
+            ></i>
+          </label>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="section-header">Personal Information</div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            id="firstName"
+            placeholder="Enter First Name"
+            required
+          />
+          <label for="middleName">Middle Name</label>
+          <input
+            type="text"
+            formControlName="middleName"
+            id="middleName"
+            placeholder="Enter Middle Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            id="lastName"
+            placeholder="Enter Last Name"
+            required
+          />
+          <label for="dateOfBirth">Date of Birth</label>
+          <input
+            type="date"
+            formControlName="dateOfBirth"
+            id="dateOfBirth"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select formControlName="gender" id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="P">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="civilStatus">Civil Status</label>
+          <select formControlName="civilStatus" id="civilStatus" required>
+            <option value="" disabled selected>Select Civil Status</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="separated">Separated</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+          </select>
+        </div>
+
+        <!-- Home Address Section -->
+        <div class="section-header">Home Address</div>
+        <div class="form-group">
+          <label for="region">Region</label>
+          <select formControlName="region" id="region" required>
+            <option value="" disabled selected>Select Region</option>
+            <option>Select Region</option>
+            <option>Region VII</option>
+          </select>
+          <label for="province">Province</label>
+          <select formControlName="province" id="province" required>
+            <option value="" disabled selected>Select Province</option>
+            <option>Select Province</option>
+            <option>Cebu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="municipality">Municipality</label>
+          <select formControlName="municipality" id="municipality" required>
+            <option value="" disabled selected>Select Municipality</option>
+            <option>Select Municipality</option>
+            <option>Minglanilla</option>
+          </select>
+          <label for="barangay">Barangay</label>
+          <select formControlName="barangay" id="barangay" required>
+            <option value="" disabled selected>Select Barangay</option>
+            <option>Select Barangay</option>
+            <option>Pakigne</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input
+            type="text"
+            formControlName="street"
+            id="street"
+            placeholder="Enter Street"
+            required
+          />
+          <label for="blockLotUnit">Block/Lot/Unit Number</label>
+          <input
+            type="text"
+            formControlName="blockLotUnit"
+            id="blockLotUnit"
+            placeholder="Enter Block/Lot/Unit Number"
+            required
+          />
+          <label for="zipCode">Zip Code</label>
+          <input
+            type="text"
+            formControlName="zipCode"
+            id="zipCode"
+            placeholder="Enter Zip Code"
+            required
+          />
+        </div>
+
+        <!-- Work Address Section -->
+        <div class="section-header">Work Address</div>
+        <div class="form-group">
+          <div class="checkbox-group">
+            <input
+              type="checkbox"
+              formControlName="isSameAddress"
+              id="isSameAddress"
+            />
+            <label for="isSameAddress" class="certification-label">
+              <span class="certification-text"
+                >Click here if the Work Address is the same as the Home
+                Address.</span
+              >
+            </label>
+          </div>
+        </div>
+        <div *ngIf="!registrationForm.get('isSameAddress')?.value">
+          <div class="form-group">
+            <label for="workRegion">Region</label>
+            <select formControlName="workRegion" id="workRegion">
+              <option value="" disabled selected>Select Region</option>
+              <option>Select Region</option>
+              <option>Region VII</option>
+            </select>
+            <label for="workProvince">Province</label>
+            <select formControlName="workProvince" id="workProvince">
+              <option value="" disabled selected>Select Province</option>
+              <option>Select Province</option>
+              <option>Cebu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="workMunicipality">Municipality</label>
+            <select
+              formControlName="workMunicipality"
+              id="workMunicipality"
+            >
+              <option value="" disabled selected>Select Municipality</option>
+              <option>Select Municipality</option>
+              <option>Minglanilla</option>
+            </select>
+            <label for="workBarangay">Barangay</label>
+            <select formControlName="workBarangay" id="workBarangay">
+              <option value="" disabled selected>Select Barangay</option>
+              <option>Select Barangay</option>
+              <option>Pakigne</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="workStreet">Street</label>
+            <input
+              type="text"
+              formControlName="workStreet"
+              id="workStreet"
+              placeholder="Enter Street"
+            />
+            <label for="workBlockLotUnit">Block/Lot/Unit Number</label>
+            <input
+              type="text"
+              formControlName="workBlockLotUnit"
+              id="workBlockLotUnit"
+              placeholder="Enter Block/Lot/Unit Number"
+            />
+            <label for="workZipCode">Zip Code</label>
+            <input
+              type="text"
+              formControlName="workZipCode"
+              id="workZipCode"
+              placeholder="Enter Zip Code"
+            />
+          </div>
+        </div>
+
+        <!-- Account Information Section -->
+        <div class="section-header">Account Information</div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            formControlName="email"
+            id="email"
+            placeholder="Enter Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="contactNum">Contact Number</label>
+          <input
+            type="text"
+            formControlName="contactNum"
+            id="contactNum"
+            placeholder="Enter Contact Number"
+            required
+          />
+        </div>
+        <div class="mb-4 relative">
+          <label for="password" class="font-bold">Password</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            class="password-input w-full p-3 rounded-lg border border-zinc-300 pr-10"
+            formControlName="password"
+            id="password"
+            required
+            (input)="onPasswordChange()"
+            [type]="showPassword ? 'text' : 'password'"
+          />
+          <i
+            (click)="togglePasswordVisibility()"
+            class="absolute right-3 top-3 cursor-pointer"
+            [ngClass]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
+          ></i>
+          <div class="mt-1">
+            <div
+              class="h-1"
+              [ngClass]="{
+                'bg-green-500': passwordValid,
+                'bg-yellow-500': passwordStrength === 'Medium password',
+                'bg-red-500':
+                  !passwordValid && passwordStrength === 'Weak password'
+              }"
+              [style.width]="progressBarWidth"
+            ></div>
+            <div
+              class="text-center mt-1"
+              [ngClass]="{
+                'text-green-500': passwordValid,
+                'text-yellow-500': passwordStrength === 'Medium password',
+                'text-red-500': !passwordValid
+              }"
+              style="font-size: 0.875rem; font-weight: bold"
+            >
+              {{ passwordStrength }}
+            </div>
+          </div>
+          <div class="text-red-500 mt-2" style="font-size: 0.75rem">
+            <ul>
+              <li *ngFor="let requirement of passwordRequirements">
+                {{ requirement }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-4 relative">
+          <label for="confirmPassword" class="font-bold"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            class="confirm-password-input w-full p-3 rounded-lg border border-zinc-300 pr-10"
+            formControlName="confirmPassword"
+            id="confirmPassword"
+            required
+            [type]="showConfirmPassword ? 'text' : 'password'"
+          />
+          <i
+            (click)="toggleConfirmPasswordVisibility()"
+            class="absolute right-3 top-3 cursor-pointer"
+            [ngClass]="showConfirmPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
+          ></i>
+          <div
+            *ngIf="
+              registrationForm.get('confirmPassword')?.touched &&
+              registrationForm.get('confirmPassword')?.value !==
+                registrationForm.get('password')?.value
+            "
+            class="text-red-500 mt-1"
+            style="font-size: 0.75rem"
+          >
+            Passwords do not match.
+          </div>
+        </div>
+
+        <!-- Certification Checkbox -->
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            formControlName="certification"
+            id="certification"
+            required
+          />
+          <label for="certification" class="certification-label">
+            <span class="certification-text"
+              >I hereby certify to the correctness of the foregoing to the best
+              of my knowledge and belief.</span
+            >
+          </label>
+        </div>
+
+        <!-- Error Message -->
+        <div
+          *ngIf="errorMessage"
+          class="text-red-500 mt-2"
+          style="font-size: 0.75rem"
+        >
+          {{ errorMessage }}
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <button type="button" class="back-button" routerLink="/login">
+            BACK
+          </button>
+          <button type="submit" class="register-btn">REGISTER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

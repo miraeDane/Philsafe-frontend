@@ -1,0 +1,64 @@
+{
+    "non_index_crimes": [
+        {
+            "id": 1,
+            "offense": "Illegal Drugs"
+        },
+        {
+            "id": 2,
+            "offense": "Illegal Gambling"
+        },
+        {
+            "id": 3,
+            "offense": "Illegal Possession of Firearms"
+        },
+        {
+            "id": 4,
+            "offense": "Violation of Environmental Laws"
+        },
+        {
+            "id": 5,
+            "offense": "Cybercrimes"
+        },
+        {
+            "id": 6,
+            "offense": "Traffic Violations"
+        },
+        {
+            "id": 7,
+            "offense": "Violations of local ordinances"
+        },
+        {
+            "id": 8,
+            "offense": "Smuggling"
+        },
+        {
+            "id": 9,
+            "offense": "Human Trafficking"
+        },
+        {
+            "id": 10,
+            "offense": "Illegal Logging"
+        },
+        {
+            "id": 11,
+            "offense": "Estafa"
+        },
+        {
+            "id": 12,
+            "offense": "Falsification of Documents"
+        },
+        {
+            "id": 13,
+            "offense": "Libel"
+        },
+        {
+            "id": 14,
+            "offense": "Adultery and Concubinage"
+        },
+        {
+            "id": 15,
+            "offense": "Cyberbullying"
+        }
+    ]
+}

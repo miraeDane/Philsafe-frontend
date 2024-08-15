@@ -1,0 +1,103 @@
+.emergency-banner {
+    background-color: #1e40af;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: -1rem;
+}
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Container styling */
+.form-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+/* Header styling */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 40px;
+    margin-bottom: 5px;
+}
+
+.form-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Form layout */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group {
+    width: 48%; /* Adjust this to control spacing between columns */
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center; /* Space between buttons */
+    margin-top: 20px; /* Add some space above the buttons */
+}
+
+/* Button styles */
+.register-button, .back-button {
+    padding: 10px 70px; /* Add padding for button size */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 0 10px;
+}
+
+.register-button {
+    background-color: #D32F2F; /* Blue background for Register */
+}
+
+.back-button {
+    background-color: #003DA5; /* Red background for Back */
+    text-decoration: none; /* Remove underline from link */
+    display: flex; /* Flex display for centering text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+}
+
+/* Hover effects */
+.register-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.back-button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}

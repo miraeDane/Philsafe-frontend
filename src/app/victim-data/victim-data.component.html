@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+      <select class="incident-type">
+        <option>Type of Incident</option>
+      </select>
+      <img src="assets/logo.svg" alt="Incident Report Logo" class="logo mx-auto mb-2">
+    </div>
+    <h1 class="form-title">INCIDENT REPORT FORM</h1>
+    <div class="form-navigation"> 
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button blue-button" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+    </div>
+    <form class="form-content" (ngSubmit)="onSubmit()">
+      <fieldset class="fieldset">
+        <legend class="legend">PERSONAL INFORMATION</legend>
+        <div class="checkbox-container">
+          <input type="checkbox" [(ngModel)]="formData.isReporterVictim" (change)="onReporterVictimChange()">
+          <label>Check here if the reporter is also a victim and thereafter proceed to Item "D"</label>
+        </div>
+        <div class="grid">
+          <input type="text" [(ngModel)]="formData.familyName" placeholder="Family Name" class="input" required>
+          <input type="text" [(ngModel)]="formData.firstName" placeholder="First Name" class="input" required>
+          <input type="text" [(ngModel)]="formData.middleName" placeholder="Middle Name" class="input">
+          <input type="text" [(ngModel)]="formData.citizenship" placeholder="Citizenship" class="input">
+          <input type="text" [(ngModel)]="formData.status" placeholder="Status" class="input">
+          <input type="text" [(ngModel)]="formData.gender" placeholder="Gender" class="input">
+          <input type="text" [(ngModel)]="formData.dob" placeholder="Date of Birth (MM/DD/YYYY)" class="input" required>
+          <input type="text" [(ngModel)]="formData.placeOfBirth" placeholder="Place of Birth" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">CONTACT DETAILS</legend>
+        <div class="grid">
+          <input type="text" [(ngModel)]="formData.homePhone" placeholder="Home Phone" class="input">
+          <input type="text" [(ngModel)]="formData.mobilePhone" placeholder="Mobile Phone" class="input">
+          <input type="text" [(ngModel)]="formData.email" placeholder="Email Address" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">ADDRESS</legend>
+        <div class="checkbox-container">
+          <input type="checkbox" [(ngModel)]="formData.isSameAddress" (change)="onSameAddressChange()">
+          <label>Click here if current address is same with other address</label>
+        </div>
+        <div class="grid">
+          <input type="text" [(ngModel)]="formData.currentAddress" placeholder="Current Address (House Number / Street)" class="input">
+          <input type="text" [(ngModel)]="formData.village" placeholder="Village / Sitio" class="input">
+          <input type="text" [(ngModel)]="formData.barangay" placeholder="Barangay" class="input">
+          <input type="text" [(ngModel)]="formData.town" placeholder="Town / City" class="input">
+          <input type="text" [(ngModel)]="formData.province" placeholder="Province" class="input">
+          <input type="text" [(ngModel)]="formData.otherAddress" placeholder="Other Address (House Number / Street)" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">WORK DETAILS</legend>
+        <div class="grid">
+          <input type="text" [(ngModel)]="formData.workOccupation" placeholder="Occupation" class="input">
+          <input type="text" [(ngModel)]="formData.workAddress" placeholder="Work Address" class="input">
+          <input type="text" [(ngModel)]="formData.workPhone" placeholder="Work Phone" class="input">
+        </div>
+      </fieldset>
+      <div class="form-footer-left">
+        <button type="button" class="submit-button">Add more victim</button>
+      </div>
+      <div class="form-footer mt-6">
+        <button type="submit" class="submit-button">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

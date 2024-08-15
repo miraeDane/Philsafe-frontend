@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="flex h-screen">
+    <aside class="bg-zinc-100 sidebar p-4 flex flex-col items-center">
+      <button type="submit" class="back-button mt-6" style="align-self: flex-start;">BACK</button> <!-- Removed mt-6 class -->
+      <div class="p-4 text-center">
+        <img src="assets/general.png" alt="Profile Picture" class="rounded-full mb-4" style="width: 180px; height: 180px;">
+        <h2 class="text-lg font-semibold">PCT Jason P. Enriquez</h2>
+        <p class="text-sm text-zinc-600">Police Station 2, Abellana </p>
+      </div>
+      <nav class="mt-4"> <!-- Reduced margin-top to create less space -->
+        <ul class="list-none p-0">
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/dashboard.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+              <span>DASHBOARD</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/crime.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+              <span>CASES</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/crime-map.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+              <span>CRIME MAP</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/support.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+              <span>CONTACT SUPPORT</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button type="submit" class="logout-button mt-auto">LOG OUT</button> <!-- Centered logout button -->
+    </aside>
+    <div class="main-content bg-background p-6">
+      <div class="flex justify-between items-center mb-6 mt-4">
+        <select class="border border-zinc-300 rounded p-2">
+          <option>Quarterly</option>
+          <option>Monthly</option>
+          <option>Yearly</option>
+        </select>
+        <div class="flex items-center space-x-4">
+          <button type="submit" class="refresh-button mt-6" style="align-self: flex-start;">
+            <!-- <img src="assets/refresh.svg" alt="Refresh Icon" class="icon-small"> -->
+            <span>REFRESH</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-blue-100 p-4 rounded-lg text-center">
+          <h2 class="text-lg font-bold">Solved Crimes</h2>
+          <p class="text-4xl font-bold">498</p>
+        </div>
+        <div class="bg-green-100 p-4 rounded-lg text-center">
+          <h2 class="text-lg font-bold">Number of reported crimes</h2>
+          <p class="text-4xl font-bold">1,598</p>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg text-center">
+          <h2 class="text-lg font-bold">Under investigation</h2>
+          <p class="text-4xl font-bold">578</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg">
+        <img src="https://placehold.co/600x300" alt="Chart Placeholder">
+      </div>
+    </div>
+  </div>
+</div>

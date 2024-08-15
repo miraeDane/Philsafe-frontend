@@ -1,0 +1,253 @@
+.emergency-banner {
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+    position: fixed; /* Changed to fixed to keep it at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+:root {
+    --background: #ffffff; /* white */
+    --foreground: #1a1a1a; /* dark gray */
+    --card: #ffffff; /* white */
+    --card-foreground: #1a1a1a; /* dark gray */
+    --popover: #ffffff; /* white */
+    --popover-foreground: #1a1a1a; /* dark gray */
+    --primary: #1a1a1a; /* dark gray */
+    --primary-foreground: #fafafa; /* very light gray */
+    --secondary: #f3f3f3; /* very light gray */
+    --secondary-foreground: #1a1a1a; /* dark gray */
+    --muted: #f3f3f3; /* very light gray */
+    --muted-foreground: #767676; /* medium gray */
+    --accent: #f3f3f3; /* very light gray */
+    --accent-foreground: #1a1a1a; /* dark gray */
+    --destructive: #d93636; /* red */
+    --destructive-foreground: #fafafa; /* very light gray */
+    --border: #e6e6e6; /* light gray */
+    --input: #e6e6e6; /* light gray */
+    --ring: #1a1a1a; /* dark gray */
+    --radius: 0.5rem; /* 8px */
+}
+
+.dark {
+    --background: #1a1a1a; /* dark gray */
+    --foreground: #fafafa; /* very light gray */
+    --card: #1a1a1a; /* dark gray */
+    --card-foreground: #fafafa; /* very light gray */
+    --popover: #1a1a1a; /* dark gray */
+    --popover-foreground: #fafafa; /* very light gray */
+    --primary: #fafafa; /* very light gray */
+    --primary-foreground: #1a1a1a; /* dark gray */
+    --secondary: #404040; /* medium dark gray */
+    --secondary-foreground: #fafafa; /* very light gray */
+    --muted: #404040; /* medium dark gray */
+    --muted-foreground: #a3a3a3; /* medium light gray */
+    --accent: #404040; /* medium dark gray */
+    --accent-foreground: #fafafa; /* very light gray */
+    --destructive: #a31a1a; /* dark red */
+    --destructive-foreground: #fafafa; /* very light gray */
+    --border: #404040; /* medium dark gray */
+    --input: #404040; /* medium dark gray */
+    --ring: #d6d6d6; /* light gray */
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.bg-zinc-100 {
+    background-color: #ffffff;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.max-w-lg {
+    max-width: 32rem;
+}
+
+.bg-blue-700 {
+    background-color: #1d4ed8;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.h-10 {
+    height: 2.5rem;
+}
+
+.w-10 {
+    width: 2.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.bg-zinc-200 {
+    background-color: #e6e6e6;
+}
+
+.text-black {
+    color: #000000;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.rounded-l-lg {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.bg-blue-600 {
+    background-color: #2563eb;
+}
+
+.rounded-r-lg {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.bg-blue-100 {
+    background-color: #dbeafe;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.text-zinc-600 {
+    color: #525252;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.input-field {
+    padding: 0.5rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    transition: box-shadow 0.2s;
+}
+
+button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-button {
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #b91c1c;
+  }
+
+  .back-button {
+    width: 15%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #b91c1c;
+  }

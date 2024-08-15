@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-top: 0px; 
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  .emergency-banner {
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: row;
+    max-width: 1024px;
+    margin-top: 50px;
+    background-color: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card-section {
+    flex: 1;
+    padding: 24px;
+  }
+  
+  .logo-section {
+    background-color: #bfdbfe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo {
+    margin-bottom: 16px;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .description {
+    text-align: center;
+    color: var(--muted-foreground);
+  }
+  
+  .form-section {
+    padding: 24px;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .highlight {
+    color: #dc2626;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .text-muted-foreground {
+    color: var(--muted-foreground);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .space-x-4 {
+    gap: 1rem;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .w-8 {
+    width: 2rem;
+  }
+  
+  .h-8 {
+    height: 2rem;
+  }
+  
+  .block {
+    display: block;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .mt-1 {
+    margin-top: 0.25rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .border {
+    border-width: 1px;
+  }
+  
+  .border-border {
+    border-color: var(--border);
+  }
+  
+  .rounded-md {
+    border-radius: 0.375rem;
+  }
+  
+  .p-2 {
+    padding: 0.5rem;
+  }
+  
+  .half-width {
+    width: 50%;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .text-blue-600 {
+    color: #2563eb;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  
+  .text-secondary-foreground {
+    color: var(--secondary-foreground);
+  }
+  
+  .hover\:bg-secondary\/80:hover {
+    background-color: rgba(var(--secondary), 0.8);
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+  
+  .hover\:bg-primary\/80:hover {
+    background-color: rgba(var(--primary), 0.8);
+  }
+  
+  .small-text {
+    font-size: 0.75rem;
+    text-align: justify;
+    padding: 10px 50px 20px;
+  }
+  
+  .amount-bold {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+    }
+  }
+
+  .back-button {
+    margin-top: 2.5rem;
+    width: 25%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #b91c1c;
+  }
+
+
+  .next-button {
+    margin-top: 2.5rem;
+    width: 25%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .next-button:hover {
+    background-color: #b91c1c;
+  }
+
+  .text-red-500 {
+    color: #f56565; /* Adjust the red color as needed */
+  }
+  
+  input.ng-invalid.ng-touched {
+    border-color: #f56565; /* Change border color for invalid inputs */
+  }
+  
+  input.ng-valid.ng-touched {
+    border-color: #48bb78; /* Change border color for valid inputs */
+  }
+
+  .error-message {
+    font-size: 0.5rem; /* Adjust the size as needed */
+  }

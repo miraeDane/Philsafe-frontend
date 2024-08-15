@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen flex flex-col items-center justify-center bg-zinc-100 p-4">
+      <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <div class="flex justify-between items-center mb-4">
+          <button type="submit" class="back-button" routerLink="login" [routerLink]="['/login']">BACK</button>
+        </div>
+        <div class="text-center mb-6">
+          <img aria-hidden="true" alt="logo" src="assets/logo.svg" class="mx-auto mb-2" width="100" height="100" />
+          <h1 class="text-xl font-semibold">Create Account</h1>
+        </div>
+        
+        <div id="user-nav" class="flex justify-center mb-6">
+          <button id="victim-nav" class="bg-blue-500 text-white py-2 px-100 rounded-l-lg border-none" [routerLink]="['/victim-register']">Victim</button>
+          <button id="witness-nav" class="bg-white text-black py-2 px-100 rounded-r-lg border-none" [routerLink]="['/witness-register']">Witness</button>
+        </div>
+        <div class="bg-blue-100 p-6 rounded-lg">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+              <input type="text" placeholder="First Name" class="w-full p-3 rounded-lg border border-zinc-300" formControlName="firstName" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Middle Name" class="w-full p-3 rounded-lg border border-zinc-300" formControlName="middleName" />
+            </div>
+            <div class="mb-4">
+              <input type="text" placeholder="Last Name" class="w-full p-3 rounded-lg border border-zinc-300" formControlName="lastName" />
+            </div>
+            <div class="mb-4">
+              <input type="email" placeholder="Email" class="w-full p-3 rounded-lg border border-zinc-300" formControlName="email" />
+            </div>
+            <div class="mb-4 relative">
+              <input type="password" placeholder="Password" class="w-full p-3 rounded-lg border border-zinc-300 pr-10" formControlName="password" (input)="onPasswordChange()" [type]="showPassword ? 'text' : 'password'" />
+              <i (click)="togglePasswordVisibility()" class="absolute right-3 top-3 cursor-pointer" [ngClass]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+              <div class="mt-1">
+                <div class="h-1" 
+                     [ngClass]="{'bg-green-500': passwordValid, 'bg-yellow-500': passwordStrength === 'Medium password', 'bg-red-500': !passwordValid && passwordStrength === 'Weak password'}" 
+                     [style.width]="progressBarWidth">
+                </div>
+                <div class="text-center mt-1" 
+                     [ngClass]="{'text-green-500': passwordValid, 'text-yellow-500': passwordStrength === 'Medium password', 'text-red-500': !passwordValid}" 
+                     style="font-size: 0.875rem; font-weight: bold;">
+                  {{ passwordStrength }}
+                </div>
+              </div>
+              <div class="text-red-500 mt-2" style="font-size: 0.75rem;">
+                <ul>
+                  <li *ngFor="let requirement of passwordRequirements">{{ requirement }}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mb-4 relative">
+              <input type="password" placeholder="Confirm Password" class="w-full p-3 rounded-lg border border-zinc-300 pr-10" formControlName="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" />
+              <i (click)="toggleConfirmPasswordVisibility()" class="absolute right-3 top-3 cursor-pointer" [ngClass]="showConfirmPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+              <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.value !== registerForm.get('password')?.value" class="text-red-500 mt-1" style="font-size: 0.75rem;">
+                Passwords do not match.
+              </div>
+            </div>
+            <div class="mb-4 flex items-center">
+              <input type="checkbox" id="terms" class="mr-2" formControlName="terms" />
+              <label for="terms" class="text-sm">I hereby certify to the correctness of the foregoing to the best of my knowledge and belief</label>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="register-button">REGISTER</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

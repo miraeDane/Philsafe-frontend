@@ -1,0 +1,379 @@
+.emergency-banner {
+  background-color: #1e40af;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: -1rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-zinc-100 {
+  background-color: #9BE8E8;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-zinc-600 {
+  color: #718096;
+}
+
+.mt-10 {
+  margin-top: 2.5rem; /* Increased margin-top to create more space */
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.relative {
+  position: relative;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.block {
+  display: block;
+}
+
+.text-zinc-700 {
+  color: #4a5568;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-zinc-300 {
+  border-color: #d1d5db;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.bg-purple-500 {
+  background-color: #9f7aea;
+}
+
+.bg-pink-500 {
+  background-color: #ed64a6;
+}
+
+.bg-teal-500 {
+  background-color: #38b2ac;
+}
+
+.bg-yellow-500 {
+  background-color: #ecc94b;
+}
+
+.bg-red-500 {
+  background-color: #f56565;
+}
+
+.bg-blue-500 {
+  background-color: #4299e1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.date-time {
+  margin-left: auto;
+}
+
+.nav-item span {
+  font-weight: bold; /* Make the text bold */
+}
+
+.nav-item:hover {
+  background-color: #edf2f7;
+}
+
+.contact-support {
+  padding: 1rem;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the items horizontally */
+  text-align: center;
+  margin-top: 1rem; /* Adjust this value to align with other nav items */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none; /* Remove underline */
+}
+
+.contact-support img {
+  margin-bottom: 0.5rem;
+}
+
+.contact-support span {
+  font-weight: bold; /* Make the text bold */
+}
+
+.contact-support:hover {
+  background-color: #edf2f7;
+}
+
+/* Center text below the image */
+.center-text {
+  text-align: center;
+  margin-top: 1rem; /* Adjust this value to move the text down */
+}
+
+/* Sidebar styles copied from add-new-officer.component.css */
+.sidebar {
+  width: 16rem; /* Adjusted width to make the container smaller */
+  padding-left: 1rem; /* Adjusted padding to make the container smaller */
+  margin: 0 auto; /* Center the sidebar */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: #374151;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold; /* Make the text bold */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.nav-link:hover {
+  background-color: #edf2f7;
+}
+
+.nav-link.active {
+  background-color: #edf2f7;
+  color: #1a202c;
+}
+
+.nav-icon {
+  margin-right: 0.5rem; /* Adjusted margin to make the container smaller */
+}
+
+/* Sidebar styles copied from station-crime-map.component.css */
+.w-64 {
+  width: 16rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.list-none {
+  list-style-type: none;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.text-zinc-700 {
+  color: #4a5568;
+}
+
+.hover\:bg-zinc-200:hover {
+  background-color: #e2e8f0;
+}
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.bg-zinc-200 {
+  background-color: #e2e8f0;
+}
+
+.hover\:bg-zinc-300:hover {
+  background-color: #d1d5db;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  margin-top: 1rem;
+}
+
+.h-500 {
+  height: 500px;
+}

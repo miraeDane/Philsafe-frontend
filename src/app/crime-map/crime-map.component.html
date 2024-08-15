@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="emergency-banner">
+      In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="flex justify-between items-center my-4">
+        <button type="submit" class="back-button mt-auto" [routerLink]="['/home-page']">BACK</button>
+        <div class="flex space-x-2">
+            <div class="select-container">
+                <select class="custom-select">
+                    <option>Cebu City</option>
+                    <option>Other City</option>
+                </select>
+            </div>
+            <div class="select-container">
+                <select class="custom-select">
+                    <option>Barangay Pasil</option>
+                    <option>Other Barangay</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="relative">
+        <div id="map" class="w-full rounded-lg" style="height: 500px;"></div>
+        <div class="absolute top-2 left-2 bg-white text-black p-2 rounded-lg">
+            <span class="font-semibold">Crime Occurrence</span>
+            <div class="flex space-x-1">
+                <span>0.00</span>
+                <span>1.06</span>
+                <span>2.11</span>
+                <span>3.17</span>
+                <span>4.23</span>
+            </div>
+        </div>
+    </div>
+    <p class="text-muted-foreground text-center mt-4">66 displayed</p>
+</div>

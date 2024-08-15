@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+      <select class="incident-type">
+        <option>Type of Incident</option>
+      </select>
+      <img src="assets/logo.svg" alt="Incident Report Logo" class="logo mx-auto mb-2">
+    </div>
+    <h1 class="form-title">INCIDENT REPORT FORM</h1>
+    <div class="form-navigation"> 
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button blue-button" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+    </div>
+    <form class="form-content" (ngSubmit)="onSubmit()">
+      <fieldset class="fieldset">
+        <legend class="legend">PERSONAL INFORMATION</legend>
+        <div class="grid">
+          <input type="text" placeholder="Family Name" class="input" [(ngModel)]="suspectData.familyName" name="familyName" required>
+          <input type="text" placeholder="First Name" class="input" [(ngModel)]="suspectData.firstName" name="firstName" required>
+          <input type="text" placeholder="Middle Name" class="input" [(ngModel)]="suspectData.middleName" name="middleName">
+          <input type="text" placeholder="Citizenship" class="input" [(ngModel)]="suspectData.citizenship" name="citizenship">
+          <input type="text" placeholder="Status" class="input" [(ngModel)]="suspectData.status" name="status">
+          <input type="text" placeholder="Gender" class="input" [(ngModel)]="suspectData.gender" name="gender">
+          <input type="text" placeholder="Last & First Date of Entry" class="input" [(ngModel)]="suspectData.entryDate" name="entryDate">
+          <input type="text" placeholder="Place of Birth" class="input" [(ngModel)]="suspectData.placeOfBirth" name="placeOfBirth">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">CONTACT DETAILS <span class="text-muted-foreground">(optional)</span></legend>
+        <div class="grid">
+          <input type="text" placeholder="Home Phone" class="input" [(ngModel)]="suspectData.homePhone" name="homePhone">
+          <input type="text" placeholder="Mobile Phone" class="input" [(ngModel)]="suspectData.mobilePhone" name="mobilePhone">
+          <input type="email" placeholder="Email Address" class="input" [(ngModel)]="suspectData.email" name="email">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">ADDRESS</legend>
+        <div class="checkbox-container">
+          <input type="checkbox" id="same-address" class="checkbox" [(ngModel)]="suspectData.sameAddress" (change)="onSameAddressChange()">
+          <label for="same-address">Click here if current address is same with other address</label>
+        </div>
+        <div class="grid">
+          <input type="text" placeholder="Current Address House Number / Street" class="input" [(ngModel)]="suspectData.currentAddress" name="currentAddress">
+          <input type="text" placeholder="Village / Sitio" class="input" [(ngModel)]="suspectData.village" name="village">
+          <input type="text" placeholder="Barangay" class="input" [(ngModel)]="suspectData.barangay" name="barangay">
+          <input type="text" placeholder="Town / City" class="input" [(ngModel)]="suspectData.town" name="town">
+          <input type="text" placeholder="Province" class="input" [(ngModel)]="suspectData.province" name="province">
+          <input type="text" placeholder="Region" class="input" [(ngModel)]="suspectData.region" name="region">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">WORK DETAILS</legend>
+        <div class="grid">
+          <input type="text" placeholder="Occupation" class="input" [(ngModel)]="suspectData.workDetails.occupation" name="occupation">
+          <input type="text" placeholder="Work Address" class="input" [(ngModel)]="suspectData.workDetails.workAddress" name="workAddress">
+          <input type="text" placeholder="Work Phone" class="input" [(ngModel)]="suspectData.workDetails.workPhone" name="workPhone">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">DESCRIPTION</legend>
+        <div class="grid">
+          <input type="text" placeholder="Height" class="input" [(ngModel)]="suspectData.description.height" name="height">
+          <input type="text" placeholder="Weight" class="input" [(ngModel)]="suspectData.description.weight" name="weight">
+          <input type="text" placeholder="Color of eyes" class="input" [(ngModel)]="suspectData.description.eyeColor" name="eyeColor">
+          <input type="text" placeholder="Description of eyes" class="input" [(ngModel)]="suspectData.description.eyeDescription" name="eyeDescription">
+          <input type="text" placeholder="Color of hair" class="input" [(ngModel)]="suspectData.description.hairColor" name="hairColor">
+          <input type="text" placeholder="Description of hair" class="input" [(ngModel)]="suspectData.description.hairDescription" name="hairDescription">
+        </div>
+        <div class="mt-4">
+          <label class="block text-muted-foreground">Under the influence?</label>
+          <div class="influence-options">
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="influence" [(ngModel)]="suspectData.underInfluence" value="Drugs" class="checkbox">
+              <span>Drugs</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="influence" [(ngModel)]="suspectData.underInfluence" value="Liquor" class="checkbox">
+              <span>Liquor</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="influence" [(ngModel)]="suspectData.underInfluence" value="N/A" class="checkbox">
+              <span>N/A</span>
+            </label>
+          </div>
+        </div>
+        <div class="mt-4">
+          <textarea placeholder="Other distinguishing features..." class="input w-full h-32 textarea" [(ngModel)]="suspectData.otherFeatures" name="otherFeatures"></textarea>
+        </div>
+      </fieldset>
+      <div class="flex items-center space-x-2 mt-4">
+          <button type="button" class="submit-button">Add more suspect</button>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" class="checkbox" [(ngModel)]="suspectData.noSuspect" (change)="onNoSuspectChange()">
+          <span class="text-muted-foreground">Click here if there is no suspect involved or identified and thereafter proceed to item "C"</span>
+        </label>
+      </div>
+      <div class="form-footer mt-6">
+        <button type="submit" class="submit-button">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

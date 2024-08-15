@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-header">
+      <select class="incident-type">
+        <option>Type of Incident</option>
+      </select>
+      <img src="assets/logo.svg" alt="Incident Report Logo" [routerLink]="['/home-page']"class="logo mx-auto mb-2">
+      <button class="anonymous-button" [routerLink]="['/home-page']">Return to Homepage</button>
+    </div>
+    <h1 class="form-title">INCIDENT REPORT FORM</h1>
+    <div class="form-navigation"> 
+      <button class="nav-button blue-button" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+    </div>
+    <form class="form-content" [formGroup]="reportingForm" (ngSubmit)="onSubmit()">
+      <fieldset class="fieldset">
+        <legend class="legend">PERSONAL INFORMATION</legend>
+        <div class="grid">
+          <input type="text" placeholder="Family Name" formControlName="familyName" class="input">
+          <input type="text" placeholder="First Name" formControlName="firstName" class="input">
+          <input type="text" placeholder="Middle Name" formControlName="middleName" class="input">
+          <input type="text" placeholder="Citizenship" formControlName="citizenship" class="input">
+          <input type="text" placeholder="Status" formControlName="status" class="input">
+          <input type="text" placeholder="Gender" formControlName="gender" class="input">
+          <input type="text" placeholder="Date of Birth (MM/DD/YYYY)" formControlName="dob" class="input">
+          <input type="text" placeholder="Place of Birth" formControlName="placeOfBirth" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">CONTACT DETAILS</legend>
+        <div class="grid">
+          <input type="text" placeholder="Home Phone" formControlName="homePhone" class="input">
+          <input type="text" placeholder="Mobile Phone" formControlName="mobilePhone" class="input">
+          <input type="text" placeholder="Email Address" formControlName="email" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">ADDRESS</legend>
+        <div class="checkbox-container">
+          <input type="checkbox" class="checkbox">
+          <label>Click here if current address is same with other address</label>
+        </div>
+        <div class="grid">
+          <input type="text" placeholder="Current Address (House Number / Street)" formControlName="currentAddress" class="input">
+          <input type="text" placeholder="Village / Sitio" formControlName="village" class="input">
+          <input type="text" placeholder="Barangay" formControlName="barangay" class="input">
+          <input type="text" placeholder="Town / City" formControlName="townCity" class="input">
+          <input type="text" placeholder="Province" formControlName="province" class="input">
+          <input type="text" placeholder="Other Address (House Number / Street)" formControlName="otherAddress" class="input">
+          <input type="text" placeholder="Village / Sitio" class="input">
+          <input type="text" placeholder="Barangay" class="input">
+          <input type="text" placeholder="Town / City" class="input">
+          <input type="text" placeholder="Province" class="input">
+        </div>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="legend">WORK DETAILS</legend>
+        <div class="grid">
+          <input type="text" placeholder="Occupation" formControlName="occupation" class="input">
+          <input type="text" placeholder="Work Address" formControlName="workAddress" class="input">
+          <input type="text" placeholder="Work Phone" formControlName="workPhone" class="input">
+          <input type="text" placeholder="ID Card Presented" formControlName="idCard" class="input">
+          <input type="text" placeholder="Person of Reference" formControlName="referencePerson" class="input">
+        </div>
+      </fieldset>
+      <div class="form-footer">
+        <button type="submit" class="next-button">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

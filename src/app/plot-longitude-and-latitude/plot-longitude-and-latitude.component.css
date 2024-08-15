@@ -1,0 +1,501 @@
+.emergency-banner {
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  
+  .bg-blue-500 {
+    background-color: #3b82f6;
+  }
+  
+  .p-4 {
+    padding: 1rem;
+    margin-top: 2.5rem;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .flex-none {
+    flex: none;
+  }
+  
+  .flex-row {
+    flex-direction: row;
+  }
+  
+  .flex-grow {
+    flex-grow: 1;
+  }
+  
+  .sidebar {
+    width: 25%;
+  }
+  
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+  
+  .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+  }
+  
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .hover\:text-primary:hover {
+    color: hsl(var(--primary));
+  }
+  
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+  
+  .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+  
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
+  }
+  
+  .hover\:bg-secondary\/80:hover {
+    background-color: hsl(var(--secondary) / 0.8);
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+  
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .hover\:bg-primary\/80:hover {
+    background-color: hsl(var(--primary) / 0.8);
+  }
+  
+  .btn-back {
+    align-self: flex-start; /* Align the button to the left */
+    margin-top: 2rem; /* Add margin to move the button down */
+  }
+  
+  /* New CSS to move the button downwards */
+  .back-button {
+    margin-top: 2.5rem;
+    width: 25%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  .logout-button {
+    margin-top: 2.5rem;
+    width: 25%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  .logout-button {
+    margin-top: 1rem;
+    width: 50%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  /* New CSS for the refresh button */
+  .edit-button {
+    margin-top: 3rem;
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  .save-button {
+    margin-top: 3rem;
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save-button:hover {
+    background-color: #b91c1c;
+  }
+  .nav-item span {
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .nav-item:hover {
+    background-color: #edf2f7;
+  }
+  
+  .contact-support {
+    padding: 1rem;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin-top: 1rem; /* Adjust this value to align with other nav items */
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .contact-support img {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-support span {
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .contact-support:hover {
+    background-color: #edf2f7;
+  }
+  
+  /* Center text below the image */
+  .center-text {
+    text-align: center;
+    margin-top: 1rem; /* Adjust this value to move the text down */
+  }
+  
+  /* Sidebar styles copied from add-new-officer.component.css */
+  .sidebar {
+    width: 16rem; /* Adjusted width to make the container smaller */
+    padding-left: 1rem; /* Adjusted padding to make the container smaller */
+    margin: 0 auto; /* Center the sidebar */
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 1rem;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color: #374151;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold; /* Make the text bold */
+    justify-content: flex-start; /* Align items to the start */
+  }
+  
+  .nav-link:hover {
+    background-color: #edf2f7;
+  }
+  
+  .nav-link.active {
+    background-color: #edf2f7;
+    color: #1a202c;
+  }
+  
+  .nav-icon {
+    margin-right: 0.5rem; /* Adjusted margin to make the container smaller */
+  }
+  
+  /* Sidebar styles copied from station-crime-map.component.css */
+  .w-64 {
+    width: 16rem;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mt-7 {
+    margin-top: 1.75rem;
+  }
+  
+  .list-none {
+    list-style-type: none;
+  }
+  
+  .p-0 {
+    padding: 0;
+  }
+  
+  .text-zinc-700 {
+    color: #4a5568;
+  }
+  
+  .hover\:bg-zinc-200:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .hover\:cursor-pointer:hover {
+    cursor: pointer;
+  }
+  
+  .w-6 {
+    width: 1.5rem;
+  }
+  
+  .h-6 {
+    height: 1.5rem;
+  }
+  
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .bg-zinc-200 {
+    background-color: #e2e8f0;
+  }
+  
+  .hover\:bg-zinc-300:hover {
+    background-color: #d1d5db;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    margin-top: 1rem;
+  }
+  
+  nav-item span {
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .nav-item:hover {
+    background-color: #edf2f7;
+  }
+  
+  .contact-support {
+    padding: 1rem;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin-top: 0rem; /* Adjust this value to align with other nav items */
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .contact-support img {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-support span {
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .contact-support:hover {
+    background-color: #edf2f7;
+  }
+  
+  /* Center text below the image */
+  .center-text {
+    text-align: center;
+    margin-top: 1rem; /* Adjust this value to move the text down */
+  }
+  
+  .logo {
+    margin-top: 1rem;
+  }
+  
+  .button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .icon-small {
+    width: 16px; /* Adjust the size as needed */
+    height: 16px; /* Adjust the size as needed */
+  }
+  
+  .date-time {
+    margin-left: auto;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 1rem; /* Add space between buttons */
+  }
+  
+  
