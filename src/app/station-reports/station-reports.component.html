@@ -1,0 +1,126 @@
+<div class="container">
+    <div class="emergency-banner">
+      In case of emergencies, please dial your local emergency services number
+    </div>
+    <div class="min-h-screen bg-zinc-100 flex">
+      <aside class="w-64 bg-white shadow-md">
+        <div class="p-4 text-center">
+          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> <!-- Added class 'logo' for specific styling -->
+          <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
+          <p class="text-sm text-zinc-600">Cebu City Police Office</p>
+        </div>
+        <nav class="mt-7"> <!-- Increased margin-top to create more space -->
+          <ul class="list-none p-0">
+            <li>
+              <a [routerLink]="['/station-dashboard']" href="#" class="nav-link">
+                <img src="assets/dashbold.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+                <span>DASHBOARD</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/station-inbox']" href="#" class="nav-link">
+                <img src="assets/inbox.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+                <span>INBOX</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/station-reports']" href="#" class="nav-link">
+                <img src="assets/reports.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+                <span>REPORTS</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/station-crime-map']" href="#" class="nav-link">
+                <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+                <span>CRIME MAP</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/station-edit-officers']" href="#" class="nav-link">
+                <img src="assets/station.svg" alt="Station Icon" class="w-6 h-6 mr-2">
+                <span>STATION</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/station-contact-support']" href="#" class="nav-link">
+                <img src="assets/support.svg" alt="Contact Support Icon" class="w-6 h-6 mr-2">
+                <span>CONTACT SUPPORT</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="content">
+        <div class="reports">
+            <h2>Reports</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <div class="case-queue" [routerLink]="['/case-queue']" >CASE ON-QUEUE ></div>
+            </div>
+            <table>
+                <tr>
+                    <th>Received By</th>
+                    <th>Blotter Number</th>
+                    <th>Incident Type</th>
+                    <th>Complainant</th>
+                    <th>Assigned To</th>
+                </tr>
+                <tr>
+                    <td>PSSG Eric Noble</td>
+                    <td>076201-202405-01211422</td>
+                    <td>Robbery</td>
+                    <td>Nicolas Pogoy</td>
+                    <td>Team One</td>
+                </tr>
+                <tr>
+                    <td>PSSG Micheal Rey Aquino</td>
+                    <td>076201-202405-01211678</td>
+                    <td>Rape</td>
+                    <td>Emilia Phillips</td>
+                    <td>Team Four</td>
+                </tr>
+                <tr>
+                    <td>PSSG Ashley Gimenez</td>
+                    <td>076201-202405-01211319</td>
+                    <td>Online Scam</td>
+                    <td>Daliah Verallo</td>
+                    <td>Team Three</td>
+                </tr>
+                <tr>
+                    <td>PMSG Romeo Acop</td>
+                    <td>076201-202405-01211422</td>
+                    <td>Illegal Drug Operation</td>
+                    <td>Sandra Duterte</td>
+                    <td>Team One</td>
+                </tr>
+                <tr>
+                    <td>PSSG Eric Noble</td>
+                    <td>076201-202405-01211422</td>
+                    <td>Robbery</td>
+                    <td>Nicolas Pogoy</td>
+                    <td>Team Two</td>
+                </tr>
+                <tr>
+                    <td>PSSG Micheal Rey Aquino</td>
+                    <td>076201-202405-01211678</td>
+                    <td>Rape</td>
+                    <td>Emilia Phillips</td>
+                    <td>Team Three</td>
+                </tr>
+                <tr>
+                    <td>PSSG Ashley Gimenez</td>
+                    <td>076201-202405-01211319</td>
+                    <td>Online Scam</td>
+                    <td>Daliah Verallo</td>
+                    <td>Team Four</td>
+                </tr>
+                <tr>
+                    <td>PMSG Romeo Acop</td>
+                    <td>076201-202405-01211422</td>
+                    <td>Illegal Drug Operation</td>
+                    <td>Sandra Duterte</td>
+                    <td>Team Two</td>
+                </tr>
+            </table>
+        </div>
+    </div>
