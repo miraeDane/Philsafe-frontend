@@ -1,0 +1,1679 @@
+{
+    "version": 8,
+    "name": "Web_Crime Map",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:thumb": "data:image/webp;base64,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",
+        "mapbox:uiParadigm": "imports",
+        "mapbox:sdk-support": {
+            "js": "3.6.0",
+            "android": "11.6.0",
+            "ios": "11.6.0"
+        },
+        "mapbox:groups": {},
+        "mapbox:uiExpandedImports": ["basemap"]
+    },
+    "center": [123.8818411336058, 10.315339055636741],
+    "zoom": 14.009180811173717,
+    "bearing": 0,
+    "pitch": 0,
+    "terrain": null,
+    "imports": [{"id": "basemap", "url": "mapbox://styles/mapbox/standard"}],
+    "sources": {
+        "composite": {
+            "url": "mapbox://mimsh23.3ru30vf2,mimsh23.3zixozmw,mimsh23.8ybw7pb9,mimsh23.0vmdbick,mimsh23.3s08ryjw,mimsh23.8irgejpe,mimsh23.bvr4lzy6,mimsh23.4rx6z6xw,mimsh23.08q0l66l,mimsh23.0741byhd,mimsh23.6xxthedu,mimsh23.6jkiytcr,mimsh23.80t6d1es,mimsh23.2xr5jg8i",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/mimsh23/clzxya994004p01rbbsifgctv/5vty8et416xi5vfd92kk74v3c",
+    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+    "projection": {"name": "globe"},
+    "layers": [
+        {
+            "id": "others-08p97e",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "others-08p97e",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Lorega (Lorega San Miguel)",
+                        "Apas",
+                        "Suba",
+                        "Punta Princesa",
+                        "Sawang Calero",
+                        "Tisa",
+                        "Sambag I (Pob.)",
+                        "T. Padilla",
+                        "Lahug",
+                        "Mabolo",
+                        "San Roque (Ciudad)",
+                        "Capitol Site (Pob.)",
+                        "Tejero",
+                        "Kasambagan",
+                        "Buhisan",
+                        "Guadalupe",
+                        "Labangon",
+                        "Mambaling",
+                        "Santa Cruz (Pob.)",
+                        "Kalubihan",
+                        "Pari-an",
+                        "Hippodromo",
+                        "Basak San Nicolas",
+                        "Sapang-Dako",
+                        "Camputhaw (Pob.)",
+                        "Duljo (Pob.)",
+                        "Calamba",
+                        "San Nicolas Proper",
+                        "Pahina Central",
+                        "Carreta (Station 4)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["VIOLATION OF SPECIAL LAWS"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Wednesday",
+                        "Saturday",
+                        "Monday",
+                        "Tuesday",
+                        "Friday",
+                        "Sunday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["EVENING", "MORNING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Incident) Illegal Possession of Firearms",
+                        "(Incident) Illegal Possession of Deadly Weapon",
+                        "(Incident) Illegal Possession of Ammunition"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["May", "April", "January", "March", "February"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 03",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Mabolo",
+                        "Pasil",
+                        "Carbon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An",
+                        "Waterfront"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "12",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "hacking-5qycmv",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "hacking-5qycmv",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    ["Pardo (Pob.)", "Pulangbato"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["ATTEMPTED/FRUSTRATED STAGES FOCUS CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Hacking"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["EVENING", "MORNING"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["January", "February"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    ["PS 07", "PS 08"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    ["Talamban", "Pardo"],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {"icon-image": "9", "icon-size": 0.09},
+            "paint": {}
+        },
+        {
+            "id": "physical-injury-dfzv5x",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "physical_injury-dfzv5x",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Inayawan",
+                        "Lorega (Lorega San Miguel)",
+                        "Apas",
+                        "Suba",
+                        "Kinasang-an",
+                        "Sawang Calero",
+                        "Mabolo",
+                        "Talamban",
+                        "Lahug",
+                        "Bacayan",
+                        "Bulacao",
+                        "Capitol Site (Pob.)",
+                        "Tejero",
+                        "Basak Pardo",
+                        "Pardo (Pob.)",
+                        "Labangon",
+                        "Guba",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Kalunasan",
+                        "Kalubihan",
+                        "Luz",
+                        "Banilad",
+                        "Basak San Nicolas",
+                        "Quiot Pardo",
+                        "Ermita",
+                        "Pit-os",
+                        "Duljo (Pob.)",
+                        "Camputhaw (Pob.)",
+                        "Zapatera",
+                        "Calamba",
+                        "Pahina Central",
+                        "Carreta (Station 4)",
+                        "Carreta (Station 3)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["PHYSICAL INJURIES"], true, false],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Wednesday",
+                        "Sunday",
+                        "Friday",
+                        "Saturday",
+                        "Monday",
+                        "Tuesday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["AFTERNOON", "MORNING", "EVENING"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Incident) Physical Injury",
+                        "(Incident) Stabbing",
+                        "(Incident) Mauling",
+                        "(Incident) Shooting",
+                        "(Operation) Arrest without Warrant",
+                        "(Incident) Theft",
+                        "(Incident) Robbery",
+                        "(Incident) Malicious Mischief"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["May", "January", "April", "March", "February"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 03",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 07",
+                        "PS 08",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Mabolo",
+                        "Pardo",
+                        "Pasil",
+                        "Carbon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An",
+                        "Waterfront"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "16",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "carnapping-motornapping-theft-5f3mc9",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "carnapping_motornapping_theft-5f3mc9",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Mabolo",
+                        "Labangon",
+                        "Kasambagan",
+                        "Lahug",
+                        "Basak San Nicolas"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["CARNAPPING MC"], true, false],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Carnapping/Motornapping", "(Incident) Theft"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["March", "February", "January"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Saturday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Friday",
+                        "Sunday",
+                        "Thursday",
+                        "Monday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "EVENING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    ["PS 04", "PS 10", "PS 11"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    ["Mabolo", "Punta Princesa", "Mambaling"],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "7",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "homicide-9y9rpd",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "homicide-9y9rpd",
+            "slot": "top",
+            "minzoom": 14,
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Kinasang-an",
+                        "Talamban",
+                        "Pasil",
+                        "Lahug",
+                        "Bulacao",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Santa Cruz (Pob.)",
+                        "Kalubihan",
+                        "Banilad",
+                        "San Jose",
+                        "Ermita",
+                        "Camputhaw (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["VEHICULAR/TRAFFIC INCIDENT", "INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["HOMICIDE", "RIR HOMICIDE"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Friday",
+                        "Wednesday",
+                        "Saturday",
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["EVENING", "MORNING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Incident) Stabbing",
+                        "(Incident) Shooting",
+                        "(Incident) Vehicular Accident",
+                        "(Operation) Arrest without Warrant"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["May", "March", "April", "January", "February"],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {"icon-image": "10", "icon-size": 0.09},
+            "paint": {}
+        },
+        {
+            "id": "lasciviousness-8gjz2t",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "lasciviousness-8gjz2t",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Punta Princesa",
+                        "Tisa",
+                        "Sambag I (Pob.)",
+                        "Lahug",
+                        "San Roque (Ciudad)",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Cogon Pardo",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["OTHER THAN INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Friday",
+                        "Wednesday",
+                        "Tuesday",
+                        "Thursday",
+                        "Saturday",
+                        "Sunday"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "13",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "drugs-batotm",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "drugs-batotm",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Lorega (Lorega San Miguel)",
+                        "Apas",
+                        "Suba",
+                        "Punta Princesa",
+                        "Santo Nino",
+                        "Day-as",
+                        "Tisa",
+                        "Sawang Calero",
+                        "Talamban",
+                        "Sambag I (Pob.)",
+                        "Mabolo",
+                        "T. Padilla",
+                        "Pasil",
+                        "Lahug",
+                        "San Roque (Ciudad)",
+                        "Bacayan",
+                        "Capitol Site (Pob.)",
+                        "Tejero",
+                        "Buhisan",
+                        "Pari-an",
+                        "Labangon",
+                        "Pulangbato",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Kalunasan",
+                        "Tinago",
+                        "Luz",
+                        "Budlaan",
+                        "Basak San Nicolas",
+                        "Quiot Pardo",
+                        "Ermita",
+                        "Pit-os",
+                        "Duljo (Pob.)",
+                        "Camputhaw (Pob.)",
+                        "Calamba",
+                        "San Nicolas Proper",
+                        "Pahina Central",
+                        "Carreta (Station 4)",
+                        "Carreta (Station 3)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["VIOLATION OF SPECIAL LAWS"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Tuesday",
+                        "Friday",
+                        "Saturday",
+                        "Thursday",
+                        "Sunday",
+                        "Wednesday",
+                        "Monday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "EVENING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Operation) Illegal Drugs Operation",
+                        "(Operation) Buy Bust"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["April", "May", "March", "February", "January"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 03",
+                        "PS 05",
+                        "PS 04",
+                        "PS 06",
+                        "PS 08",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Pasil",
+                        "Mabolo",
+                        "Carbon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An",
+                        "Waterfront"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "8",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "murder-0a0aic",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "murder-0a0aic",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Binaliw",
+                        "Lorega (Lorega San Miguel)",
+                        "Apas",
+                        "Suba",
+                        "Punta Princesa",
+                        "Sawang Calero",
+                        "Tisa",
+                        "Sambag I (Pob.)",
+                        "Pasil",
+                        "Lahug",
+                        "Cogon Pardo",
+                        "Bulacao",
+                        "Toong",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Basak San Nicolas",
+                        "Duljo (Pob.)",
+                        "Cogon Ramos (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["MURDER"], true, false],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Sunday",
+                        "Wednesday",
+                        "Saturday",
+                        "Monday",
+                        "Thursday",
+                        "Friday",
+                        "Tuesday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "EVENING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["February", "May", "April", "March", "January"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 04",
+                        "PS 06",
+                        "PS 07",
+                        "PS 08",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Mabolo",
+                        "Pasil",
+                        "Pardo",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "15",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "robbery-96vin9",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "robbery-96vin9",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Apas",
+                        "Punta Princesa",
+                        "Kinasang-an",
+                        "Tisa",
+                        "Talamban",
+                        "Sambag I (Pob.)",
+                        "Mabolo",
+                        "Lahug",
+                        "Capitol Site (Pob.)",
+                        "Bulacao",
+                        "Basak Pardo",
+                        "Buhisan",
+                        "Labangon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Santa Cruz (Pob.)",
+                        "Kalubihan",
+                        "Luz",
+                        "Kamagayan (Pob.)",
+                        "Banilad",
+                        "Basak San Nicolas",
+                        "Quiot Pardo",
+                        "Ermita",
+                        "Duljo (Pob.)",
+                        "Calamba"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["ROBBERY"], true, false],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Monday",
+                        "Tuesday",
+                        "Saturday",
+                        "Wednesday",
+                        "Friday",
+                        "Sunday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "EVENING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Incident) Theft",
+                        "(Incident) Robbery",
+                        "(Operation) Arrest without Warrant"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["March", "April", "January", "May", "February"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 07",
+                        "PS 08",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Mabolo",
+                        "Pasil",
+                        "Pardo",
+                        "Carbon",
+                        "Mambaling",
+                        "Guadalupe",
+                        "Abellana",
+                        "Pari-An"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "19",
+                "icon-size": 0.09,
+                "icon-ignore-placement": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "rape-1ti20o",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "rape-1ti20o",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Apas",
+                        "Tisa",
+                        "Talamban",
+                        "Mabolo",
+                        "Lusaran",
+                        "Kasambagan",
+                        "Labangon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Kalunasan",
+                        "Cambinocot",
+                        "Budlaan",
+                        "Basak San Nicolas",
+                        "Zapatera"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["RAPE"], true, false],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Saturday",
+                        "Monday",
+                        "Sunday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Friday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Saturday",
+                        "Monday",
+                        "Sunday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Friday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["EVENING", "MORNING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Rape"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["January", "February", "March", "April", "May"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    ["PS 01", "PS 04", "PS 08", "PS 09", "PS 10", "PS 11"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Pari-An",
+                        "Mabolo",
+                        "Talamban",
+                        "Guadalupe",
+                        "Punta Princesa",
+                        "Mambaling"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {"icon-size": 0.09, "icon-allow-overlap": true},
+            "paint": {}
+        },
+        {
+            "id": "stabbing-8ck654",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "stabbing-8ck654",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Apas",
+                        "Suba",
+                        "Sawang Calero",
+                        "Tisa",
+                        "Sambag I (Pob.)",
+                        "Lahug",
+                        "Tejero",
+                        "Buhisan",
+                        "Guadalupe",
+                        "Tinago",
+                        "Cambinocot",
+                        "Banilad",
+                        "Ermita",
+                        "San Jose",
+                        "Camputhaw (Pob.)",
+                        "Calamba",
+                        "Carreta (Station 4)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["ATTEMPTED/FRUSTRATED STAGES FOCUS CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Sunday",
+                        "Saturday",
+                        "Monday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Tuesday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["EVENING", "MORNING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Stabbing"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["March", "February", "April", "January", "May"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 02",
+                        "PS 03",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 08",
+                        "PS 10",
+                        "PS 09"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Abellana",
+                        "Waterfront",
+                        "Mabolo",
+                        "Carbon",
+                        "Pasil",
+                        "Talamban",
+                        "Guadalupe",
+                        "Punta Princesa"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "14",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "shooting-7ei1ye",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "shooting-7ei1ye",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Inayawan",
+                        "Lorega (Lorega San Miguel)",
+                        "Sawang Calero",
+                        "Tisa",
+                        "Mabolo",
+                        "Lahug",
+                        "Capitol Site (Pob.)",
+                        "Pardo (Pob.)",
+                        "Mambaling",
+                        "Ermita",
+                        "Duljo (Pob.)",
+                        "Pahina Central",
+                        "Pahina San Nicolas",
+                        "Carreta (Station 4)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["NON-INDEX CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["ATTEMPTED/FRUSTRATED STAGES FOCUS CRIME"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Friday",
+                        "Saturday",
+                        "Tuesday",
+                        "Monday",
+                        "Wednesday",
+                        "Thursday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "EVENING", "AFTERNOON"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Shooting"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["February", "January", "March", "April", "May"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 01",
+                        "PS 02",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 07",
+                        "PS 10",
+                        "PS 11"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Pari-An",
+                        "Abellana",
+                        "Mabolo",
+                        "Carbon",
+                        "Pasil",
+                        "Pardo",
+                        "Punta Princesa",
+                        "Mambaling"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "17",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "theft-846kkd",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "theft-846kkd",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Inayawan",
+                        "Apas",
+                        "Punta Princesa",
+                        "Santo Nino",
+                        "Kinasang-an",
+                        "Tisa",
+                        "Talamban",
+                        "Sambag I (Pob.)",
+                        "Mabolo",
+                        "T. Padilla",
+                        "Lahug",
+                        "San Roque (Ciudad)",
+                        "Bacayan",
+                        "Bulacao",
+                        "Capitol Site (Pob.)",
+                        "Tejero",
+                        "Basak Pardo",
+                        "San Antonio (Pob.)",
+                        "Pardo (Pob.)",
+                        "Kasambagan",
+                        "Buhisan",
+                        "Labangon",
+                        "Guba",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Santa Cruz (Pob.)",
+                        "Kalubihan",
+                        "Luz",
+                        "Tinago",
+                        "Pari-an",
+                        "Budlaan",
+                        "Kamagayan (Pob.)",
+                        "Banilad",
+                        "Hippodromo",
+                        "Basak San Nicolas",
+                        "Quiot Pardo",
+                        "Ermita",
+                        "Pit-os",
+                        "Duljo (Pob.)",
+                        "Camputhaw (Pob.)",
+                        "Zapatera",
+                        "San Nicolas Proper",
+                        "Pahina Central",
+                        "Cogon Ramos (Pob.)",
+                        "Carreta (Station 4)",
+                        "Carreta (Station 3)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "CRIME TYPE"], ["INDEX CRIME"], true, false],
+                ["match", ["get", "CRIME"], ["THEFT"], true, false],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Thursday",
+                        "Friday",
+                        "Sunday",
+                        "Wednesday",
+                        "Tuesday",
+                        "Monday",
+                        "Saturday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "AFTERNOON", "EVENING"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    [
+                        "(Incident) Identity theft",
+                        "(Incident) Theft",
+                        "(Operation) Arrest without Warrant"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["May", "April", "March", "February", "January"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 03",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 07",
+                        "PS 09",
+                        "PS 08",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Mabolo",
+                        "Pasil",
+                        "Pardo",
+                        "Carbon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An",
+                        "Waterfront"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "18",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        },
+        {
+            "id": "traffic-incident-02d5y2",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "traffic_incident-02d5y2",
+            "slot": "top",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "BARANGAY"],
+                    [
+                        "Lorega (Lorega San Miguel)",
+                        "Apas",
+                        "Santo Nino",
+                        "Punta Princesa",
+                        "Kinasang-an",
+                        "Day-as",
+                        "Sawang Calero",
+                        "Tisa",
+                        "Talamban",
+                        "Sambag I (Pob.)",
+                        "Mabolo",
+                        "T. Padilla",
+                        "Pasil",
+                        "Lahug",
+                        "San Roque (Ciudad)",
+                        "Cogon Pardo",
+                        "Bacayan",
+                        "Bulacao",
+                        "Capitol Site (Pob.)",
+                        "Tejero",
+                        "Basak Pardo",
+                        "San Antonio (Pob.)",
+                        "Pardo (Pob.)",
+                        "Kasambagan",
+                        "Buhisan",
+                        "Labangon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Kalunasan",
+                        "Santa Cruz (Pob.)",
+                        "Kalubihan",
+                        "Tinago",
+                        "Luz",
+                        "Pari-an",
+                        "Budlaan",
+                        "Banilad",
+                        "Hippodromo",
+                        "Basak San Nicolas",
+                        "Quiot Pardo",
+                        "Ermita",
+                        "Pit-os",
+                        "Duljo (Pob.)",
+                        "San Jose",
+                        "Camputhaw (Pob.)",
+                        "Zapatera",
+                        "Calamba",
+                        "San Nicolas Proper",
+                        "Cogon Ramos (Pob.)",
+                        "Pahina Central",
+                        "Pahina San Nicolas",
+                        "Carreta (Station 4)",
+                        "Carreta (Station 3)",
+                        "Sambag II (Pob.)"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME TYPE"],
+                    ["VEHICULAR/TRAFFIC INCIDENT"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "CRIME"],
+                    ["RIR PHYSICAL INJURY", "RIR DAMAGE TO PROPERTY"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Day Name"],
+                    [
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday",
+                        "Friday",
+                        "Monday",
+                        "Wednesday",
+                        "Saturday"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "GENERAL TIME"],
+                    ["MORNING", "AFTERNOON", "EVENING"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "INCIDENT TYPE"],
+                    ["(Incident) Vehicular Accident"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "Month Name"],
+                    ["May", "April", "February", "January", "March"],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION CODE"],
+                    [
+                        "PS 03",
+                        "PS 04",
+                        "PS 05",
+                        "PS 06",
+                        "PS 07",
+                        "PS 08",
+                        "PS 09",
+                        "PS 10",
+                        "PS 11",
+                        "PS 01",
+                        "PS 02"
+                    ],
+                    true,
+                    false
+                ],
+                [
+                    "match",
+                    ["get", "STATION NAME"],
+                    [
+                        "Punta Princesa",
+                        "Talamban",
+                        "Mabolo",
+                        "Pasil",
+                        "Pardo",
+                        "Carbon",
+                        "Guadalupe",
+                        "Mambaling",
+                        "Abellana",
+                        "Pari-An",
+                        "Waterfront"
+                    ],
+                    true,
+                    false
+                ]
+            ],
+            "layout": {
+                "icon-image": "20",
+                "icon-size": 0.09,
+                "icon-allow-overlap": true
+            },
+            "paint": {}
+        }
+    ],
+    "created": "2024-08-17T09:43:17.080Z",
+    "modified": "2024-08-17T16:11:28.890Z",
+    "id": "clzxya994004p01rbbsifgctv",
+    "owner": "mimsh23",
+    "visibility": "private",
+    "protected": false,
+    "draft": false
+}

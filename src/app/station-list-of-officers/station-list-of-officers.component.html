@@ -5,44 +5,44 @@
     <div class="min-h-screen bg-zinc-100 flex">
       <aside class="w-64 bg-white shadow-md">
         <div class="p-4 text-center">
-          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> <!-- Added class 'logo' for specific styling -->
+          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo">
           <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
           <p class="text-sm text-zinc-600">Cebu City Police Office</p>
         </div>
-        <nav class="mt-7"> <!-- Increased margin-top to create more space -->
+        <nav class="mt-7"> 
           <ul class="list-none p-0">
             <li>
-              <a [routerLink]="['/station-dashboard']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/dashbold.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
                 <span>DASHBOARD</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/station-inbox']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/inbox.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
                 <span>INBOX</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/station-reports']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/reports.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
                 <span>REPORTS</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/station-crime-map']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
                 <span>CRIME MAP</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/station-edit-officers']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/station.svg" alt="Station Icon" class="w-6 h-6 mr-2">
                 <span>STATION</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/station-contact-support']" href="#" class="nav-link">
+              <a  href="#" class="nav-link">
                 <img src="assets/support.svg" alt="Contact Support Icon" class="w-6 h-6 mr-2">
                 <span>CONTACT SUPPORT</span>
               </a>
@@ -54,7 +54,7 @@
       <main class="main-content">
         <div class="header">
             <h1>List of Police Officers</h1>
-            <button class="add-officer" [routerLink]="['/station-add-new-officer']">Add Officer</button>
+            <button class="add-officer">Add Officer</button>
         </div>
         <table class="officer-table">
             <thead>
@@ -72,32 +72,136 @@
                     <td>Police Master Sergeant</td>
                     <td>2</td>
                     <td>PLT Tanggol Cruz</td>
-                    <td>
-                        <button class="edit-btn"></button>
-                        <button class="delete-btn"></button>
-                    </td>
+                    <td style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                      <button class="edit-btn">
+                          <img src="assets/edit.png" alt="Edit" style="width: 20px; height: 20px;">
+                      </button>
+                      <button class="delete-btn">
+                          <img src="assets/delete.png" alt="Delete" style="width: 20px; height: 20px;">
+                      </button>
+                  </td>
                 </tr>
                 <tr>
                     <td><img src="assets/jimenez.png" alt="Officer Image" class="officer-image"> Ashley Gimenez</td>
                     <td>Police Staff Sergeant</td>
                     <td>1</td>
                     <td>PCPT Jason Enriquez</td>
-                    <td>
-                        <button class="edit-btn"></button>
-                        <button class="delete-btn"></button>
-                    </td>
+                    <td style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                      <button class="edit-btn">
+                          <img src="assets/edit.png" alt="Edit" style="width: 20px; height: 20px;">
+                      </button>
+                      <button class="delete-btn">
+                          <img src="assets/delete.png" alt="Delete" style="width: 20px; height: 20px;">
+                      </button>
+                  </td>
                 </tr>
                 <tr>
                     <td><img src="assets/noble.png" alt="Officer Image" class="officer-image"> Rigor Dimaguiba</td>
                     <td>Patrolman</td>
                     <td>1</td>
                     <td>PCPT Jason Enriquez</td>
-                    <td>
-                        <button class="edit-btn">EDIT</button>
-                        <button class="delete-btn">DELETE</button>
-                    </td>
+                    <td style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                      <button class="edit-btn">
+                          <img src="assets/edit.png" alt="Edit" style="width: 20px; height: 20px;">
+                      </button>
+                      <button class="delete-btn">
+                          <img src="assets/delete.png" alt="Delete" style="width: 20px; height: 20px;">
+                      </button>
+                  </td>
                 </tr>
             </tbody>
         </table>
     </main>
 </div>
+
+
+<!-- <div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen bg-zinc-100 flex">
+    <aside class="w-64 bg-white shadow-md">
+      <div class="p-4 text-center">
+        <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> 
+        <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
+        <p class="text-sm text-zinc-600">Cebu City Police Office</p>
+      </div>
+      <nav class="mt-7"> 
+        <ul class="list-none p-0">
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/dashbold.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
+              <span>DASHBOARD</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/inbox.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
+              <span>INBOX</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/reports.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
+              <span>REPORTS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
+              <span>CRIME MAP</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/station.svg" alt="Station Icon" class="w-6 h-6 mr-2">
+              <span>STATION</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link">
+              <img src="assets/support.svg" alt="Contact Support Icon" class="w-6 h-6 mr-2">
+              <span>CONTACT SUPPORT</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="header">
+          <h1>List of Police Officers</h1>
+          <button class="add-officer">Add Officer</button>
+      </div>
+      <table class="officer-table">
+          <thead>
+              <tr>
+                  <th>Full Name</th>
+                  <th>Rank</th>
+                  <th>Group</th>
+                  <th>Team Leader</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let officer of officers">
+                  <td><img [src]="officer.image" alt="Officer Image" class="officer-image"> {{ officer.name }}</td>
+                  <td>{{ officer.rank }}</td>
+                  <td>{{ officer.group }}</td>
+                  <td>{{ officer.teamLeader }}</td>
+                  <td style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <button class="edit-btn">
+                        <img src="assets/edit.png" alt="Edit" style="width: 20px; height: 20px;">
+                    </button>
+                    <button class="delete-btn" (click)="deleteOfficer(officer.id)">
+                        <img src="assets/delete.png" alt="Delete" style="width: 20px; height: 20px;">
+                    </button>
+                    <button class="archive-btn" *ngIf="officer.status === 'retired'" (click)="archiveOfficer(officer.id)">
+                        Archive
+                    </button>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+  </main>
+</div> -->

@@ -64,7 +64,7 @@ import { StationLoginComponent } from './station-login/station-login.component';
     SuspectDataComponent,
     AccessDeniedComponent,
     StationRegistrationComponent,
-    StationLoginComponent
+    StationLoginComponent,
   ],
   imports: [
     BrowserModule,

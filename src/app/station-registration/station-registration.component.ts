@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core'; // Import Injectable
 export class StationRegistrationService { // Create a service for registration
     constructor(private http: HttpClient) {}
 
-    saveStationData(stationData: any) {
+    saveStationData(stationData: FormData) { // Change parameter type to FormData
         return this.http.post('YOUR_API_ENDPOINT', stationData); // Replace with your API endpoint
     }
 }
@@ -22,18 +22,23 @@ export class StationRegistrationComponent {
 
     onSubmit(form: NgForm) {
         if (form.valid) {
-            const stationData = {
-                stationName: form.value.stationName,
-                city: form.value.city,
-                provincialOffice: form.value.provincialOffice,
-                regionalOffice: form.value.regionalOffice,
-                regionalDirector: form.value.regionalDirector,
-                officerCommander: form.value.officerCommander,
-                email: form.value.email,
-                officeNumber: form.value.officeNumber,
-                password: form.value.password,
-                confirmPassword: form.value.confirmPassword
-            };
+            const stationData = new FormData(); // Use FormData to handle file upload
+            stationData.append('stationName', form.value.stationName);
+            stationData.append('city', form.value.city);
+            stationData.append('provincialOffice', form.value.provincialOffice);
+            stationData.append('regionalOffice', form.value.regionalOffice);
+            stationData.append('regionalDirector', form.value.regionalDirector);
+            stationData.append('officerCommander', form.value.officerCommander);
+            stationData.append('email', form.value.email);
+            stationData.append('officeNumber', form.value.officeNumber);
+            stationData.append('password', form.value.password);
+            stationData.append('confirmPassword', form.value.confirmPassword);
+
+            const profilePhoto = (form.controls['profilePhoto'].value as FileList)[0];
+            if (profilePhoto) {
+                stationData.append('profilePhoto', profilePhoto, profilePhoto.name);
+            }
+
             this.registrationService.saveStationData(stationData).subscribe(response => {
                 console.log('Registration successful:', response);
                 // Handle successful registration (e.g., show a success message)

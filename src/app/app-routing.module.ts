@@ -26,6 +26,9 @@ import { roleGuard } from './auth.guard';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { StationRegistrationComponent } from './station-registration/station-registration.component'; // Import your component
 import { StationLoginComponent } from './station-login/station-login.component'; // Import your login component
+import { StationListOfOfficersComponent } from './station-list-of-officers/station-list-of-officers.component';
+import { StationReportsComponent } from './station-reports/station-reports.component'; // Import your component
+
 // station-edit-officers
 // , canActivate: [roleGuard], data: { roles: ['chief'] } 
 
@@ -47,6 +50,8 @@ const routes: Routes = [
   { path: 'add-new-officer', component: AddNewOfficerComponent },
   { path: 'station-crime-map', component: StationCrimeMapComponent},
   { path: 'station-dashboard', component: StationDashboardComponent },
+  { path: 'station-list-of-officers', component: StationListOfOfficersComponent },
+  { path: 'station-reports', component: StationReportsComponent }, // Add route for StationReportsComponent
   { path: 'police-login', component: PoliceLoginComponent },
   { path: 'police-register', component: PoliceRegisterComponent },
   { path: 'edit-profile', component: PoliceEditProfileComponent },

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { OfficerService } from '../officer.service'; // Import the service
+import { OfficerService } from '../officer.service';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-add-new-officer',
@@ -10,7 +11,11 @@ import { OfficerService } from '../officer.service'; // Import the service
 export class AddNewOfficerComponent {
   officerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private officerService: OfficerService) {
+  constructor(
+    private fb: FormBuilder,
+    private officerService: OfficerService,
+    private router: Router // Inject Router
+  ) {
     this.officerForm = this.fb.group({
       rank: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -32,6 +37,7 @@ export class AddNewOfficerComponent {
         response => {
           console.log('Officer saved successfully', response);
           this.officerForm.reset(); // Reset the form after saving
+          this.router.navigate(['/station-list-of-officers']); // Navigate to the list of officers
         },
         error => {
           console.error('Error saving officer', error);

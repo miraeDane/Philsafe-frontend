@@ -108,7 +108,37 @@
 
 .absolute {
   position: absolute;
+  z-index: 99;
+  
+  
 }
+
+.case-details{
+  z-index: 99;
+  margin-top: 50px;
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  width: 20px;
+  margin-left: 160px; 
+ 
+}
+
+.drop-down {
+  z-index: 1000;
+  display: flex;
+  width: 250px;
+  margin-right: 190px; 
+  position: relative;
+}
+
+.dropdown-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 0.5rem; /* Space between items */
+  padding: 0.5rem; /* Padding around the grid */
+}
+
 
 .top-4 {
   top: 1rem;
@@ -376,4 +406,21 @@
 
 .h-500 {
   height: 500px;
+}
+
+/* icons for option */
+.flex.items-center {
+  align-items: center; /* Ensure vertical alignment */
+}
+
+.cursor-pointer {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.w-3 {
+  width: 35px; /* Adjust width */
+}
+
+.h-3 {
+  height: 35px; /* Adjust height */
 }

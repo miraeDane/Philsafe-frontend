@@ -1,66 +1,119 @@
 <div class="container">
+
     <div class="emergency-banner">
+
       In case of emergencies, please dial your local emergency services number
+
     </div>
 
     <div class="form-container">
+
         <div class="form-header">
-            <img src="1.png" alt="Logo" class="logo">
+
+            <img src="assets/1.png" alt="Logo" class="logo">
+
             <h2>Register your Station</h2>
+
         </div>
+
         <form (ngSubmit)="onSubmit(stationForm)" #stationForm="ngForm">
+
             <div class="form-row">
                 <div class="form-group">
+
                     <input type="text" name="stationName" ngModel placeholder="Station Name" required>
+
                 </div>
+
                 <div class="form-group">
+
                     <input type="text" name="city" ngModel placeholder="City/Municipality" required>
+
                 </div>
             </div>
+
             <div class="form-row">
+
                 <div class="form-group">
+
                     <select name="provincialOffice" ngModel required>
+
                         <option value="" disabled selected>Provincial Office</option>
+
                         <option value="province1">Province 1</option>
                         <option value="province2">Province 2</option>
                     </select>
                 </div>
+
                 <div class="form-group">
+
                     <select name="regionalOffice" ngModel required>
                         <option value="" disabled selected>Regional Office</option>
                         <option value="region1">Region 1</option>
                         <option value="region2">Region 2</option>
+
                     </select>
                 </div>
+
             </div>
             <div class="form-row">
+
                 <div class="form-group">
                     <input type="text" name="regionalDirector" ngModel placeholder="Regional Director" required>
                 </div>
+
                 <div class="form-group">
+
                     <input type="text" name="officerCommander" ngModel placeholder="Officer Commander" required>
+
                 </div>
+
             </div>
+
             <div class="form-row">
                 <div class="form-group">
                     <input type="email" name="email" ngModel placeholder="Email" required>
                 </div>
+
                 <div class="form-group">
+
                     <input type="text" name="officeNumber" ngModel placeholder="Office Number" required>
+
                 </div>
+
             </div>
+
             <div class="form-row">
+
                 <div class="form-group">
                     <input type="password" name="password" ngModel placeholder="Password" required>
                 </div>
+
                 <div class="form-group">
                     <input type="password" name="confirmPassword" ngModel placeholder="Confirm Password" required>
+
                 </div>
+
+            </div>
+            <div class="form-row"> <!-- Added row for profile photo -->
+
+                <div class="form-group">
+
+                    <label for="profilePhoto">Profile Photo</label>
+                    <input type="file" name="profilePhoto" ngModel>
+                </div>
+
             </div>
             <div class="button-container"> <!-- Added container for buttons -->
+
                 <button type="submit" class="register-button" [routerLink]="['/station-login']">GO BACK</button>
+
                 <a href="#" class="back-button" [routerLink]="['/station-login']">REGISTER</a>
+
             </div>
+
         </form>
+
     </div>
+
 </div>
