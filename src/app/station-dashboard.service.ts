@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StationDashboardService {
-  private apiUrl = 'http://localhost:5100/api/location/retrieve/mapcoordinates';
+  private apiUrl = 'https://localhost:7108/api/case/collect/crimedata';
 
   constructor(private http: HttpClient) {}
 

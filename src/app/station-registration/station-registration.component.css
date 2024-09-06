@@ -16,7 +16,7 @@
 
 /* Container styling */
 .form-container {
-    max-width: 1000px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background-color: white;
@@ -37,7 +37,7 @@
 }
 
 .form-header h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #333;
 }
@@ -50,7 +50,7 @@
 }
 
 .form-row .form-group {
-    width: 48%; /* Adjust this to control spacing between columns */
+    width: 48%; /* Adjusted to ensure two fields fit nicely in a row */
 }
 
 .form-group input,
@@ -63,41 +63,50 @@
     color: #333;
 }
 
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
 /* Button container */
 .button-container {
     display: flex;
-    justify-content: center; /* Space between buttons */
-    margin-top: 20px; /* Add some space above the buttons */
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Button styles */
 .register-button, .back-button {
-    padding: 10px 70px; /* Add padding for button size */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    color: white; /* Text color */
-    font-weight: bold; /* Bold text */
-    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
     margin: 0 10px;
+    font-size: 1rem;
 }
 
 .register-button {
-    background-color: #D32F2F; /* Blue background for Register */
+    background-color: #b91c1c;
 }
 
 .back-button {
-    background-color: #003DA5; /* Red background for Back */
-    text-decoration: none; /* Remove underline from link */
-    display: flex; /* Flex display for centering text */
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
+    background-color: #1e40af;
+    text-decoration: none;
 }
 
-/* Hover effects */
 .register-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #a31b1b;
 }
 
 .back-button:hover {
-    background-color: #c62828; /* Darker red on hover */
+    background-color: #1a378c;
+}
+
+/* Profile Photo Styling */
+.form-group input[type="file"] {
+    padding: 5px;
+    font-size: 0.85rem;
 }

@@ -191,7 +191,7 @@
                     "match",
                     ["get", "CRIME TYPE"],
                     ["NON-INDEX CRIME"],
-                    true,
+                    true,   
                     false
                 ],
                 [

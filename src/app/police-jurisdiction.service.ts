@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PoliceJurisdictionService {
-  private apiUrl = 'http://localhost:5100/api/jurisdiction'; // Replace with your actual API endpoint
+  private apiUrl = 'https://localhost:7108/api/jurisdiction'; // Replace with your actual API endpoint
 
   constructor(private http: HttpClient) {}
 

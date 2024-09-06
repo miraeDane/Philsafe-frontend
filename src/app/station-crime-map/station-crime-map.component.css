@@ -119,8 +119,8 @@
   display: flex;
   position: relative;
   margin-top: 10px;
-  width: 20px;
-  margin-left: 160px; 
+  /* width: 10px; */
+  /* margin-left: 160px;  */
  
 }
 
@@ -423,4 +423,17 @@
 
 .h-3 {
   height: 35px; /* Adjust height */
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+#map-container {
+  height: 95vh;
+  width: 100%;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
 }

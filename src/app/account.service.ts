@@ -51,9 +51,9 @@ export interface ILocation {
   providedIn: 'root',
 })
 export class AccountService {
-  private accountURL = 'http://localhost:5100/api/account/signup';
-  private personURL = 'http://localhost:5100/api/person';
-  private locationURL = 'http://localhost:5100/api/location/create/';
+  private accountURL = 'https://localhost:7108/api/account/signup';
+  private personURL = 'https://localhost:7108/api/person';
+  private locationURL = 'https://localhost:7108/api/location/create/';
   private options = {headers: new HttpHeaders({responseType: "json"})}
   
 

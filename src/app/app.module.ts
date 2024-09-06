@@ -33,6 +33,11 @@ import { DataSuspectService } from './data-suspect.service';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { StationRegistrationComponent } from './station-registration/station-registration.component';
 import { StationLoginComponent } from './station-login/station-login.component';
+import { StationCaseQueueComponent } from './station-case-queue/station-case-queue.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { TicketRequestComponent } from './ticket-request/ticket-request.component';
+import { TicketRequestDetailsComponent } from './ticket-request-details/ticket-request-details.component';
+import { ManageStationComponent } from './manage-station/manage-station.component';
 
 
 @NgModule({
@@ -65,6 +70,11 @@ import { StationLoginComponent } from './station-login/station-login.component';
     AccessDeniedComponent,
     StationRegistrationComponent,
     StationLoginComponent,
+    StationCaseQueueComponent,
+    ManageUsersComponent,
+    TicketRequestComponent,
+    TicketRequestDetailsComponent,
+    ManageStationComponent,
   ],
   imports: [
     BrowserModule,

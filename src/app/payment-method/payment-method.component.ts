@@ -23,7 +23,7 @@ export class PaymentMethodComponent {
 
   onSubmit() {
     if (this.paymentForm.valid) {
-      this.http.post('http://localhost:5000/api/payments', this.paymentForm.value)
+      this.http.post('https://localhost:5000/api/payments', this.paymentForm.value)
         .subscribe(response => {
           console.log('Payment successful', response);
         }, error => {

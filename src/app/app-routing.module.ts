@@ -28,7 +28,11 @@ import { StationRegistrationComponent } from './station-registration/station-reg
 import { StationLoginComponent } from './station-login/station-login.component'; // Import your login component
 import { StationListOfOfficersComponent } from './station-list-of-officers/station-list-of-officers.component';
 import { StationReportsComponent } from './station-reports/station-reports.component'; // Import your component
-
+import { StationCaseQueueComponent } from './station-case-queue/station-case-queue.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component'; // Import the Manage Users component
+import { TicketRequestComponent } from './ticket-request/ticket-request.component'; // Import your Ticket R
+import { TicketRequestDetailsComponent } from './ticket-request-details/ticket-request-details.component'; // Import Ticket Request Details component
+import { ManageStationComponent } from './manage-station/manage-station.component'; // Import Manage Station component
 // station-edit-officers
 // , canActivate: [roleGuard], data: { roles: ['chief'] } 
 
@@ -63,6 +67,11 @@ const routes: Routes = [
   { path: 'payment-method', component: PaymentMethodComponent },
   { path: 'home-page', component: HomePageComponent },
   { path: 'access-denied', component: AccessDeniedComponent },
+  { path: 'station-case-queue', component: StationCaseQueueComponent },
+  { path: 'manage-users', component: ManageUsersComponent }, 
+  { path: 'ticket-request', component: TicketRequestComponent },
+  { path: 'ticket-request-details', component: TicketRequestDetailsComponent }, // Route for Ticket Request Details with a parameter // Add route for Ticket Request
+  { path: 'manage-station', component: ManageStationComponent }, // Route for Manage Station
   // { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: '', redirectTo: '/station-register', pathMatch: 'full' }, // Redirect to registration by default
   { path: '**', redirectTo: '/station-register' },

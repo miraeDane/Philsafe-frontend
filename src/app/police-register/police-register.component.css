@@ -4,10 +4,14 @@
     color: #ffffff;
     text-align: center;
     padding: 12px 0;
-    position: fixed; /* Changed to fixed to keep it at the top */
+    position: fixed; /* Keeps it at the top */
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure it stays above other elements */
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+.container {
+    margin-top: 60px; /* Adjust this value as needed to create space below the banner */
 }
 
 :root {
@@ -231,13 +235,13 @@ button:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .register-button:hover {
-    background-color: #b91c1c;
-  }
+}
 
-  .back-button {
+.register-button:hover {
+    background-color: #b91c1c;
+}
+
+.back-button {
     width: 15%;
     background-color: #1e40af;
     color: #ffffff;
@@ -246,8 +250,8 @@ button:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .back-button:hover {
+}
+
+.back-button:hover {
     background-color: #b91c1c;
-  }
+}

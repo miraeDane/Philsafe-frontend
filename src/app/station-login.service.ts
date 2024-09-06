@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class StationLoginService {
-  private loginURL = 'http://localhost:5100/api/account/login'; // Replace with your actual API endpoint
+  private loginURL = 'https://localhost:7108/api/account/login'; // Replace with your actual API endpoint
 
   constructor(private http: HttpClient) {}
 

@@ -17,7 +17,7 @@
     width: 80%;
   }
   .bg-white {
-    background-color: white;
+    background-color: #B3E7E9;
   }
   
   .p-4 {
@@ -442,4 +442,7 @@
   .icon-small {
     width: 16px; /* Adjust the size as needed */
     height: 16px; /* Adjust the size as needed */
+  }
+  .background{
+    background-color: #B3E7E9;
   }
