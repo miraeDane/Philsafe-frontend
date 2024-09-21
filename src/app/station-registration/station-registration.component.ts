@@ -1,16 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'; // Import HttpClient
-import { Injectable } from '@angular/core'; // Import Injectable
-
-@Injectable({ providedIn: 'root' }) // Add Injectable decorator
-export class StationRegistrationService { // Create a service for registration
-    constructor(private http: HttpClient) {}
-
-    saveStationData(stationData: FormData) { // Change parameter type to FormData
-        return this.http.post('YOUR_API_ENDPOINT', stationData); // Replace with your API endpoint
-    }
-}
+import { StationRegistrationService } from '../station-registration.service'; // Import the service
 
 @Component({
   selector: 'app-station-registration',
@@ -18,34 +8,45 @@ export class StationRegistrationService { // Create a service for registration
   styleUrls: ['./station-registration.component.css']
 })
 export class StationRegistrationComponent {
+    isLoading = false; // Loading state
+    successMessage: string | null = null; // Success message
+    errorMessage: string | null = null; // Error message
+
     constructor(private registrationService: StationRegistrationService) {} // Inject the service
 
     onSubmit(form: NgForm) {
+        console.log('Form submitted:', form.value); // Debugging line
         if (form.valid) {
-            const stationData = new FormData(); // Use FormData to handle file upload
-            stationData.append('stationName', form.value.stationName);
-            stationData.append('city', form.value.city);
-            stationData.append('provincialOffice', form.value.provincialOffice);
-            stationData.append('regionalOffice', form.value.regionalOffice);
-            stationData.append('regionalDirector', form.value.regionalDirector);
-            stationData.append('officerCommander', form.value.officerCommander);
-            stationData.append('email', form.value.email);
-            stationData.append('officeNumber', form.value.officeNumber);
-            stationData.append('password', form.value.password);
-            stationData.append('confirmPassword', form.value.confirmPassword);
+            console.log('Form is valid so yeaaah', form) 
 
-            const profilePhoto = (form.controls['profilePhoto'].value as FileList)[0];
-            if (profilePhoto) {
-                stationData.append('profilePhoto', profilePhoto, profilePhoto.name);
-            }
+            const stationData = form.value; // Use FormData to handle file upload
+            // stationData.append('hq', form.value.hq); // Map to Jurisdiction model
+            // stationData.append('locationId', form.value.locationId); // Map to Jurisdiction model
+            // stationData.append('abbr', form.value.abbr); // Map to Jurisdiction model
+            // stationData.append('rank', form.value.rank); // Map to Jurisdiction model
+            // stationData.append('officerInChargeId', form.value.officerInChargeId); // Map to Jurisdiction model
+            // stationData.append('isApproved', 'false'); // Default value for isApproved
 
+            // const profilePhoto = (form.controls['profilePhoto'].value as FileList)[0];
+            // if (profilePhoto) {
+            //     stationData.append('profilePhoto', profilePhoto, profilePhoto.name); // Handle file upload
+            // }
+
+            this.isLoading = true; // Set loading state
+            console.log("Station Data!!!!", stationData)
             this.registrationService.saveStationData(stationData).subscribe(response => {
+                this.isLoading = false; // Reset loading state
+                this.successMessage = 'Registration successful!'; // Set success message
                 console.log('Registration successful:', response);
-                // Handle successful registration (e.g., show a success message)
+                // Optionally reset the form or redirect    
             }, error => {
+                this.isLoading = false; // Reset loading state
+                this.errorMessage = 'Registration failed. Please try again.'; // Set error message
                 console.error('Registration failed:', error);
-                // Handle error (e.g., show an error message)
             });
+        } else {
+            this.errorMessage = 'Please fill in all required fields.'; // Handle invalid form
+            console.log('Error Message:', this.errorMessage);
         }
     }
 }

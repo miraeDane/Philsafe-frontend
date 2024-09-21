@@ -1,218 +1,219 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #1a1a1a;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; 
-    padding-top: 0px; 
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-  
-  .emergency-banner {
-    width: 100%;
-    background-color: #1e40af;
-    color: #ffffff;
-    text-align: center;
-    padding: 12px 0;
-    position: absolute;
-    top:0;
-    left:0;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  padding-top: 0px; 
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.emergency-banner {
+  width: 100%;
+  background-color: #1e40af;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 0;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 90%; /* Adjust the width to make it more rectangular */
+  height: 90vh; /* Adjust the height to fit within one screen */
+  margin-top: 50px;
+  background-color: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-section {
+  flex: 1;
+  padding: 24px;
+}
+
+.logo-section {
+  background-color: #bfdbfe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-section {
+  background-color: #bfdbfe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  width: 450px; /* Adjust the width as needed */
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.map-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 50px;
+  color: #000000; /* Change text color to black */
+  font-weight: bold; /* Make text bold */
+}
+
+.form-section {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure the form section takes full width */
+}
+
+.form-logo {
+  width: 100px; /* Adjust the width as needed */
+  height: auto;
+  margin-bottom: 8px; /* Reduce the margin to move the logo closer to the title */
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: #1e40af;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Reduce the gap to save space */
+  width: 100%;
+  max-width: 500px; /* Increase the max-width to make the form wider */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-input {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #1a1a1a;
+  width: 100%; /* Stretch the input to take full width */
+}
+
+.forgot-password {
+  text-align: right;
+  color: #1e40af;
+}
+
+.forgot-password a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.login-button {
+  width: 100%;
+  background-color: #1e40af;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #b91c1c;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-button {
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account {
+  text-align: center;
+  margin-top: 8px; /* Reduce the margin to save space */
+}
+
+.create-account-link {
+  color: #b91c1c;
+}
+
+.small-text {
+  font-size: 0.75rem;
+  text-align: justify;
+  padding: 10px 50px 20px;
+}
+
+@media (max-width: 768px) {
   .card {
-    display: flex;
     flex-direction: column;
-    max-width: 1024px;
-    margin-top: 50px;
-    background-color: var(--card);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    height: auto; /* Adjust height for smaller screens */
   }
-  
-  .card-section {
-    flex: 1;
-    padding: 24px;
-  }
-  
-  .logo-section {
-    background-color: #bfdbfe;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .logo {
-    margin-bottom: 16px;
-  }
-  
-  .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .description {
-    text-align: center;
-    color: var(--muted-foreground);
-  }
-  
-  .form-section {
-    padding: 24px;
-  }
-  
-  .form-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  
-  .highlight {
-    color: #dc2626;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    margin-top: 64px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group label {
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-  
-  .form-input {
-    margin-top: 4px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #1a1a1a;
-  }
-  
-  .forgot-password {
-    text-align: right;
-    color: #1e40af;
-  }
-  
-  .forgot-password a {
-    font-size: 0.875rem;
-    color: var(--muted-foreground);
-  }
-  
-  .login-button {
-    width: 100%;
-    background-color: #dc2626;
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #b91c1c;
-  }
-  
-  .social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 16px;
-  }
-  
-  .social-button {
-    color: #ffffff;
-    padding: 8px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .social-button.google {
-  }
-  
-  .create-account {
-    text-align: center;
-    margin-top: 16px;
-  }
-  
-  .create-account-link {
-    color: #1e40af;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .logo-section {
-    flex: 1;
-    padding: 24px;
-    background-color: #bfdbfe;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .form-section {
-    flex: 1;
-    padding: 24px;
-  }
-  
-  .small-text {
-    font-size: 0.75rem;
-    text-align: justify;
-    padding: 10px 50px 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .card {
-      flex-direction: column;
-    }
-  }
+}
 
 
-  .error {
-    color: #D8000C;
-    background-color: #FFBABA;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    
-  }
-  
-  .error-icon {
-    margin-right: 10px;
-  }
-  
-  .error-text {
-    font-weight: bold;
-    margin-right: 7px; /* Add some space after "Error:" */
-  }
-  
-  .form-input.ng-invalid.ng-touched {
-    border-color: #D8000C;
-  }
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 104%; /* Make the error message take the full width of the form */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.error-icon {
+  margin-right: 10px;
+}
+
+.error-text {
+  font-weight: bold;
+  margin-right: 7px; /* Add some space after "Error:" */
+}
+
+.form-input.ng-invalid.ng-touched {
+  border-color: #D8000C;
+}

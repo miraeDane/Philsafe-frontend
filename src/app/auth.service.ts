@@ -7,6 +7,7 @@ import { catchError, throwError } from 'rxjs';
 export interface ILogin {
   email: string;
   password: string;
+  SignInType: string; 
 }
 
 @Injectable({

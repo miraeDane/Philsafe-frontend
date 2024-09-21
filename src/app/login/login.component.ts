@@ -28,7 +28,7 @@ export class LoginComponent {
 
   submitLogin(loginData: {email: string, password: string}) {
     return new Promise((resolve, reject) => {
-        this.authService.login(loginData).subscribe(data => {
+        this.authService.login({...loginData, SignInType:"Email"}).subscribe(data => {
             console.log(data)
             resolve(data)
         });

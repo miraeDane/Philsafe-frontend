@@ -1,62 +1,92 @@
 <div class="container">
-    <div class="emergency-banner">
-      In case of emergencies, please dial your local emergency services number
-    </div>
-    <div class="min-h-screen flex items-center justify-center bg-zinc-100 p-4">
-      <div class="bg-white shadow-lg rounded-lg w-full max-w-lg mt-16 relative">
-        <div class="absolute top-4 right-4">
-          <button type="button" class="back-button">BACK</button>
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen flex items-center justify-center bg-zinc-100 p-4">
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-lg mt-16 relative">
+      <div class="absolute top-4 right-4">
+        <button type="button" class="back-button">BACK</button>
+      </div>
+      <div class="text-center p-4">
+        <h2 class="text-xl font-semibold mb-4">Create Account</h2>
+        <div class="flex justify-center mb-4">
+          <button class="bg-zinc-200 text-black px-4 py-2 rounded-l-lg" style="border: none; cursor: pointer;">NSU</button>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg" style="border: none; cursor: pointer;">Office Station</button>
         </div>
-        <div class="text-center p-4">
-          <h2 class="text-xl font-semibold mb-4">Create Account</h2>
-          <div class="flex justify-center mb-4">
-            <button class="bg-zinc-200 text-black px-4 py-2 rounded-l-lg" style="border: none; cursor: pointer;">NSU</button>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg" style="border: none; cursor: pointer;">Office Station</button>
-          </div>
-          <div class="bg-blue-100 p-4 rounded-lg">
-            <!-- Wrap the inputs in a form tag -->
-            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <input type="text" name="rank" ngModel placeholder="Rank" class="input-field" required>
-                <select name="provincialOffice" ngModel class="input-field" required>
-                  <option value="" disabled selected>Regional Office</option>
-                  <option>Region 7</option>
-                </select>
-                <input type="text" name="firstName" ngModel placeholder="First Name" class="input-field" required>
-                <select name="regionalOffice" ngModel class="input-field" required>
-                  <option value="" disabled selected>Provincial Office</option>
-                  <option>Cebu City</option>
-                </select>
-                <input type="text" name="middleName" ngModel placeholder="Middle Name" class="input-field" required>
-                <select name="officerCommander" ngModel class="input-field" required>
-                  <option value="" disabled selected>City/Municipality</option>
-                  <option>City of Cebu</option>
-                </select>
-                <input type="text" name="lastName" ngModel placeholder="Last Name" class="input-field" required>
-                <select name="city" ngModel class="input-field" required>
-                  <option value="" disabled selected>Station</option>
-                  <option>Station 1</option>
-                </select>
-                <input type="text" name="badgeNumber" ngModel placeholder="Badge Number" class="input-field" required>
-                <div class="flex items-center">
-                  <span class="mr-2">WCPC</span> 
-                  <label class="mr-2"><input type="radio" name="wcpc" ngModel value="yes" required> YES</label>
-                  <label><input type="radio" name="wcpc" ngModel value="no"> NO</label>
-                </div>
-                <input type="email" name="email" ngModel placeholder="Email" class="input-field" required email>
-                <div class="flex items-center">
-                  <span class="mr-2">Investigator</span>
-                  <label class="mr-2"><input type="radio" name="investigator" ngModel value="yes" required> YES</label>
-                  <label><input type="radio" name="investigator" ngModel value="no"> NO</label>
-                </div>
-                <input type="password" name="password" ngModel placeholder="Password" class="input-field" required minlength="6">
+        <div class="bg-blue-100 p-4 rounded-lg">
+          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <select name="rank" ngModel class="input-field" required>
+                <option value="" disabled selected>Select Rank</option>
+                <option *ngFor="let rank of ranks" [value]="rank.rank_id">{{ rank.rank_full }}</option>
+              </select>
+
+              <select name="provincialOffice" ngModel class="input-field" required>
+                <option value="" disabled>Regional Office</option>
+                <option>Region 7</option>
+              </select>
+
+              <input type="text" name="name" ngModel placeholder="Name" class="input-field" required>
+
+              <select name="regionalOffice" ngModel class="input-field" required>
+                <option value="" disabled selected>Provincial Office</option>
+                <option>Cebu City</option>
+              </select>
+
+              <select name="officerCommander" ngModel class="input-field" required>
+                <option value="" disabled selected>City/Municipality</option>
+                <option>City of Cebu</option>
+              </select>
+
+              <select name="city" ngModel class="input-field" required>
+                <option value="" disabled selected>Station</option>
+                <option>Police Station 1 - Parian</option>
+                <option>Police Station 2 - Osmeña Boulevard</option>
+                <option>Police Station 3 - Waterfront Pier</option>
+                <option>Police Station 4 - Mabolo</option>
+                <option>Police Station 5 - Carbon Market</option>
+                <option>Police Station 6 - Sawang Calero</option>
+                <option>Police Station 7 - Poblacion Pardo</option>
+                <option>Police Station 8 - Talamban</option>
+                <option>Police Station 9 - Guadalupe</option>
+                <option>Police Station 10 - Labangon</option>
+                <option>Police Station 11 - Mambaling</option>
+              </select>
+
+              <input type="text" name="badgeNumber" ngModel placeholder="Badge Number" class="input-field" required>
+
+              <div class="flex items-center">
+                <span class="mr-2">WCPC</span> 
+                <label class="mr-2"><input type="radio" name="wcpc" ngModel value="yes" required> YES</label>
+                <label><input type="radio" name="wcpc" ngModel value="no"> NO</label>
               </div>
-              <p class="text-xs text-zinc-600 mb-4">By clicking register you agree to our Terms and that you have read our Policy</p>
-              <button type="submit" class="register-button" [disabled]="form.invalid">REGISTER</button>
-            </form>
-          </div>
+
+              <div class="flex items-center">
+                <span class="mr-2">Investigator</span>
+                <label class="mr-2"><input type="radio" name="investigator" ngModel value="yes" required> YES</label>
+                <label><input type="radio" name="investigator" ngModel value="no"> NO</label>
+              </div>
+
+              <input type="text" name="unit" ngModel placeholder="Unit" class="input-field" required>
+
+              <select name="role" ngModel class="input-field" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="chief">Chief</option>
+                <option value="police">Police</option>
+              </select>
+
+              <input type="date" name="debutDate" ngModel placeholder="Debut Date" class="input-field" required>
+
+              <input type="datetime-local" name="datetimeCreated" ngModel placeholder="Date Time Created" class="input-field" required>
+
+              <input type="text" name="createdBy" ngModel placeholder="Created By" class="input-field" required>
+            </div>
+            
+            <p class="text-xs text-zinc-600 mb-4">By clicking register you agree to our Terms and that you have read our Policy</p>
+            <button type="submit" class="register-button" [disabled]="form.invalid">REGISTER</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
