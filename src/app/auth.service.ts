@@ -3,6 +3,7 @@ import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { LocalServer } from '../server';
 
 export interface ILogin {
   email: string;
@@ -19,6 +20,10 @@ export class AuthService {
   // set roles -> localStorage.setItem('roles', window.btoa('admin,user'));
   private loginURL = 'http://localhost:5100/api/account/login';
   private options = { headers: new HttpHeaders({ responseType: "json" }) };
+
+   //newly initialized constant server link
+   private ipUrl = `${LocalServer.ipAddUrl}/api/account/signup`
+   private localUrl = `${LocalServer.localUrl}/api/account/signup`
 
   constructor(private http: HttpClient) { }
   login(data: ILogin): Observable<any> {
@@ -53,7 +58,7 @@ export class AuthService {
     const roles = localStorage.getItem('access-roles') || null;
     return of(roles ? window.atob(roles).split(',') : [])
   }
-
+ 
   isAuthenticated(): Observable<boolean> {
     const authenticated = localStorage.getItem('token') || null;
     return !!authenticated ? of(true) : of(false);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { LocalServer } from '../server';
 
 interface LocationResult{
   message:string;
@@ -54,26 +55,35 @@ export class AccountService {
   private accountURL = 'http://localhost:5100/api/account/signup';
   private personURL = 'http://localhost:5100/api/person';
   private locationURL = 'http://localhost:5100/api/location/create/';
-  private options = {headers: new HttpHeaders({responseType: "json"})}
+  private options = {headers: new HttpHeaders({responseType: "application/json"})}
+
+  //newly initialized constant server link
+  private ipUrl = LocalServer.ipAddUrl
+  private localUrl = LocalServer.localUrl
+  
   
 
   constructor(private http: HttpClient) {
   }
 
-  postAccount(data: IAccount): Observable<any> {
-    return this.http.post(this.accountURL, data).pipe(
+  postAccount(data: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'multipart/form-data' 
+  });
+
+    return this.http.post(`${this.ipUrl}api/account/signup/upgrade`, data).pipe(
       catchError(this.handleError)
     );
   }
   
   postPerson(data: IPerson): Observable<any> {
-    return this.http.post(this.personURL, data).pipe(
+    return this.http.post(`${this.ipUrl}api/person`, data).pipe(
       catchError(this.handleError)
     );
   }
 
   postLocation(zipCode: number, data: ILocation): Observable<any> {
-    const url = `${this.locationURL}${zipCode}`;
+    const url = `${this.ipUrl}/api/location/create/${zipCode}`;
     return this.http.post(url, data, this.options ).pipe(
       catchError(this.handleError)
     );
@@ -97,7 +107,7 @@ export class AccountService {
   }
 
   createOrRetrieveLocation(locationData: ILocation, zipCode: number): Observable<any> {
-    return this.http.post(`${this.locationURL}${zipCode}`, locationData, { observe: 'response' })
+    return this.http.post(`${this.ipUrl}api/location/create/${zipCode}`, locationData, { observe: 'response' })
       .pipe(
         map((response: HttpResponse<any>) => {
           if (response.status === 200) {

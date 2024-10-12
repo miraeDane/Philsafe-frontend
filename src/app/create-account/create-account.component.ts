@@ -103,7 +103,7 @@ export class CreateAccountComponent implements OnInit {
     submitLocation(locationData: ILocation) {
         const { zipCode } = locationData
         return new Promise((resolve, reject) => {
-            this.accountService.postLocation(zipCode, locationData).subscribe(data => {
+            this.accountService.createOrRetrieveLocation(locationData, zipCode).subscribe(data => {
                 console.log(data)
                 resolve(data)
             });
@@ -119,7 +119,7 @@ export class CreateAccountComponent implements OnInit {
         })
     }
 
-    submitAccount(accountData: IAccount) {
+    submitAccount(accountData: any) {
         return new Promise((resolve, reject) => {
             this.accountService.postAccount(accountData).subscribe(data => {
                 console.log(data)
@@ -160,8 +160,8 @@ export class CreateAccountComponent implements OnInit {
             // Submit home address 
             const homeLocationRequest: any = await this.submitLocation(homeLocationData)
             // assigning homeaddress ID
-            ids.homeAddressId = homeLocationRequest.id
-            ids.workAddressId = homeLocationRequest.id;
+            ids.homeAddressId = homeLocationRequest.locationId || 0;
+            ids.workAddressId = homeLocationRequest.locationId || 0;
 
             if (!accountData.isSameAddress) {
                 const { workRegion, workProvince, workMunicipality, workBarangay, workStreet, workBlockLotUnit, workZipCode } = accountData
@@ -176,7 +176,7 @@ export class CreateAccountComponent implements OnInit {
                     street: workStreet,
                     blockLotUnit: workBlockLotUnit,
                 })
-                ids.workAddressId = workLocationRequest.id
+                ids.workAddressId = workLocationRequest.locationId || 0;
             }
 
             const personData: IPerson = {
@@ -200,14 +200,50 @@ export class CreateAccountComponent implements OnInit {
                 ...ids,
                 role: 'user',
             }
-            // submit to account
-            const accountRequest: any = await this.submitAccount(accountReqData);
-            if (accountRequest.code === 200) {
-                this.router.navigate(['/login'])
+
+            // Create FormData object for multipart/form-data
+            const formData = new FormData();
+            formData.append('firstName', accountData.firstName);
+            formData.append('middleName', accountData.middleName);
+            formData.append('lastName', accountData.lastName);
+            formData.append('email', accountData.email);
+            formData.append('password', accountData.password);
+            formData.append('contactNum', accountData.contactNum);
+            formData.append('sex', accountData.gender);
+            formData.append('role', 'Certified');
+            formData.append('homeAddressId', ids.homeAddressId.toString());
+            formData.append('workAddressId', ids.workAddressId.toString());
+            formData.append('personId', ids.personId.toString());
+
+            if (this.selectedPhoto) {
+                const fileReader = new FileReader();
+                fileReader.onload = async () => {
+                    const binary = fileReader.result as ArrayBuffer;
+                    
+                    // Ensure selectedPhoto is not null before accessing its properties
+                    if (this.selectedPhoto) {
+                        formData.append('profilePic', new Blob([binary], { type: this.selectedPhoto.type }), this.selectedPhoto.name);
+                    }
+            
+                    // Submit account with FormData
+                    const accountRequest: any = await this.submitAccount(formData);
+                    if (accountRequest.code === 200) {
+                        this.router.navigate(['/login']);
+                    }
+                };
+                fileReader.readAsArrayBuffer(this.selectedPhoto); // Convert to binary
+            } else {
+                // If no profile pic, submit the form directly
+                const accountRequest: any = await this.submitAccount(formData);
+                if (accountRequest.code === 200) {
+                    this.router.navigate(['/login']);
+                }
             }
+            
         } else {
             this.errorMessage = 'Please fill in all required fields correctly.'; // Set error message
             console.log('Form is invalid', this.registrationForm.errors); // Log form errors
+            console.log('Form Response',this.registrationForm)
         }
     }
 

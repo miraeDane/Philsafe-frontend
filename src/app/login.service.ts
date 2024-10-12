@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { LocalServer } from '../server';
 
 export interface ILogin {
   email: string;
@@ -13,6 +14,10 @@ export interface ILogin {
 export class LoginService {
   private loginURL = 'http://localhost:5100/api/account/login';
   private options = { headers: new HttpHeaders({ responseType: "json" }) };
+
+   //newly initialized constant server link
+   private ipUrl = `${LocalServer.ipAddUrl}/api/account/signup`
+   private localUrl = `${LocalServer.localUrl}/api/account/signup`
 
   constructor(private http: HttpClient) { }
 
