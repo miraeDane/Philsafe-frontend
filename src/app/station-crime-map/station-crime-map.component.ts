@@ -37,9 +37,7 @@ export class StationCrimeMapComponent implements OnInit {
     { name: 'RAPE', icon: 'assets/rape.png' },
     { name: 'VEHICULAR ACCIDENT', icon: 'assets/traffic incident.png' },
     { name: 'CARNAPPING/MOTORNAPPING', icon: 'assets/car motor napping.png' },
-    // { name: 'DRUGS', icon: 'assets/img/DRUGS.png' },
     { name: 'HACKING', icon: 'assets/img/hacking.png' },
-    // { name: 'HOMICIDE', icon: 'asset s/img/homicide.png' },
     { name: 'LASCIVIOUSNESS', icon: 'assets/lasciviousness.png' },
     { name: 'MURDER', icon: 'assets/murder.png' },
     { name: 'Illegal Gambling Operation', icon: 'assets/operation for illegals.png' },
@@ -100,9 +98,10 @@ export class StationCrimeMapComponent implements OnInit {
   }
 
   fetchCrimeDetails() {
-    this.http.get<crimeDetail[]>('https://localhost:7108/api/case/collect/crimedata').subscribe((data) => {
+    this.http.get<crimeDetail[]>('https://localhost:7108/api/case/retrieve/nationwide').subscribe((data) => {
       this.crimeDetails = data || [];
       this.filteredCrimes = data || [];
+      console.log('Fetched Crimes:', this.crimeDetails)
     }, error => {
       console.error('Error fetching crime details:', error);
     });

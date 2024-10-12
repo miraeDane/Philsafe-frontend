@@ -141,8 +141,8 @@ export class CreateAccountComponent implements OnInit {
         if (this.registrationForm.valid && this.passwordValid) {
             const accountData = this.registrationForm.value; // Get account data from the form
             // Ensure role is always set to "User (Uncertified)"
-            accountData.role = 'Admin';
-            const ids = {
+            accountData.role = 'Police';
+            const ids = {   
                 homeAddressId: 0,
                 workAddressId: 0,
                 personId: 0
@@ -198,7 +198,7 @@ export class CreateAccountComponent implements OnInit {
                 password: accountData.password,
                 contactNum: accountData.contactNum,
                 ...ids,
-                role: 'user',
+                role: 'Police',
             }
             // submit to account
             const accountRequest: any = await this.submitAccount(accountReqData);

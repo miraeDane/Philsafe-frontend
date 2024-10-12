@@ -1,195 +1,94 @@
-// import { Component } from '@angular/core';
-// import { NgForm } from '@angular/forms';
-// import { PoliceRegisterService } from '../police-register.service'; // Import the service
-// import { Router } from '@angular/router'; // Import Router to navigate after successful registration
-// import { HttpHeaders } from '@angular/common/http'; // Ensure HttpHeaders is imported
-
-// @Component({
-//   selector: 'app-police-register',
-//   templateUrl: './police-register.component.html',
-//   styleUrls: ['./police-register.component.css']
-// })
-// export class PoliceRegisterComponent {
-//   constructor(
-//     private registerService: PoliceRegisterService,
-//     private router: Router // Inject Router for navigation
-//   ) {}
-
-//   onSubmit(form: NgForm) {
-//     if (form.valid) {
-//       // Prepare registration data
-//       const registrationData = {
-//         rank: form.value.rank,
-//         provincialOffice: form.value.provincialOffice,
-//         firstName: form.value.firstName,
-//         middleName: form.value.middleName,
-//         lastName: form.value.lastName,
-//         regionalOffice: form.value.regionalOffice,
-//         city: form.value.city,
-//         badgeNumber: form.value.badgeNumber,
-//         wcpc: form.value.wcpc,
-//         email: form.value.email,
-//         investigator: form.value.investigator,
-//         password: form.value.password // Ensure password is captured for submission
-//       };
-
-//       // Log the registration data to ensure all fields are correct
-//       console.log('Registration data:', registrationData);
-
-//       // Set headers if needed by the backend
-//       const httpOptions = {
-//         headers: new HttpHeaders({
-//           'Content-Type': 'application/json'
-//         })
-//       };
-
-//       // Call the register service to submit the data
-//       this.registerService.register(registrationData).subscribe( // Removed httpOptions
-//         response => {
-//           console.log('Registration successful:', response);
-//           // Navigate to a success page or dashboard
-//           this.router.navigate(['/dashboard']);
-//         },
-//         error => {
-//           console.error('Registration failed:', error);
-
-//           // Check if it's a bad request (400)
-//           if (error.status === 400) {
-//             alert('Bad Request: Please check the data being sent. Possible validation errors.');
-//           } else {
-//             alert('Registration failed. Please try again.');
-//           }
-//         }
-//       );
-//     } else {
-//       console.error('Form is invalid');
-//       alert('Please fill out all fields correctly.');
-//     }
-//   }
-// }
-
-// import { Component } from '@angular/core';
-// import { NgForm } from '@angular/forms';
-// import { PoliceRegisterService } from '../police-register.service'; // Import the service
-// import { Router } from '@angular/router'; // Import Router to navigate after successful registration
-// import { HttpHeaders } from '@angular/common/http'; // Ensure HttpHeaders is imported
-
-// @Component({
-//   selector: 'app-police-register',
-//   templateUrl: './police-register.component.html',
-//   styleUrls: ['./police-register.component.css']
-// })
-// export class PoliceRegisterComponent {
-//   constructor(
-//     private registerService: PoliceRegisterService,
-//     private router: Router // Inject Router for navigation
-//   ) {}
-
-//   onSubmit(form: NgForm) {
-
-//     if (form.valid) {
-
-//       // Prepare registration data with all required fields
-//       const registrationData = {
-//         rank: form.value.rank,
-//         provincialOffice: form.value.provincialOffice,
-//         firstName: form.value.firstName,
-//         middleName: form.value.middleName,
-//         lastName: form.value.lastName,
-//         regionalOffice: form.value.regionalOffice,
-//         city: form.value.city,
-//         badgeNumber: form.value.badgeNumber,
-//         wcpc: form.value.wcpc, // WCPC field
-//         investigator: form.value.investigator // Investigator field
-//       };
-
-//       // Log the registration data to ensure all fields are correct
-//       console.log('Registration data:', registrationData);
-
-//       // Set headers if needed by the backend
-//       const httpOptions = {
-//         headers: new HttpHeaders({
-//           'Content-Type': 'application/json'
-//         })
-//       };
-
-//       // Call the register service to submit the data
-//       this.registerService.register(registrationData).subscribe(
-//         response => {
-//           console.log('Registration successful:', response);
-//           // Navigate to a success page or dashboard
-//           this.router.navigate(['/dashboard']);
-//         },
-//         error => {
-//           console.error('Registration failed:', error);
-
-//           // Check if it's a bad request (400) and show appropriate message
-//           if (error.status === 400 && error.error && error.error.errors) {
-//             const errorDetails = error.error.errors; // Extract error details safely
-//             const errorMessage = this.getErrorMessage(errorDetails); // Create a custom error message
-//             alert(`Bad Request: ${errorMessage}`);
-//           } else {
-//             alert('Registration failed. Please try again.');
-//           }
-//         }
-//       );
-//     } else {
-//       console.error('Form is invalid');
-//       alert('Please fill out all fields correctly.');
-//     }
-//   }
-
-//   // Helper method to extract detailed error messages
-//   getErrorMessage(errorDetails: any): string {
-//     if (!errorDetails) {
-//       return 'An unknown error occurred. Please try again later.';
-//     }
-
-//     let message = 'Please check the following fields:\n';
-//     for (const key in errorDetails) {
-//       if (errorDetails.hasOwnProperty(key)) {
-//         message += `${key}: ${errorDetails[key].join(', ')}\n`;
-//       }
-//     }
-//     return message;
-//   }
-// }
-
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { PoliceRegisterService } from '../police-register.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IRank, PoliceRegisterService } from '../police-register.service';
 import { Router } from '@angular/router';
-import { HttpHeaders } from '@angular/common/http';
+import { JurisdictionService, IStation } from '../jurisdiction.service';
+import { AccountService, IPerson } from '../account.service';
+import { PersonService, IPolice } from '../person.service';
+import { StationAddLocationService } from '../station-add-location.service';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-police-register',
   templateUrl: './police-register.component.html',
   styleUrls: ['./police-register.component.css'],
 })
+
 export class PoliceRegisterComponent implements OnInit {
-  ranks: any[] = [];
+  policeForm!: FormGroup;
+  isLoading = false;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  ranks: IRank[] = [];
+  stations: IStation[] = [];
+  persons: IPerson[] = [];
   profilePicture: File | null = null;
   previewUrl: string | ArrayBuffer | null = null;
 
+  stationID: string | null = null;
+  rank_id: string | null = null;
+  personID: string | null = null;
+
   constructor(
+    private fb: FormBuilder,
     private registerService: PoliceRegisterService,
-    private router: Router
+    private locationService: StationAddLocationService,
+    private accountService: AccountService,
+    private router: Router,
+    private jurisdiction: JurisdictionService,
+    private person: PersonService
   ) {}
 
   ngOnInit(): void {
     this.fetchRanks();
+    this.fetchStations();
+    this.fetchPersons();
+    this.initializeForm();
+  }
+
+  initializeForm(): void {
+    this.policeForm = this.fb.group({
+      unit: ['', Validators.required],
+      role: ['', Validators.required],
+      // officer: ['', Validators.required], // Ensure this matches formControlName in the HTML
+      badgeNumber: ['', Validators.required],
+      debutDate: ['', Validators.required],
+      createdBy: ['Admin', Validators.required], // Default value
+      stationId: ['', Validators.required],
+      rank_id: ['', Validators.required],
+      personID: ['', Validators.required],
+    });
+  }
+
+  fetchPersons(): void {
+    this.person.getAll().subscribe(
+      (response: IPerson[]) => {
+        this.persons = response;
+      },
+      (error) => {
+        console.error('Error fetching persons:', error);
+        alert('Failed to load persons. Please try again.');
+      }
+    );
+  }
+
+  fetchStations(): void {
+    this.jurisdiction.getAll().subscribe(
+      (response: IStation[]) => {
+        this.stations = response;
+      },
+      (error) => {
+        console.error('Error fetching stations:', error);
+        alert('Failed to load stations. Please try again.');
+      }
+    );
   }
 
   fetchRanks(): void {
     this.registerService.getRanks().subscribe(
-      (response: any) => {
-        console.log('Raw response:', response);
-        if (Array.isArray(response)) {
-          this.ranks = response;
-          console.log('Fetched ranks:', this.ranks);
-        } else {
-          console.error('Unexpected response format:', response);
-        }
+      (response: IRank[]) => {
+        this.ranks = response;
       },
       (error) => {
         console.error('Error fetching ranks:', error);
@@ -200,90 +99,117 @@ export class PoliceRegisterComponent implements OnInit {
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
-    if (file) {
+    if (file && file.size < 5000000 && file.type.startsWith('image/')) { // Check for image files less than 5MB
       this.profilePicture = file;
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.previewUrl = e.target.result;
       };
       reader.readAsDataURL(file);
-    }
-  }
-
-  onSubmit(form: NgForm) {
-    console.log('Registration form:', form);
-    if (form.valid) {
-      const formData = new FormData();
-      
-      const registrationData = {
-        rank: form.value.rank,
-        provincialOffice: form.value.provincialOffice,
-        name: form.value.name,
-        regionalOffice: form.value.regionalOffice,
-        officerCommander: form.value.officerCommander,
-        city: form.value.city,
-        badgeNumber: form.value.badgeNumber,
-        wcpc: form.value.wcpc,
-        investigator: form.value.investigator,
-        unit: form.value.unit,
-        role: form.value.role,
-        debutDate: form.value.debutDate,
-        datetimeCreated: form.value.datetimeCreated,
-        createdBy: form.value.createdBy
-      };
-
-      // Append all form fields to FormData
-      Object.keys(registrationData).forEach(key => {
-        formData.append(key, registrationData[key as keyof typeof registrationData]);
-      });
-
-      // Append profile picture if selected
-      if (this.profilePicture) {
-        formData.append('profilePicture', this.profilePicture, this.profilePicture.name);
-      }
-
-      console.log('Registration data being sent:', registrationData);
-
-      if (!registrationData.rank || !registrationData.name) {
-        console.error('Missing mandatory fields:', registrationData);
-        alert('Please fill out all required fields.');
-        return;
-      }
-
-      this.registerService.register(formData).subscribe(
-        (response) => {
-          console.log('Registration successful:', response);
-          this.router.navigate(['/dashboard']);
-        },
-        (error) => {
-          console.error('Registration failed:', error);
-
-          if (error.status === 400 && error.error && error.error.errors) {
-            const errorDetails = error.error.errors;
-            const errorMessage = this.getErrorMessage(errorDetails);
-            alert(`Bad Request: ${errorMessage}`);
-          } else {
-            alert('Registration failed. Please try again.');
-          }
-        }
-      );
     } else {
-      console.error('Form is invalid');
-      alert('Please fill out all fields correctly.');
+      alert('File must be an image and less than 5MB.');
     }
   }
 
-  getErrorMessage(errorDetails: any): string {
-    if (!errorDetails) {
-      return 'An unknown error occurred. Please try again later.';
+  uploadProfilePicture(): Observable<string> {
+    if (!this.profilePicture) {
+      return of(''); // Return empty if no profile picture is selected
     }
 
-    let message = 'Please check the following fields:\n';
-    for (const key in errorDetails) {
-      if (errorDetails.hasOwnProperty(key)) {
-        message += `${key}: ${errorDetails[key].join(', ')}\n`;
+    const formData = new FormData();
+    formData.append('file', this.profilePicture);
+
+    return this.registerService.uploadPicture(formData).pipe(
+      map((response) => response.pfpId), // Assuming response contains pfpId
+      catchError((error) => {
+        console.error('Error uploading profile picture:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  createPolice(data: IPolice) {
+    console.log('Creating police with data:', data); // Log the data being sent
+    console.log('Role being sent to the server:', data.role); // Log the rank being sent to the server
+    this.person.create(data).subscribe(
+      (response) => {
+        this.isLoading = false;
+        console.log('Jurisdiction created successfully:', response);
+        this.successMessage = 'Station registered successfully!';
+        this.router.navigate(['/manage-station']); // Redirect after successful registration
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('Error during jurisdiction creation:', error);
+        this.errorMessage = 'Registration failed. Please try again.';
+        alert(this.errorMessage);
       }
+    );
+  }
+
+  onSubmit(): void {
+    if (this.policeForm.invalid) {
+      // Log each form control's errors
+      Object.keys(this.policeForm.controls).forEach((field) => {
+        const control = this.policeForm.get(field);
+        if (control?.invalid) {
+          console.log(`${field} has error:`, control.errors);
+        }
+      });
+      alert('Please fill all required fields correctly.');
+      return;
     }
-    return message;
+
+    this.isLoading = true;
+
+    // First, upload the profile picture if one is selected
+    this.uploadProfilePicture().subscribe(
+      (pfpId: string) => {
+        const formData = this.policeForm.value;
+
+        const param: IPolice = {
+          unit: formData.unit,
+          role: formData.role,
+          badgeNumber: formData.badgeNumber,
+          debutDate: formData.debutDate,
+          stationID: formData.stationId,
+          personID: formData.personID, // Handle optional fields
+          // pfpId: pfpId || null, // Assign pfpId from upload response
+          pfpId: formData.pfpId,
+          rankID: formData.rank_id,
+          createdBy: formData.createdBy,
+          datetimeCreated: new Date().toISOString(),
+        };
+
+        console.log('Submitting police registration with param:', param);
+        this.submitPoliceForm(param);
+      },
+      (error: any) => {
+        this.isLoading = false;
+        this.errorMessage = 'Profile picture upload failed. Please try again.';
+        alert(this.errorMessage);
+      }
+    );
+  }
+
+  submitPoliceForm(param: IPolice): void {
+    this.registerService.savePoliceData(param).subscribe(
+      (response: any) => {
+        this.isLoading = false;
+        this.successMessage = 'Registration successful!';
+        this.errorMessage = null;
+        this.policeForm.reset(); // Clear the form after successful submission
+        this.router.navigate(['/station-case-queue']); // Redirect after successful registration
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('Error during police registration:', error);
+        this.errorMessage = 'Registration failed. Please try again.';
+      }
+    );
+  }
+
+  goBack(): void {
+    this.router.navigate(['/manage-police']);
   }
 }

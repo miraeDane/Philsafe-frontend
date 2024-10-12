@@ -5,12 +5,12 @@
     <div class="min-h-screen bg-zinc-100 flex">
       <aside class="w-64 bg-white shadow-md">
         <div class="p-4 text-center">
-          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> <!-- Added class 'logo' for specific styling -->
-          <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
+          <img src="assets/police.svg" alt="CCPO Logo" class="mx-auto mb-4 logo"> 
+           <h2 class="text-lg font-semibold">Abellana Police Station 2</h2>
           <p class="text-sm text-zinc-600">Cebu City Police Office</p>
         </div>
-        <nav class="mt-7"> <!-- Increased margin-top to create more space -->
-          <ul class="list-none p-0">
+        <nav class="mt-7"> 
+           <ul class="list-none p-0">
             <li>
               <a href="#" class="nav-link">
                 <img src="assets/dashbold.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
@@ -54,68 +54,56 @@
       <div class="main-content">
         <div class="header">
             <div class="header-title">
-                <h1>CASE ON-QUEUE</h1>
+                <h1>NEW REPORTS</h1>
             </div>
             <div class="header-info">
                 <p>Date: May 24, 2024</p>
                 <p>Time: 0100</p>
             </div>
-        </div>
+        </div> 
+      <main class="main-content">
+        <header class="header"></header>
     
-        <div class="content">
-            <!-- Officer Information Section -->
-            <div class="officer-info">
-                <label for="officer">Duty Officer:</label>
-                <select id="officer" name="officer" class="assign-dropdown">
-                    <option value="Select Officer">Select Officer</option>
-                    <option value="PSSG Eric Noble">PSSG Eric Noble</option>
-                </select>
-                <label for="badge">Badge Number:</label>
-                <input type="text" id="badge" name="badge" placeholder="Enter badge number to save">
-                <button class="save-btn">SAVE</button>
-            </div>
-            
-            <!-- Case Information Section -->
-            <div class="case-container">
-                <table>
+        <section class="new-reports">
+            <form [formGroup]="reportsForm" (ngSubmit)="onSubmit()"> 
+                <table class="reports-table">
                     <thead>
                         <tr>
-                            <th>Blotter Number</th>
+                            <th>Report ID</th>
                             <th>Incident Type</th>
                             <th>Complainant</th>
-                            <th>Action</th>
+                            <th>Date Received</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="#">076201-202405-01211422</a></td>
-                            <td>Robbery</td>
-                            <td>Nicolas Pogoy</td>
-                            <td><span class="status assigned">ASSIGNED TO TEAM ONE</span></td>
+                     <tbody>
+                        <tr *ngFor="let report of reports">
+                            <td><a href="#">{{ report.report_id}}</a></td>
+                            <td>{{ report.type }}</td>
+                            <td>{{ report.complainant }}</td>
+                            <td>{{ report.dateReceived }}</td>
                         </tr>
-                        <tr>
-                            <td><a href="#">076201-202405-01211678</a></td>
-                            <td>Rape</td>
-                            <td>Emilia Phillips</td>
-                            <td>
-                                <select class="assign-dropdown">
-                                    <option value="Assign to Team">Assign to Team</option>
-                                    <option value="team1">Assign to Team One</option>
-                                    <option value="team2">Assign to Team Two</option>
-                                    <option value="team3">Assign to Team Three</option>
-                                </select>
-                                <button class="spam-btn">SPAM</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">076201-202405-01211319</a></td>
-                            <td>Online Scam</td>
-                            <td>Daliah Verallo</td>
-                            <td><span class="status spam">MARKED AS SPAM</span></td>
-                        </tr>
+                         <tr>
+                          <td><a href="#">ABCDEDFFFF</a></td>
+                          <td>Robbery</td>
+                          <td>Nicolas Pogoy</td>
+                          <td>2024-05-16 14:15:20</td>
+                      </tr>
+                      <tr>
+                          <td><a href="#">ZYXKLMNOP</a></td>
+                          <td>Rape</td>
+                          <td>Emilia Phillips</td>
+                          <td>2024-05-16 14:15:20</td>
+                      </tr>
+                      <tr>
+                          <td><a href="#">RXQTUVDEFG</a></td>
+                          <td>Online Scam</td>
+                          <td>Daliah Verallo</td>
+                          <td>2024-05-16 14:15:20</td>
+                      </tr> 
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    
+            </form>
+        </section>
+    </main>
+    </div> 
+     

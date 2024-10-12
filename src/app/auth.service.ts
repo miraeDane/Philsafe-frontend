@@ -19,7 +19,12 @@ export class AuthService {
 
   // set roles -> localStorage.setItem('roles', window.btoa('admin,user'));
   private loginURL = 'https://localhost:7108/api/account/login';
-  private options = { headers: new HttpHeaders({ responseType: "json" }) };
+  // private options = { headers: new HttpHeaders({ responseType: "json" }) };
+  private options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'multipart/formdata'})
+    };
+
 
   constructor(private http: HttpClient) { }
   login(data: ILogin): Observable<any> {

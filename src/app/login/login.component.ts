@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service'; // Import the service
 import { Router } from '@angular/router';
-
+import {Account} from '../../data/Account/Account';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,7 @@ export class LoginComponent {
     });
   }
 
-  submitLogin(loginData: {email: string, password: string}) {
+  submitLogin(loginData: {email: string, password: string}) :Promise<Account> {
     return new Promise((resolve, reject) => {
         this.authService.login({...loginData, SignInType:"Email"}).subscribe(data => {
             console.log(data)
@@ -61,13 +61,33 @@ identifySignInType(input: string): string {
 // }
 
 // new code for async onSubmit
+// async onSubmit() {
+//   if (this.loginForm.valid) {
+//     const { username, password } = this.loginForm.value;
+//     const signInType = this.identifySignInType(username); // Identify sign-in type
+//     const loginReq: Account = await this.submitLogin({ email: username, password });
+//     console.log(loginReq);
+//     this.authService.setAuthentication({ token: 'zdfdfzfd', role: 'admin' });
+//     if(loginReq.role==='Admin'){
+//       this.router.navigate(['/manage-station'])
+//     }
+//   }
+// }
+// }
+
+
 async onSubmit() {
   if (this.loginForm.valid) {
     const { username, password } = this.loginForm.value;
     const signInType = this.identifySignInType(username); // Identify sign-in type
-    const loginReq = await this.submitLogin({ email: username, password });
+    const loginReq: Account = await this.submitLogin({ email: username, password });
     console.log(loginReq);
     this.authService.setAuthentication({ token: 'zdfdfzfdf', role: 'admin' });
+    if(loginReq.role==='Admin'){
+      this.router.navigate(['/manage-station'])
+    } else if(loginReq.role==='Chief'){
+      this.router.navigate(['/station-case-queue'])
+    }
   }
 }
 }

@@ -1,52 +1,163 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { StationRegistrationService } from '../station-registration.service'; // Import the service
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { StationRegistrationService } from '../station-registration.service';
+import { StationAddLocationService, ILocation } from '../station-add-location.service';
+import { PoliceRegisterService, IRank } from '../police-register.service';
+import { ICreateParam, JurisdictionService } from '../jurisdiction.service';
+import { AccountService, IAccount, IPerson } from '../account.service';
 
 @Component({
   selector: 'app-station-registration',
   templateUrl: './station-registration.component.html',
-  styleUrls: ['./station-registration.component.css']
+  styleUrls: ['./station-registration.component.css'],
 })
-export class StationRegistrationComponent {
-    isLoading = false; // Loading state
-    successMessage: string | null = null; // Success message
-    errorMessage: string | null = null; // Error message
+export class StationRegistrationComponent implements OnInit {
+  stationForm!: FormGroup;
+  isLoading = false;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  locations: ILocation[] = [];
+  ranks: IRank[] = [];
 
-    constructor(private registrationService: StationRegistrationService) {} // Inject the service
+  stationID: string | null = null;
+  policeID: string | null = null;
+  accountID: string | null = null;
 
-    onSubmit(form: NgForm) {
-        console.log('Form submitted:', form.value); // Debugging line
-        if (form.valid) {
-            console.log('Form is valid so yeaaah', form) 
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private registrationService: StationRegistrationService,
+    private AccountService: AccountService,
+    private locationService: StationAddLocationService,
+    private police: PoliceRegisterService,
+    private jurisdiction: JurisdictionService
+  ) { }
 
-            const stationData = form.value; // Use FormData to handle file upload
-            // stationData.append('hq', form.value.hq); // Map to Jurisdiction model
-            // stationData.append('locationId', form.value.locationId); // Map to Jurisdiction model
-            // stationData.append('abbr', form.value.abbr); // Map to Jurisdiction model
-            // stationData.append('rank', form.value.rank); // Map to Jurisdiction model
-            // stationData.append('officerInChargeId', form.value.officerInChargeId); // Map to Jurisdiction model
-            // stationData.append('isApproved', 'false'); // Default value for isApproved
+  ngOnInit(): void {
+    this.getAllLocations();
+    this.fetchRanks();
+    this.stationForm = this.fb.group({
+      hq: ['', Validators.required],
+      officerInChargeId: ['20248332037', Validators.required],
+      rank_id: [null, Validators.required],
+      location_id: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
 
-            // const profilePhoto = (form.controls['profilePhoto'].value as FileList)[0];
-            // if (profilePhoto) {
-            //     stationData.append('profilePhoto', profilePhoto, profilePhoto.name); // Handle file upload
-            // }
-
-            this.isLoading = true; // Set loading state
-            console.log("Station Data!!!!", stationData)
-            this.registrationService.saveStationData(stationData).subscribe(response => {
-                this.isLoading = false; // Reset loading state
-                this.successMessage = 'Registration successful!'; // Set success message
-                console.log('Registration successful:', response);
-                // Optionally reset the form or redirect    
-            }, error => {
-                this.isLoading = false; // Reset loading state
-                this.errorMessage = 'Registration failed. Please try again.'; // Set error message
-                console.error('Registration failed:', error);
-            });
+  fetchRanks(): void {
+    this.police.getRanks().subscribe(
+      (response: any) => {
+        console.log('Raw response:', response);
+        if (Array.isArray(response)) {
+          this.ranks = response;
+          console.log('Fetched ranks:', this.ranks);
         } else {
-            this.errorMessage = 'Please fill in all required fields.'; // Handle invalid form
-            console.log('Error Message:', this.errorMessage);
+          console.error('Unexpected response format:', response);
+          alert('Failed to load ranks. Please try again.');
         }
+      },
+      (error) => {
+        console.error('Error fetching ranks:', error);
+        alert('Failed to load ranks. Please try again.');
+      }
+    );
+  }
+
+  // createJurisdiction(data: ICreateParam) {
+  //   console.log('Creating jurisdiction with data:', data); // Log the data being sent
+  //   this.jurisdiction.create(data).subscribe(
+  //     (response) => {
+  //       this.isLoading = false;
+  //       console.log('Jurisdiction created successfully:', response);
+  //       this.successMessage = 'Station registered successfully!';
+  //       this.router.navigate(['/manage-station']); // Redirect after successful registration
+  //     },
+  //     (error) => {
+  //       this.isLoading = false;
+  //       console.error('Error during jurisdiction creation:', error);
+  //       this.errorMessage = 'Registration failed. Please try again.';
+  //       alert(this.errorMessage);
+  //     }
+  //   );
+  // }
+
+  createJurisdiction(data: ICreateParam) {
+    console.log('Creating jurisdiction with data:', data); // Log the data being sent
+    console.log('Rank being sent to the server:', data.rank); // Log the rank being sent to the server
+    this.jurisdiction.create(data).subscribe(
+      (response) => {
+        this.isLoading = false;
+        console.log('Jurisdiction created successfully:', response);
+        this.successMessage = 'Station registered successfully!';
+        this.router.navigate(['/manage-station']); // Redirect after successful registration
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('Error during jurisdiction creation:', error);
+        this.errorMessage = 'Registration failed. Please try again.';
+        alert(this.errorMessage);
+      }
+    );
+  }
+
+  getAllLocations() {
+    this.locationService.getLocations().subscribe(
+      (response) => {
+        this.isLoading = false;
+        console.log('Locations fetched successfully:', response);
+        this.locations = response;
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('Error fetching locations:', error);
+        alert('Failed to load locations. Please try again.');
+      }
+    );
+  }
+
+  onSubmit() {
+    if (!this.stationForm.valid) {
+      // Log individual control errors
+      console.log('Form control errors:', {
+        hq: this.stationForm.get('hq')?.errors,
+        officerInChargeId: this.stationForm.get('officerInChargeId')?.errors,
+        rank_id: this.stationForm.get('rank_id')?.errors,
+        location_id: this.stationForm.get('location_id')?.errors,
+        email: this.stationForm.get('email')?.errors,
+        password: this.stationForm.get('password')?.errors,
+      });
+      alert('Please fill all required fields correctly.');
+      return;
     }
+
+    this.isLoading = true;
+    const { rank_id, hq, location_id, officerInChargeId } = this.stationForm.value;
+    const rank = this.ranks.find((x) => x.rank_id === Number(rank_id));
+
+    if (!rank) {
+      this.isLoading = false;
+      console.error('Invalid rank selected');
+      alert('Invalid rank selected. Please try again.');
+      return;
+    }
+
+    const param: ICreateParam = {
+      hq: hq,
+      locationId: location_id,
+      isApproved: true,
+      abbr: rank.rank_abbr || '',
+      rank: rank.rank_full || '',
+      officerInChargeId: officerInChargeId,
+    };
+
+    console.log('Submitting station registration with param:', param); // Log the param being sent
+    this.createJurisdiction(param);
+  }
+
+  goBack() {
+    this.router.navigate(['/manage-station']);
+  }
 }

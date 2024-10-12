@@ -53,6 +53,33 @@
     width: 48%; /* Adjusted to ensure two fields fit nicely in a row */
 }
 
+.form-grid {
+    display: grid;
+    grid-template-columns: 48% auto 48%;
+    margin-bottom: 15px;
+}
+
+.location-group {
+    display: grid;
+    grid-template-columns: auto 40px;
+    gap: 8px;
+}
+
+.location-group select{
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+    color: #333;
+}
+.add-location-button {
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #1e40af;
+    font-size: 30px;
+    background: #1e40af;
+    color: #fff;
+}
+
 .form-group input,
 .form-group select {
     width: 100%;

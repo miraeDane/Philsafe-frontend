@@ -7,15 +7,15 @@
       <select class="incident-type">
         <option>Type of Incident</option>
       </select>
-      <img src="assets/logo.svg" alt="Incident Report Logo" [routerLink]="['/home-page']"class="logo mx-auto mb-2">
-      <button class="anonymous-button" [routerLink]="['/home-page']">Return to Homepage</button>
+      <img src="assets/logo.svg" alt="Incident Report Logo" routerLink="['/home-page']"class="logo mx-auto mb-2">
+      <button class="anonymous-button" routerLink="['/home-page']">Return to Homepage</button>
     </div>
     <h1 class="form-title">INCIDENT REPORT FORM</h1>
     <div class="form-navigation"> 
-      <button class="nav-button blue-button" [routerLink]="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
-      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
-      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/victim-data']">ITEM "C" VICTIM DATA</button>
-      <button class="nav-button hvr-bounce-to-bottom" [routerLink]="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
+      <button class="nav-button blue-button" routerLink="['/reporting-person']">ITEM "A" REPORTING PERSON</button>
+      <button class="nav-button hvr-bounce-to-bottom" routerLink="['/suspect-data']">ITEM "B" SUSPECT DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" routerLink="['/victim-data']">ITEM "C" VICTIM DATA</button>
+      <button class="nav-button hvr-bounce-to-bottom" routerLink="['/narrative-of-incident']">ITEM "D" NARRATIVE OF INCIDENT</button>
     </div>
     <form class="form-content" [formGroup]="reportingForm" (ngSubmit)="onSubmit()">
       <fieldset class="fieldset">

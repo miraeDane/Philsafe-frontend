@@ -5,15 +5,15 @@
   <div class="min-h-screen bg-zinc-100 flex flex-col items-center py-10">
       <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
         <div class="flex justify-center mb-4">
-          <a class="back-button" [routerLink]="['/login']">BACK</a>
+          <a class="back-button" >BACK</a>
         </div>
         <div class="text-center mb-6">
           <img aria-hidden="true" alt="logo" src="assets/logo.svg" class="mx-auto mb-2" width="100" height="100" />
           <h1 class="text-2xl font-semibold">Create Account</h1>
         </div>
         <div class="flex justify-center mb-6">
-          <a class="button-victim" [routerLink]="['/victim-register']">Victim</a>
-          <a class="button-witness" [routerLink]="['/witness-register']">Witness</a>
+          <a class="button-victim" >Victim</a>
+          <a class="button-witness" >Witness</a>
         </div>
         <div class="bg-blue-100 p-6 rounded-lg">
           <form [formGroup]="witnessForm" (ngSubmit)="onSubmit()">

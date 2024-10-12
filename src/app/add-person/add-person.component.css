@@ -1,0 +1,302 @@
+/* Emergency Banner */
+.emergency-banner {
+    width: 100%;
+    background-color: #1e40af;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    width: 100%;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    width: 90%;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+/* Image Section (hidden) */
+.image-section {
+    display: none; /* Hide the image section */
+}
+
+/* Form Section */
+.form-section {
+    flex: 1; /* Allow the form section to grow */
+    padding: 2rem; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the form vertically */
+    position: relative;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    color: #1e40af;
+    text-align: left;
+    font-size: 28px; /* Adjusted font size */
+}
+
+.logo {
+    height: 100px; /* Adjusted size */
+    width: auto;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 1rem;
+    font-size: 20px; /* Font size for section headers */
+    color: #1e40af;
+    border-bottom: 2px solid #1e40af; /* Border under section headers */
+    padding-bottom: 0.5rem; /* Padding below the header */
+    font-weight: bold; /* Make section headers bold */
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-wrap: wrap; /* Wrap inputs for better responsiveness */
+    gap: 1rem; /* Space between inputs */
+    margin-bottom: 1.5rem;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%; /* Full width for form fields */
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    transition: border-color 0.3s; /* Smooth transition for focus */
+    margin-bottom: 1rem; /* Space below each input */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #1e40af; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.password-input,
+.confirm-password-input {
+    width: 100%; /* Set width to 100% */
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+.password-input:focus,
+.confirm-password-input:focus {
+    border-color: #1e40af; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    margin-top: 0.8rem;
+    transform: scale(1.5);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 1rem;
+    font-size: 14px; /* Font size for the checkbox group */
+}
+
+/* Certification Label and Text */
+.certification-checkbox {
+    margin-right: 0.5rem; /* Space between checkbox and text */
+    transform: scale(1.2); /* Slightly increase size */
+}
+
+.certification-label {
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center align the checkbox and text */
+}
+
+.certification-text {
+    font-size: 0.85rem; /* Smaller font size for the certification text */
+    margin-left: 0.5rem; /* Space between checkbox and text */
+    margin-top: 15px; /* Adjust this value to move the text down */
+    line-height: 1.5; /* Increase line height for better readability */
+}
+
+/* Button Group */
+.button-group {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between buttons */
+    margin-top: 1rem; /* Space above the button group */
+}
+
+/* Back Button */
+.back-button {
+    background: #dc2626; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 110px; /* Padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+}
+
+.back-button:hover {
+    background: #b91c1c; /* Darker shade on hover */
+}
+
+/* Register Button */
+.register-btn {
+    background: #1e40af; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 110px; /* Padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+}
+
+.register-btn:hover {
+    background: #162d6a; /* Darker shade on hover */
+}
+
+/* Progress Bar Styles */
+.h-1 {
+    height: 4px; /* Height of the progress bar */
+    background-color: #e0e0e0; /* Default background color */
+    border-radius: 2px; /* Rounded corners */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+
+.bg-green-500 {
+    background-color: #38a169; /* Green color */
+}
+
+.bg-yellow-500 {
+    background-color: #ecc94b; /* Yellow color */
+}
+
+.bg-red-500 {
+    background-color: #e53e3e; /* Red color */
+}
+
+.text-green-500 {
+    color: #38a169; /* Green text */
+}
+
+.text-yellow-500 {
+    color: #ecc94b; /* Yellow text */
+}
+
+.text-red-500 {
+    color: #e53e3e; /* Red text */
+}
+
+/* Profile Picture Styles */
+.profile-pic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.profile-pic-label {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #162d6a;
+    overflow: hidden;
+    transition: background 0.3s;
+    margin-bottom: 50px;
+}
+
+.profile-pic-label:hover {
+    background: #ccc;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-pic-icon {
+    font-size: 50px;
+    color: #1e40af;
+}
+
+/* Ensure all labels are bold */
+label {
+    font-weight: bold; /* Make all labels bold */
+    margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center; /* Aligns checkbox and label vertically */
+    margin-bottom: 0.5rem;
+    justify-content: flex-start; /* Aligns items to the start */
+}
+
+.checkbox {
+    margin-right: 0.5rem; /* Space between checkbox and label */
+}
+
+/* New styles for label alignment */
+.checkbox-label {
+    flex: 1; /* Allow label to take remaining space */
+    text-align: left; /* Align text to the left */
+}

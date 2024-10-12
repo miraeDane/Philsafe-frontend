@@ -38,7 +38,13 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { TicketRequestComponent } from './ticket-request/ticket-request.component';
 import { TicketRequestDetailsComponent } from './ticket-request-details/ticket-request-details.component';
 import { ManageStationComponent } from './manage-station/manage-station.component';
-
+import { StationAddLocationComponent } from './station-add-location/station-add-location.component';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { StationReportsComponent } from './station-reports/station-reports.component';
+import { EditReportComponent } from './edit-report/edit-report.component';
+import { ReportendorseComponent } from './reportendorse/reportendorse.component';
+import { EmailComponent } from './email/email.component';
+import { StationPoliceAccountsComponent } from './station-police-accounts/station-police-accounts.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +81,13 @@ import { ManageStationComponent } from './manage-station/manage-station.componen
     TicketRequestComponent,
     TicketRequestDetailsComponent,
     ManageStationComponent,
+    StationAddLocationComponent,
+    AddPersonComponent,
+    StationReportsComponent,
+    EditReportComponent,
+    ReportendorseComponent,
+    EmailComponent,
+    StationPoliceAccountsComponent,
   ],
   imports: [
     BrowserModule,

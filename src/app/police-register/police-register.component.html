@@ -1,91 +1,183 @@
+<!-- <div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+
+  <div class="flex justify-center">
+    <div class="card">
+      <div class="flex justify-left">
+        <h3>Create Account</h3>
+      </div>
+
+      <div class="police-form">
+        <form [formGroup]="policeForm" (ngSubmit)="onSubmit()">
+          <div class="form-grid">
+            <div class="form-item">
+              <label for="rank">Rank</label>
+              <select formControlName="rank_id" class="rank-select" placeholder="Rank">
+                <option value="" disabled selected>Select Rank</option>
+                <option *ngFor="let rank of ranks" [value]="rank.rank_id">
+                  {{ rank.rank_full }}
+                </option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="officer">Officer</label>
+              <div class="location-group">
+                <select formControlName="location_id" class="location-select">
+                  <option disabled>Officer</option>
+                  <option *ngFor="let person of persons" [value]="person.person_id">{{ person.firstname}} {{person.lastname}}</option>
+                </select>
+                <button
+                  type="button"
+                  class="add-location-button"
+                  routerLink="/add-person"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+
+            <div class="form-item">
+              <label for="role">Role</label>
+              <select formControlName="role" class="role-select" placeholder="Role">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Chief">Chief</option>
+                <option value="Police">Police</option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="unit">Unit</label>
+              <input type="text" name="unit" placeholder="Unit" required>
+            </div>
+            <div class="form-item">
+              <label for="badge-number">Badge Number</label>
+              <input type="text" name="badge-number" placeholder="Badge Number" required>
+            </div>
+            <div class="form-item">
+              <label for="debut-date">Debut Date</label>
+                <input type="date" name="debutDate" placeholder="Debut Date" required>
+            </div>
+            <div class="form-item">
+              <label for="station-id">Station</label>
+              <select name="station-id" required>
+                <option value="" disabled selected>Select Station</option>
+                <option *ngFor="let station of stations" [value]="station.station_id">
+                  {{ station.hq }}
+                </option>
+              </select>
+            </div>
+            <div class="form-item">
+              <label for="created-by">Created By</label>
+              <input type="text" name="created-by" placeholder="Created By" required>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="cancel"  routerLink="/manage-station">
+              Cancel
+            </button>
+            <button class="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
 <div class="container">
   <div class="emergency-banner">
     In case of emergencies, please dial your local emergency services number
   </div>
-  <div class="min-h-screen flex items-center justify-center bg-zinc-100 p-4">
-    <div class="bg-white shadow-lg rounded-lg w-full max-w-lg mt-16 relative">
-      <div class="absolute top-4 right-4">
-        <button type="button" class="back-button">BACK</button>
+
+  <div class="flex justify-center">
+    <div class="card">
+      <div class="flex justify-left">
+        <h3>Create Account</h3>
       </div>
-      <div class="text-center p-4">
-        <h2 class="text-xl font-semibold mb-4">Create Account</h2>
-        <div class="flex justify-center mb-4">
-          <button class="bg-zinc-200 text-black px-4 py-2 rounded-l-lg" style="border: none; cursor: pointer;">NSU</button>
-          <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg" style="border: none; cursor: pointer;">Office Station</button>
-        </div>
-        <div class="bg-blue-100 p-4 rounded-lg">
-          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <select name="rank" ngModel class="input-field" required>
+
+      <div class="police-form">
+        <form [formGroup]="policeForm" (ngSubmit)="onSubmit()">
+          <div class="form-grid">
+            <div class="form-item">
+              <label for="rank">Rank</label>
+              <select formControlName="rank_id" class="rank-select" placeholder="Rank">
                 <option value="" disabled selected>Select Rank</option>
-                <option *ngFor="let rank of ranks" [value]="rank.rank_id">{{ rank.rank_full }}</option>
+                <option *ngFor="let rank of ranks" [value]="rank.rank_id">
+                  {{ rank.rank_full }}
+                </option>
               </select>
-
-              <select name="provincialOffice" ngModel class="input-field" required>
-                <option value="" disabled>Regional Office</option>
-                <option>Region 7</option>
-              </select>
-
-              <input type="text" name="name" ngModel placeholder="Name" class="input-field" required>
-
-              <select name="regionalOffice" ngModel class="input-field" required>
-                <option value="" disabled selected>Provincial Office</option>
-                <option>Cebu City</option>
-              </select>
-
-              <select name="officerCommander" ngModel class="input-field" required>
-                <option value="" disabled selected>City/Municipality</option>
-                <option>City of Cebu</option>
-              </select>
-
-              <select name="city" ngModel class="input-field" required>
-                <option value="" disabled selected>Station</option>
-                <option>Police Station 1 - Parian</option>
-                <option>Police Station 2 - Osmeña Boulevard</option>
-                <option>Police Station 3 - Waterfront Pier</option>
-                <option>Police Station 4 - Mabolo</option>
-                <option>Police Station 5 - Carbon Market</option>
-                <option>Police Station 6 - Sawang Calero</option>
-                <option>Police Station 7 - Poblacion Pardo</option>
-                <option>Police Station 8 - Talamban</option>
-                <option>Police Station 9 - Guadalupe</option>
-                <option>Police Station 10 - Labangon</option>
-                <option>Police Station 11 - Mambaling</option>
-              </select>
-
-              <input type="text" name="badgeNumber" ngModel placeholder="Badge Number" class="input-field" required>
-
-              <div class="flex items-center">
-                <span class="mr-2">WCPC</span> 
-                <label class="mr-2"><input type="radio" name="wcpc" ngModel value="yes" required> YES</label>
-                <label><input type="radio" name="wcpc" ngModel value="no"> NO</label>
-              </div>
-
-              <div class="flex items-center">
-                <span class="mr-2">Investigator</span>
-                <label class="mr-2"><input type="radio" name="investigator" ngModel value="yes" required> YES</label>
-                <label><input type="radio" name="investigator" ngModel value="no"> NO</label>
-              </div>
-
-              <input type="text" name="unit" ngModel placeholder="Unit" class="input-field" required>
-
-              <select name="role" ngModel class="input-field" required>
-                <option value="" disabled selected>Select Role</option>
-                <option value="chief">Chief</option>
-                <option value="police">Police</option>
-              </select>
-
-              <input type="date" name="debutDate" ngModel placeholder="Debut Date" class="input-field" required>
-
-              <input type="datetime-local" name="datetimeCreated" ngModel placeholder="Date Time Created" class="input-field" required>
-
-              <input type="text" name="createdBy" ngModel placeholder="Created By" class="input-field" required>
             </div>
-            
-            <p class="text-xs text-zinc-600 mb-4">By clicking register you agree to our Terms and that you have read our Policy</p>
-            <button type="submit" class="register-button" [disabled]="form.invalid">REGISTER</button>
-          </form>
-        </div>
+
+            <div class="form-item">
+              <label for="officer">Officer</label>
+              <div class="location-group">
+                <select formControlName="personID" class="officer-select">
+                  <option value="" disabled selected>Select Officer</option>
+                  <option *ngFor="let person of persons" [value]="person.person_id">{{ person.firstname}} {{person.lastname}}</option>
+                </select>
+                <button
+                  type="button"
+                  class="add-location-button"
+                  routerLink="/add-person"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="form-item">
+              <label for="role">Role</label>
+              <select formControlName="role" class="role-select" placeholder="Role">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Chief">Chief</option>
+                <option value="Police">Police</option>
+              </select>
+            </div>
+
+            <div class="form-item">
+              <label for="unit">Unit</label>
+              <input type="text" formControlName="unit" placeholder="Unit" required>
+            </div>
+
+            <div class="form-item">
+              <label for="badge-number">Badge Number</label>
+              <input type="text" formControlName="badgeNumber" placeholder="Badge Number" required>
+            </div>
+
+            <div class="form-item">
+              <label for="debut-date">Debut Date</label>
+              <input type="date" formControlName="debutDate" placeholder="Debut Date" required>
+            </div>
+
+            <div class="form-item">
+              <label for="station-id">Station</label>
+              <select formControlName="stationId" required>
+                <option value="" disabled selected>Select Station</option>
+                <option *ngFor="let station of stations" [value]="station.station_id">
+                  {{ station.hq }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-item">
+              <label for="created-by">Created By</label>
+              <input type="text" formControlName="createdBy" placeholder="Created By" required>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="cancel" type="button" routerLink="/manage-station">
+              Cancel
+            </button>
+            <button class="submit" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -7,57 +7,49 @@
             <img src="assets/1.png" alt="Logo" class="logo">
             <h2>Register your Station</h2>
         </div>
-        <form (ngSubmit)="onSubmit(stationForm)" #stationForm="ngForm">
+        <form [formGroup]="stationForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="form-group">
-                    <input type="text" name="stationName" ngModel placeholder="Station Name" required>
+                    <input type="text" formControlName="hq" placeholder="Station Name (HQ)">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="officerCommander" ngModel placeholder="Officer Commander" required>
+                    <input type="text" formControlName="officerInChargeId" placeholder="Officer In-Charge">
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-grid">
                 <div class="form-group">
-                    <select name="provincialOffice" ngModel required>
-                        <option value="" disabled selected>Provincial Office</option>
-                        <option value="province1">Province 1</option>
-                        <option value="province2">Province 2</option>
+                    <!-- <input type="text" formControlName="rank" placeholder="Rank"> -->
+                    <select formControlName="rank_id" class="rank-select" placeholder="Rank">
+                        <option value="" disabled selected>Rank</option>
+                        <option *ngFor="let rank of ranks" [value]="rank.rank_id">{{ rank.rank_abbr}} - {{rank.rank_full}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <select name="regionalOffice" ngModel required>
-                        <option value="" disabled selected>Regional Office</option>
-                        <option value="region1">Region 1</option>
-                        <option value="region2">Region 2</option>
+                <div></div>
+                <div class="location-group">
+                    <select formControlName="location_id" class="location-select">
+                        <option disabled>Location</option>
+                        <option *ngFor="let location of locations" [value]="location.location_id">{{ location.barangay}} {{location.municipality}}</option>
                     </select>
+                    <button type="button" class="add-location-button"  routerLink="/station-add-location">+</button>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <input type="text" name="regionalDirector" ngModel placeholder="Regional Director" required>
+                    <input type="email" formControlName="email" placeholder="Email Address">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="officeNumber" ngModel placeholder="Office Number" required>
+                    <input type="password" formControlName="password" placeholder="Password">
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="email" name="email" ngModel placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" ngModel placeholder="Password" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group full-width">
-                    <label for="profilePhoto">Profile Photo</label>
-                    <input type="file" name="profilePhoto" ngModel>
-                </div>
-            </div>
+            <!-- <div class="form-row location-row">
+              
+            </div> -->
             <div class="button-container">
-                <button type="button" class="back-button" [routerLink]="['/station-login']">GO BACK</button>
+                <button type="button" class="back-button" (click)="goBack()"  routerLink="/manage-station">GO BACK</button>
                 <button type="submit" class="register-button">REGISTER</button>
             </div>
         </form>
     </div>
 </div>
+
+

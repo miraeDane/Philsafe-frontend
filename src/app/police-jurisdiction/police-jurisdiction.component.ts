@@ -30,7 +30,7 @@ export class PoliceJurisdictionComponent {
 
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${this.authToken}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data'
     });
 
     console.log('Authorization Token:', this.authToken); // Log token for debugging

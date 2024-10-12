@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="min-h-screen flex items-center justify-center bg-zinc-100 p-4">
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-lg mt-16 relative">
+      <div class="absolute top-4 right-4">
+        <button type="button" class="back-button" routerLink="/manage-station">BACK</button>
+      </div>
+      <div class="text-center p-4">
+        <h2 class="text-xl font-semibold mb-4">Create Account</h2>
+        <div class="flex justify-center mb-4">
+          <button class="bg-zinc-200 text-black px-4 py-2 rounded-l-lg" style="border: none; cursor: pointer;">NSU</button>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-r-lg" style="border: none; cursor: pointer;">Office Station</button>
+        </div>
+        <div class="bg-blue-100 p-4 rounded-lg">
+          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <!-- Rank Dropdown -->
+              <select name="rank" ngModel class="input-field" required>
+                <option value="" disabled selected>Select Rank</option>
+                <option *ngFor="let rank of ranks" [value]="rank.rank_id">{{ rank.rank_full }}</option>
+              </select>
+
+              <!-- Person Dropdown and Add Button -->
+              <div class="flex items-center">
+                <select name="person" ngModel class="input-field" required>
+                  <option value="" disabled selected>Select Person</option>
+                  <option *ngFor="let person of persons" [value]="person.person_id">{{ person.name }}</option>
+                </select>
+                <button type="button" class="ml-2 bg-green-500 text-white px-2 py-1 rounded" (click)="addNewPerson()">Add New</button>
+              </div>
+
+              <!-- Role Dropdown -->
+              <select name="role" ngModel class="input-field" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="chief">Chief</option>
+                <option value="police">Police</option>
+              </select>
+
+              <!-- Unit Input -->
+              <input type="text" name="unit" ngModel placeholder="Unit" class="input-field" required>
+
+              <!-- Badge Number Input -->
+              <input type="text" name="badgeNumber" ngModel placeholder="Badge Number" class="input-field" required>
+
+              <!-- Debut Date Input (yyyy-mm-dd) -->
+              <input type="date" name="debutDate" ngModel placeholder="Debut Date" class="input-field" required>
+
+              <!-- Station ID Dropdown -->
+              <select name="station_id" ngModel class="input-field" required>
+                <option value="" disabled selected>Select Station</option>
+                <option *ngFor="let station of stations" [value]="station.station_id">{{ station.station_name }}</option>
+              </select>
+
+              <!-- Created By Input -->
+              <input type="text" name="createdBy" ngModel placeholder="Created By" class="input-field" required>
+            </div>
+
+            <p class="text-xs text-zinc-600 mb-4">By clicking register you agree to our Terms and that you have read our Policy</p>
+            <button type="submit" class="register-button" [disabled]="form.invalid">REGISTER</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

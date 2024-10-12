@@ -33,6 +33,12 @@ import { ManageUsersComponent } from './manage-users/manage-users.component'; //
 import { TicketRequestComponent } from './ticket-request/ticket-request.component'; // Import your Ticket R
 import { TicketRequestDetailsComponent } from './ticket-request-details/ticket-request-details.component'; // Import Ticket Request Details component
 import { ManageStationComponent } from './manage-station/manage-station.component'; // Import Manage Station component
+import { StationAddLocationComponent } from './station-add-location/station-add-location.component';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { EditReportComponent } from './edit-report/edit-report.component';
+import { ReportendorseComponent } from './reportendorse/reportendorse.component';
+import { EmailComponent } from './email/email.component';
+import { StationPoliceAccountsComponent } from './station-police-accounts/station-police-accounts.component';
 // station-edit-officers
 // , canActivate: [roleGuard], data: { roles: ['chief'] } 
 
@@ -45,6 +51,7 @@ const routes: Routes = [
   // { path: 'victim-register', component: VictimRegisterComponent },
   // { path: 'witness-register', component: WitnessRegisterComponent },
   { path: 'station-register', component: StationRegistrationComponent },
+  { path: 'station-add-location', component: StationAddLocationComponent },
   { path: 'station-login', component: StationLoginComponent }, // Route for login
   { path: 'reporting-person', component: ReportingPersonComponent, canActivate: [roleGuard], data: { roles: ['user'] } },
   { path: 'suspect-data', component: SuspectDataComponent },
@@ -71,14 +78,21 @@ const routes: Routes = [
   { path: 'manage-users', component: ManageUsersComponent }, 
   { path: 'ticket-request', component: TicketRequestComponent },
   { path: 'ticket-request-details', component: TicketRequestDetailsComponent }, // Route for Ticket Request Details with a parameter // Add route for Ticket Request
-  { path: 'manage-station', component: ManageStationComponent }, // Route for Manage Station
+  { path: 'manage-station', component: ManageStationComponent },
+  { path: 'add-person', component: AddPersonComponent },// Route for Manage Station
+  { path: 'edit-report', component: EditReportComponent},
+  { path: 'report-endorse', component: ReportendorseComponent },
+  { path: 'station-police-accounts', component: StationPoliceAccountsComponent},
+  { path: 'email', component: EmailComponent },
+
   // { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: '', redirectTo: '/station-register', pathMatch: 'full' }, // Redirect to registration by default
   { path: '**', redirectTo: '/station-register' },
   { path: '', redirectTo: '/station-login', pathMatch: 'full' }, // Redirect to login by default
   { path: '**', redirectTo: '/station-login' },
   { path: '', redirectTo: '/create-account', pathMatch: 'full' }, // Redirect to create-account by default
-  { path: '**', redirectTo: '/create-account' }, // Wildcard route for a 404 page
+  { path: '**', redirectTo: '/create-account' },
+  // { path: '', redirectTo: '/station-add-police'}, // Wildcard route for a 404 page
   // { path: '', redirectTo: '/payment-method', pathMatch: 'full' },
   // { path: '', redirectTo: '/plot-longitude-and-latitude', pathMatch: 'full' },
   // { path: '**', redirectTo: '/plot-longitude-and-latitude' },

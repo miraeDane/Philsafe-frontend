@@ -12,4 +12,5 @@ export interface Account {
     sex: string;
     birth_date: string;
     profile_pic_url : string;
+    role: string;
 }

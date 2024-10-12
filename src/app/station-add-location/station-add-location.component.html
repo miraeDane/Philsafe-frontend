@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="emergency-banner">
+    In case of emergencies, please dial your local emergency services number
+  </div>
+  <div class="form-container">
+    <div class="form-section">
+      <div class="header">
+        <h1>Add Location</h1>
+        <img src="assets/logo.svg" alt="Logo" class="logo" />
+      </div>
+      <form
+        [formGroup]="registrationForm"
+        (ngSubmit)="onSubmit()"
+        enctype="multipart/form-data"
+      >
+        <div class="section-header">Complete Station Address</div>
+        <div class="form-group">
+          <label for="region">Region</label>
+          <select formControlName="region" id="region" required>
+            <option value="" disabled selected>Select Region</option>
+            <option>Select Region</option>
+            <option>Region VII</option>
+          </select>
+          <label for="province">Province</label>
+          <select formControlName="province" id="province" required>
+            <option value="" disabled selected>Select Province</option>
+            <option>Select Province</option>
+            <option>Cebu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="municipality">Municipality</label>
+          <select formControlName="municipality" id="municipality" required>
+            <option value="" disabled selected>Select Municipality</option>
+            <option>Select Municipality</option>
+            <option>Cebu City</option>
+          </select>
+          <label for="barangay">Barangay</label>
+          <select formControlName="barangay" id="barangay" required>
+            <option value="" disabled selected>Select Barangay</option>
+            <option>Select Barangay</option>
+            <option>Abellana</option>
+            <option>Gorordo</option>
+            <option>Parian</option>
+            <option>Osmeña Blvd</option>
+            <option>Carbon</option>
+            <option>Mabolo</option>
+            <option>Sawang Calero</option>
+            <option>Talamban</option>
+            <option>Pardo</option>
+            <option>Guadalupe</option>
+            <option>Punta Princesa</option>
+            <option>Mambaling</option>
+            <option>Pasil</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input
+            type="text"
+            formControlName="street"
+            id="street"
+            placeholder="Enter Street"
+            required
+          />
+          <label for="blockLotUnit">Block/Lot/Unit Number</label>
+          <input
+            type="text"
+            formControlName="blockLotUnit"
+            id="blockLotUnit"
+            placeholder="Enter Block/Lot/Unit Number"
+            required
+          />
+          <label for="zipCode">Zip Code</label>
+          <input
+            type="text"
+            formControlName="zipCode"
+            id="zipCode"
+            placeholder="Enter Zip Code"
+            required
+          />
+        </div>
+
+        <!-- <div
+          *ngIf="errorMessage"
+          class="text-red-500 mt-2"
+          style="font-size: 0.75rem"
+        >
+          {{ errorMessage }}
+        </div> -->
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <button type="button" class="back-button"  routerLink="/station-register">
+            BACK
+          </button>
+          <button type="submit" class="register-btn" >ADD LOCATION</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

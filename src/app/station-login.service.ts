@@ -12,7 +12,7 @@ export class StationLoginService {
   constructor(private http: HttpClient) {}
 
   login(data: { email: string; password: string }): Observable<any> {
-    const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    const options = { headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) };
     return this.http.post(this.loginURL, data, options).pipe(
       catchError(this.handleError)
     );

@@ -13,31 +13,31 @@
             <nav class="mt-4">
                 <ul class="list-none p-0">
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="/dashboard" class="nav-link">
                             <img src="assets/dashbold.svg" alt="Dashboard Icon" class="w-6 h-6 mr-2">
                             <span>DASHBOARD</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="/manage-users" class="nav-link">
                             <img src="assets/manage user.svg" alt="Inbox Icon" class="w-6 h-6 mr-2">
                             <span>MANAGE USER</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="/ticket-request" class="nav-link">
                             <img src="assets/ticket request.svg" alt="Reports Icon" class="w-6 h-6 mr-2">
                             <span>TICKET REQUESTS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="/manage-station" class="nav-link">
                             <img src="assets/manage station.svg" alt="Manage Station Icon" class="w-6 h-6 mr-2">
                             <span>MANAGE STATION</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="/station-crime-map" class="nav-link">
                             <img src="assets/crime-map.svg" alt="Crime Map Icon" class="w-6 h-6 mr-2">
                             <span>CRIME MAP</span>
                         </a>
@@ -50,7 +50,8 @@
     
         <main class="main-content">
             <header class="header">
-                <button class="add-station">Add Station</button>
+                <button class="add-station" routerLink="/station-register">Add Station</button>
+                <button class="add-station" routerLink="/police-register">Add Officer</button>
                 <div class="search-filter">
                     <input type="text" placeholder="Search station" class="search-bar">
                     <div class="display-options">
@@ -80,7 +81,7 @@
                         <tr>
                             <td>OIDKH9OH</td>
                             <td>Police Regional Office 1 (PRO1)</td>
-                            <td>Aileem Municipal Police Station</td>
+                            <td>Paian Police Station 01</td>
                             <td>Romeo Acop</td>
                             <td>
                                 <button class="edit-btn">✏️</button>
@@ -90,7 +91,7 @@
                         <tr>
                             <td>OIDAKRFF</td>
                             <td>Police Regional Office 1 (PRO1)</td>
-                            <td>Banayoyo Municipal Police Station</td>
+                            <td>Abellana Police Station 02</td>
                             <td>Ashley Gimenez</td>
                             <td>
                                 <button class="edit-btn">✏️</button>
